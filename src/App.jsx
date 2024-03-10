@@ -23,6 +23,9 @@ import oneplus from "./Components/img/oneplus.png";
 import oppologo from "./Components/img/oppologo.png";
 import techno from "./Components/img/techno.png";
 import xiaomilogo from "./Components/img/xiaomilogo.png";
+import review1 from "./Components/img/review1.png";
+import review2 from "./Components/img/review2.png";
+import comparison from './Components/img/comparison.png'
 
 function App() {
   return (
@@ -40,7 +43,7 @@ function App() {
         <ul class="nav justify-content-end mt-4 mx-5">
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-dark"
+              class="nav-link dropdown-toggle text-light"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -76,7 +79,7 @@ function App() {
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-dark"
+              class="nav-link dropdown-toggle text-light"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -112,7 +115,7 @@ function App() {
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-dark"
+              class="nav-link dropdown-toggle text-light"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -147,23 +150,23 @@ function App() {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="#">
+            <a class="nav-link active text-light" aria-current="page" href="#">
               Mobile Repair
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="#">
+            <a class="nav-link active text-light" aria-current="page" href="#">
               Bidding
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">
+            <a class="nav-link text-light" href="#">
               Reviews
             </a>
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-dark"
+              class="nav-link dropdown-toggle text-light"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -202,9 +205,11 @@ function App() {
           </li>
         </ul>
 
-        <div className="d-flex flex-column align-items-center vh-100">
-          <h1>Find Used Mobiles in Pakistan</h1>
-          <p1>With thousands of mobiles, we have just the right one for you</p1>
+        <div className="d-flex flex-column align-items-center justify-content-center mt-5 vh-100">
+          <h1 className="text-light">Find Used Mobiles in Pakistan</h1>
+          <p1 className="text-light">
+            With thousands of mobiles, we have just the right one for you
+          </p1>
 
           <div
             class="btn-group mt-3"
@@ -621,22 +626,46 @@ function App() {
           <img src={lg} style={{ width: "20%", height: "20%" }} />
           <img src={huawei} style={{ width: "10%", height: "10%" }} />
           <img src={realme} style={{ width: "15%", height: "20%" }} />
-          <img src={infinix} style={{ width: "10%", height: "10%" }} />
+          <img src={techno} style={{ width: "13%", height: "10%" }} />
         </div>
-        <div className="d-flex flex-row align-item-center justify-content-evenly">
+        <div className="d-flex flex-row align-item-start justify-content-evenly">
+          <img src={infinix} style={{ width: "8%", height: "10%" }} />
           <img src={samsunglogo} style={{ width: "13%", height: "13%" }} />
-          <img src={oneplus} style={{ width: "12%", height: "12%" }} />
+          <img src={oneplus} style={{ width: "13%", height: "12%" }} />
+          <img src={xiaomilogo} style={{ width: "8%", height: "10%" }} />
           <img src={oppologo} style={{ width: "10%", height: "10%" }} />
-          <img src={techno} style={{ width: "12%", height: "12%" }} />
-          <img src={xiaomilogo} style={{ width: "10%", height: "10%" }} />
+        </div>
+      </div>
+
+      {/* Mobile Comparison  */}
+      <div style={{ backgroundColor: "#e9ecef" }}>
+        <div className="d-flex flex-row justify-content-center ">
+          <h4 className="mt-4 mx-5 mb-3"> Mobile Comparison</h4>
+        </div>
+            <div className="d-flex flex-row justify-content-center pb-5">
+              <div className="d-flex flex-column">
+            <img src={comparison}/>
+            <p className="mx-4">Samsung Galaxy S21 <b>Vs </b> iPhone 12</p>
+            <button type="button" class="btn btn-outline-primary">View Comparison</button>
+            </div>
+            <vr  style={{border: '2px solid #808080'}} className="mx-5"/>
+            <div className="d-flex flex-column text-center">
+              <h6>Realme Note 50</h6>
+              <h3>VS</h3>
+              <h6>Samsung Galaxy A25</h6>
+              <hr style={{border: '2px solid #000'}} />
+              <h6>Realme C21</h6>
+              <h3>VS</h3>
+              <h6>Realme C51Y</h6>
+            </div>
         </div>
       </div>
 
       {/* videos  */}
       <div>
         <div className="d-flex flex-row justify-content-around">
-          <h4 className="mb-5">Browse Our Videos</h4>
-          <p className="text-primary mb-5">View All Videos</p>
+          <h4 className="mb-5 mt-4">Browse Our Videos</h4>
+          <p className="text-primary mb-5 mt-4">View All Videos</p>
         </div>
         <div class="embed-responsive embed-responsive-4by3 d-flex flex-row justify-content-evenly mb-5">
           <iframe
@@ -654,7 +683,108 @@ function App() {
         </div>
       </div>
 
-      
+      {/* Mobile Reviews  */}
+      <div style={{ backgroundColor: "#e9ecef" }}>
+        <div className="d-flex justify-content-start mx-5">
+          <h4 className="mt-5 mb-4">Mobile Reviews</h4>
+        </div>
+        <div className="container d-flex flex-row align-items-center">
+          <div className="d-flex flex-column">
+            <div className=" container  d-flex flex-row ">
+              <img src={review1} style={{ width: "15%", height: "100%" }} />
+              <div className=" container text-vertical">
+                <h5 className="text-primary">
+                  Why Should Buy Infinix Zero X Pro
+                </h5>
+                <p>
+                  The Infinix Zero X Pro is an affordable phone that give you a
+                  120HZ OLED display and an impressively rounded the triple
+                  camers system,display and an impressively rounded the triple
+                  camers system
+                </p>
+              </div>
+            </div>
+
+            <div className="container  d-flex flex-row mt-3">
+              <img src={review2} style={{ width: "15%", height: "100%" }} />
+              <div className=" container">
+                <h5 className="text-primary">Why Should Buy Xiaomi 14</h5>
+                <p>
+                  the Xiaomi 14 is compatible with 50W wireless charging, which
+                  is quite impressive.The display of the Xiaomi 14 is
+                  impressive, display and an impressively rounded the triple
+                  camers system
+                </p>
+              </div>
+            </div>
+          </div>
+          <img
+            src={game}
+            className="mb-4 mt-4 mx-5 d-flex justify-content-start"
+            style={{ width: "40%", height: "100%" }}
+          />
+        </div>
+      </div>
+
+      {/* end  */}
+      <div style={{ backgroundColor: "#15363F" }}>
+        <div className="d-flex flex-row justify-content-around">
+          <div className="d-flex flex-row">
+            <div className=" mt-5 mx-5">
+              <h5 className="text-light">Popular Mobiles</h5>
+              <p className="text-light">iPhone 15 Pro</p>
+              <p className="text-light">Samsung Galaxy S22</p>
+              <p className="text-light">OnePlus12R</p>
+              <p className="text-light">Realme C67</p>
+              <p className="text-light">Oppo A18</p>
+              <p className="text-light">Xiaomi Redmi Note 13</p>
+              <p className="text-light">Samsung Galaxy S23</p>
+              <p className="text-light">Infinix 40 Pro</p>
+            </div>
+            <div className=" mt-5 mx-5">
+              <h5 className="text-light">Popular Brands</h5>
+              <p className="text-light">Apple</p>
+              <p className="text-light">Samsung</p>
+              <p className="text-light">OnePlus</p>
+              <p className="text-light">Realme</p>
+              <p className="text-light">Oppo</p>
+              <p className="text-light">Xiaomi</p>
+              <p className="text-light">Huawei</p>
+              <p className="text-light">Infinix</p>
+            </div>
+          </div>
+          <div className=" mt-5 mx-5">
+            <h5 className="text-light">Sell on PhoneBid</h5>
+            <p className="text-light mt-4">Sell Your Mobile</p>
+            <p className="text-light">Bid Your Mobile</p>
+            <h4 className="text-light mt-5">Subscribe to our newsletter</h4>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="name@email.com"
+                aria-label="Input group example"
+                aria-describedby="btnGroupAddon"
+              />
+              <div class="input-group-text btn btn-success" id="btnGroupAddon">
+                Subscribe
+              </div>
+            </div>
+            <h5 className="text-light mt-4">Follow Us</h5>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <hr style={{ color: "#fff" }} />
+          <p2 className="text-light">
+            Copyright @ 2023-2024 PhoneBid(Pvt)Ltd. All Rights Reserved{" "}
+          </p2>
+          <p className="text-light pb-4">
+            Reproduction of matrial from any PhoneBid.com pages without
+            permission is strictly prohibited.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
