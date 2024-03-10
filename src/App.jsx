@@ -1,5 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+// import './Components/LandingPage/Style.css'
+import './index.css'
 
 //images
 // import mbl1 from './Components/img/mbl2.jpeg'
@@ -25,25 +27,47 @@ import techno from "./Components/img/techno.png";
 import xiaomilogo from "./Components/img/xiaomilogo.png";
 import review1 from "./Components/img/review1.png";
 import review2 from "./Components/img/review2.png";
-import comparison from './Components/img/comparison.png'
+import comparison from "./Components/img/comparison.png";
+//  videos 
+import vd1 from './Components/img/vd1.mp4'
+import vd2 from './Components/img/vd2.mp4'
+import vd3 from './Components/img/vd3.mp4'
 
 function App() {
   return (
     <div>
-      <div
-        className="d-flex flex-column bd-highlight"
-        style={{
-          height: "100%",
-          backgroundRepeat: "no-repeat",
-          backgroundImage:
-            "url('https://www.webx.pk/images/Article/-0007-guide-to-starting-an-online-store-for-mobile-accessori-58-260123063106.png')",
-        }}
-      >
+      {/* <div id="video-container" className="d-flex flex-column bd-highlight">
+        <video id="video1" autoPlay muted loop>
+          <source src={vd2} type="video/mp4" />
+        </video>
+
+        <video id="video2" muted loop>
+          <source src={vd1} type="video/mp4" />
+        </video>
+
+        <video id="video3" muted loop>
+          <source src={vd3} type="video/mp4" />
+        </video> */}
+
+<div
+        className="d-flex flex-column bd-highlight">
+          <video id="video1" autoPlay muted loop>
+          <source src={vd3} type="video/mp4" />
+        </video>
+
+        <video id="video2" muted loop>
+          <source src={vd2} type="video/mp4" />
+        </video>
+
+        <video id="video3" muted loop>
+          <source src={vd1} type="video/mp4" />
+        </video>
+
         {/* Navbar */}
         <ul class="nav justify-content-end mt-4 mx-5">
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-light"
+              class="nav-link dropdown-toggle text-dark"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -79,7 +103,7 @@ function App() {
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-light"
+              class="nav-link dropdown-toggle text-dark"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -115,7 +139,7 @@ function App() {
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-light"
+              class="nav-link dropdown-toggle text-dark"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -150,23 +174,23 @@ function App() {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="#">
+            <a class="nav-link active text-dark" aria-current="page" href="#">
               Mobile Repair
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="#">
+            <a class="nav-link active text-dark" aria-current="page" href="#">
               Bidding
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">
+            <a class="nav-link text-dark" href="#">
               Reviews
             </a>
           </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle text-light"
+              class="nav-link dropdown-toggle text-dark"
               data-bs-toggle="dropdown"
               href="#"
               role="button"
@@ -204,10 +228,9 @@ function App() {
             <button className="btn btn-danger">Sell Your Mobile</button>
           </li>
         </ul>
-
         <div className="d-flex flex-column align-items-center justify-content-center mt-5 vh-100">
-          <h1 className="text-light">Find Used Mobiles in Pakistan</h1>
-          <p1 className="text-light">
+          <h1 className="text-dark">Find Used Mobiles in Pakistan</h1>
+          <p1 className="text-dark">
             With thousands of mobiles, we have just the right one for you
           </p1>
 
@@ -270,10 +293,11 @@ function App() {
               Search
             </button>
           </div>
-          <button type="button" class="btn btn-outline-light mt-4">
+          <button type="button" class="btn btn-outline-dark mt-4">
             Advanced Filter
           </button>
         </div>
+
       </div>
 
       {/* Cards */}
@@ -642,22 +666,26 @@ function App() {
         <div className="d-flex flex-row justify-content-center ">
           <h4 className="mt-4 mx-5 mb-3"> Mobile Comparison</h4>
         </div>
-            <div className="d-flex flex-row justify-content-center pb-5">
-              <div className="d-flex flex-column">
-            <img src={comparison}/>
-            <p className="mx-4">Samsung Galaxy S21 <b>Vs </b> iPhone 12</p>
-            <button type="button" class="btn btn-outline-primary">View Comparison</button>
-            </div>
-            <vr  style={{border: '2px solid #808080'}} className="mx-5"/>
-            <div className="d-flex flex-column text-center">
-              <h6>Realme Note 50</h6>
-              <h3>VS</h3>
-              <h6>Samsung Galaxy A25</h6>
-              <hr style={{border: '2px solid #000'}} />
-              <h6>Realme C21</h6>
-              <h3>VS</h3>
-              <h6>Realme C51Y</h6>
-            </div>
+        <div className="d-flex flex-row justify-content-center pb-5">
+          <div className="d-flex flex-column">
+            <img src={comparison} />
+            <p className="mx-4">
+              Samsung Galaxy S21 <b>Vs </b> iPhone 12
+            </p>
+            <button type="button" class="btn btn-outline-primary">
+              View Comparison
+            </button>
+          </div>
+          <vr style={{ border: "2px solid #808080" }} className="mx-5" />
+          <div className="d-flex flex-column text-center">
+            <h6>Realme Note 50</h6>
+            <h3>VS</h3>
+            <h6>Samsung Galaxy A25</h6>
+            <hr style={{ border: "2px solid #000" }} />
+            <h6>Realme C21</h6>
+            <h3>VS</h3>
+            <h6>Realme C51Y</h6>
+          </div>
         </div>
       </div>
 
