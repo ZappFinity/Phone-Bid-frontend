@@ -1,76 +1,120 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 //images
-import mobile from './Components/img/mobile.avif'
-import cartoon from './Components/img/cartoon.jpeg'
+import mobile from "../../img/mobile.jpg";
+import cartoon from "../../img/cartoon.jpeg";
+// router
+import { Link, useNavigate } from "react-router-dom";
 
-function App() {
+function App() { 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  async function signUp() {
+    let item = { name, email, password, confirmPassword };
+    console.warn(item);
+    let result = await fetch("http://127.0.0.1:8000/api/register", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+    });
+    result = await result.json();
+    console.warn("result", result);
+    localStorage.setItem("user-info", JSON.stringify(result));
+    navigate("/dashboard");
+  }
+
   return (
-    <div class="container-fluid ">
-      <div class="row ">
-      <div class="col d-flex align-items-center justify-content-center">
-          <img src={mobile} class="img-fluid w-50"  />
+    <div className="container-fluid ">
+      <div className="row ">
+        <div className="col-sm-5 ">
+          <img src={mobile} className="img-fluid offset-1" />
         </div>
 
-        <div class="col">
-          <img src={cartoon} class="img-fluid col-md-3 mt-3" />
+        <div className="col-sm-5 offset-1">
+          <img src={cartoon} className="img-fluid col-md-3 mt-3" />
           <h3 className="mt-3">Sign Up</h3>
-          <div class="d-flex flex-column bd-highlight mb-3">
+          <div className="d-flex flex-column bd-highlight mb-3">
             <input
               type="text"
-              class="form-control "
+              className="form-control "
+              placeholder="Full Name"
+              aria-label="Full Name"
+              aria-describedby="basic-addon1"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              className="form-control mt-3"
               placeholder="Your email"
               aria-label="Your email"
               aria-describedby="basic-addon1"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
-              class="form-control mt-3"
-              placeholder="Phone number"
-              aria-label="phone number"
-              aria-describedby="basic-addon1"
-            />
-             <input
-              type="password"
-              class="form-control mt-3"
+              className="form-control mt-3"
               placeholder="Password"
               aria-label="Password"
               aria-describedby="basic-addon1"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-             <input
+            <input
               type="password"
-              class="form-control mt-3"
+              className="form-control mt-3"
               placeholder="Confirm Password"
               aria-label="Password"
               aria-describedby="basic-addon1"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 
-          <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">
+          <div className="d-grid gap-2">
+            <button className="btn btn-primary" type="button" onClick={signUp}>
               Sign up
             </button>
           </div>
 
-          <div class="d-flex justify-content-evenly mt-4">
+          <div className="d-flex justify-content-evenly mt-4">
             <p className="text-secondary">or</p>
           </div>
 
-          <div class="d-flex justify-content-evenly">
-          <button type="button" class="btn btn-outline-secondary text-dark ">
-            <img src=""/>
-            Google</button>
-          <button type="button" class="btn btn-outline-secondary text-dark">Facebook</button>
+          <div className="d-flex justify-content-evenly">
+            <button
+              type="button"
+              className="btn btn-outline-secondary text-dark "
+            >
+              <img src="" />
+              Google
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary text-dark"
+            >
+              Facebook
+            </button>
           </div>
 
           <div className="d-flex justify-content-center mt-4">
-          <p className="text-secondary ">Already have an account?
-          <span class="text-primary p-3 fw-bold">Log In</span></p>
+            <p className="text-secondary ">
+              Already have an account?
+              <Link to="/" className="text-primary p-3 fw-bold">
+          Log In 
+          </Link>
+            </p>
           </div>
-
         </div>
-
       </div>
     </div>
   );

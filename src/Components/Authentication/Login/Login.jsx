@@ -1,56 +1,96 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //images
-import mobile from './Components/img/mobile.jpeg'
-import cartoon from './Components/img/cartoon.jpeg'
+import mobile from '../../img/mobile.jpg'
+import cartoon from '../../img/cartoon.jpeg'
 
-function Login() {
+// router 
+import { Link, useNavigate } from "react-router-dom";
+
+ function Login() {
+
+  const [email, setEmail] =useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if(!localStorage.getItem('user-info')){
+      navigate("/signup");
+    }
+  }, [])
+
+  async function login(){
+    let item = {email,password};
+    let result = await fetch("http://127.0.0.1:8000/api/login",{
+      method:'POST',
+      headers:{
+        "Content-Type":'application/json',
+        "Accept":'application/json'
+      },
+      body:JSON.stringify(item)
+    });
+    result = await result.json();
+    console.warn("result", result);
+    localStorage.setItem("user-info",JSON.stringify(result));
+    navigate("/dashboard");
+  }
+
   return (
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <img src={cartoon} class="img-fluid col-md-3 mt-3" />
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-6">
+          <img src={cartoon} className="img-fluid col-md-3 mt-3" />
           <h3 className="mt-3">Log In</h3>
-          <div class="d-flex flex-column bd-highlight mb-3 ">
+          <div className="d-flex flex-column bd-highlight mb-3 ">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Your email"
               aria-label="Your email"
               aria-describedby="basic-addon1"
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
             />
             <input
               type="password"
-              class="form-control"
+              className="form-control mt-3"
               placeholder="Password"
               aria-label="Password"
               aria-describedby="basic-addon1"
+              value={password}
+              onChange={(e)=>setPassword(e.target.value)}
             />
           </div>
-          <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">
+          <div className="d-grid gap-2">
+            <button className="btn btn-primary" type="button" onClick={login}>
               LOG IN
             </button>
           </div>
-          <p2 class="text-primary p-3 fw-bold d-flex justify-content-end">Forget Password?</p2>
-          <div class="d-flex justify-content-evenly mt-5">
+          <p className="text-primary p-3 fw-bold d-flex justify-content-end">Forget Password?</p>
+          <div className="d-flex justify-content-evenly mt-5">
             <p className="text-secondary">or</p>
           </div>
-          <div class="d-flex justify-content-evenly">
-          <button type="button" class="btn btn-outline-secondary text-dark ">
+          <div className="d-flex justify-content-evenly">
+          <button type="button" className="btn btn-outline-secondary text-dark ">
             <img src=""/>
             Google</button>
-          <button type="button" class="btn btn-outline-secondary text-dark">Facebook</button>
+          <button type="button" className="btn btn-outline-secondary text-dark">Facebook</button>
           </div>
           <div className="d-flex justify-content-center mt-4">
           <p className="text-secondary ">Don't have an account?
-          <span class="text-primary p-3 fw-bold">Sign up</span></p>
+          <Link to="/signup" className="text-primary p-3 fw-bold">
+          Sign up 
+          </Link>
+          </p>
           </div>
         </div>
 
-        <div class="col ">
-          <img src={mobile} class="img-fluid d-flex align-items-center justify-content-center" />
+        <div className="col-sm-5 ">
+          <img src={mobile} 
+          className="offset-1" 
+          // style={{height:'70%', width:'100%'}}
+          />
         </div>
       </div>
     </div>
