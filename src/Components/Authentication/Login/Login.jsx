@@ -38,7 +38,7 @@ import { Link, useNavigate } from "react-router-dom";
     }
     if (result.success == true) {
       localStorage.setItem("user-info", JSON.stringify(result));
-      navigate("/dashboard");
+      navigate("/");
     } 
     else {
       alert("Incorrect email or password. Please try again.");

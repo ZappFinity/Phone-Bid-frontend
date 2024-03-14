@@ -23,7 +23,7 @@ function App() {
     }
     if (password.length < 8) {
       setMessage('Password should be at least 8 characters.');
-      return; // Prevent form submission if password is invalid
+      return; 
     }
     try {
       if (!name || !email || !password || !confirmPassword) {
@@ -44,7 +44,7 @@ function App() {
     console.warn("result", result);
     if (result.success == true) {
       localStorage.setItem("user-info", JSON.stringify(result));
-      navigate("/dashboard");
+      navigate("/");
     } 
     else {
       alert("User already exist");
