@@ -11,11 +11,25 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("")
 
   const navigate = useNavigate();
+  // validation
+  const validation = () => confirmPassword === password;
 
   async function signUp() {
-    try{
+    if (!validation()) {
+      return;
+    }
+    if (password.length < 8) {
+      setMessage('Password should be at least 8 characters.');
+      return; // Prevent form submission if password is invalid
+    }
+    try {
+      if (!name || !email || !password || !confirmPassword) {
+        alert("Please fill in both email and password.");
+        return;
+      }
     let item = { name, email, password, confirmPassword };
     console.warn(item);
     let result = await fetch("http://127.0.0.1:8000/api/register", {
@@ -28,8 +42,13 @@ function App() {
     });
     result = await result.json();
     console.warn("result", result);
-    localStorage.setItem("user-info", JSON.stringify(result));
-    navigate("/dashboard");
+    if (result.success == true) {
+      localStorage.setItem("user-info", JSON.stringify(result));
+      navigate("/dashboard");
+    } 
+    else {
+      alert("User already exist");
+    }
   } catch (err) {
       console.error(err);
       alert(err.message);
@@ -74,6 +93,7 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+           {message && <p className="text-danger">{message}</p>}
             <input
               type="password"
               className="form-control mt-3"
@@ -83,6 +103,10 @@ function App() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <p className="text-danger">
+          {" "}
+          {validation() ? "" : "Password not matched"}
+        </p>
           </div>
 
           <div className="d-grid gap-2">

@@ -12,21 +12,12 @@ import { Link, useNavigate } from "react-router-dom";
 
   const [email, setEmail] =useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
-  // useEffect(()=>{
-  //   if(!localStorage.getItem('user-info')){
-  //     navigate("/signup");
-  //   }
-  // }, [])
 
   async function login(){
     try {
-      if (!email || !password) {
-        setMessage("Invalid");
-        return;
-      }
     let item = {email,password};
     let result = await fetch("http://127.0.0.1:8000/api/login",{
       method:'POST',
@@ -36,10 +27,27 @@ import { Link, useNavigate } from "react-router-dom";
       },
       body:JSON.stringify(item)
     });
+
+    // if (result.ok) {
     result = await result.json();
     console.warn("result", result);
-    localStorage.setItem("user-info", JSON.stringify(result));
-    navigate('/dashboard');
+    if(result.success == true){
+      const token = result.token;
+      // put the token in local storage
+      localStorage.setItem('token',token);
+    }
+    if (result.success == true) {
+      localStorage.setItem("user-info", JSON.stringify(result));
+      navigate("/dashboard");
+    } 
+    else {
+      alert("Incorrect email or password. Please try again.");
+    }
+  // }else {
+  //   // Handle HTTP error response
+  //   console.error("HTTP error:", result.status);
+  //   setMessage("Login failed. Please try again later.");
+  // }
     
   } catch (err) {
     console.error(err);
