@@ -12,15 +12,21 @@ import { Link, useNavigate } from "react-router-dom";
 
   const [email, setEmail] =useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
-  useEffect(()=>{
-    if(!localStorage.getItem('user-info')){
-      navigate("/signup");
-    }
-  }, [])
+  // useEffect(()=>{
+  //   if(!localStorage.getItem('user-info')){
+  //     navigate("/signup");
+  //   }
+  // }, [])
 
   async function login(){
+    try {
+      if (!email || !password) {
+        setMessage("Invalid");
+        return;
+      }
     let item = {email,password};
     let result = await fetch("http://127.0.0.1:8000/api/login",{
       method:'POST',
@@ -32,8 +38,13 @@ import { Link, useNavigate } from "react-router-dom";
     });
     result = await result.json();
     console.warn("result", result);
-    localStorage.setItem("user-info",JSON.stringify(result));
-    navigate("/dashboard");
+    localStorage.setItem("user-info", JSON.stringify(result));
+    navigate('/dashboard');
+    
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
   }
 
   return (
@@ -68,15 +79,6 @@ import { Link, useNavigate } from "react-router-dom";
             </button>
           </div>
           <p className="text-primary p-3 fw-bold d-flex justify-content-end">Forget Password?</p>
-          <div className="d-flex justify-content-evenly mt-5">
-            <p className="text-secondary">or</p>
-          </div>
-          <div className="d-flex justify-content-evenly">
-          <button type="button" className="btn btn-outline-secondary text-dark ">
-            <img src=""/>
-            Google</button>
-          <button type="button" className="btn btn-outline-secondary text-dark">Facebook</button>
-          </div>
           <div className="d-flex justify-content-center mt-4">
           <p className="text-secondary ">Don't have an account?
           <Link to="/signup" className="text-primary p-3 fw-bold">

@@ -15,6 +15,7 @@ function App() {
   const navigate = useNavigate();
 
   async function signUp() {
+    try{
     let item = { name, email, password, confirmPassword };
     console.warn(item);
     let result = await fetch("http://127.0.0.1:8000/api/register", {
@@ -29,6 +30,10 @@ function App() {
     console.warn("result", result);
     localStorage.setItem("user-info", JSON.stringify(result));
     navigate("/dashboard");
+  } catch (err) {
+      console.error(err);
+      alert(err.message);
+  }
   }
 
   return (
@@ -86,34 +91,16 @@ function App() {
             </button>
           </div>
 
-          <div className="d-flex justify-content-evenly mt-4">
-            <p className="text-secondary">or</p>
-          </div>
-
-          <div className="d-flex justify-content-evenly">
-            <button
-              type="button"
-              className="btn btn-outline-secondary text-dark "
-            >
-              <img src="" />
-              Google
-            </button>
-            <button
-              type="button"
-              className="btn btn-outline-secondary text-dark"
-            >
-              Facebook
-            </button>
-          </div>
-
           <div className="d-flex justify-content-center mt-4">
             <p className="text-secondary ">
               Already have an account?
-              <Link to="/" className="text-primary p-3 fw-bold">
+              <Link to="/login" className="text-primary p-3 fw-bold">
           Log In 
           </Link>
             </p>
           </div>
+
+
         </div>
       </div>
     </div>

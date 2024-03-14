@@ -4,42 +4,52 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './Style.css'
 
 //images
-import realme50 from "./Components/img/realme50.jpeg";
-import samsung from "./Components/img/samsung.jpeg";
-import xiaomi from "./Components/img/xaiomi.jpeg";
-import infinity from "./Components/img/infinity.jpeg";
-import c13 from "./Components/img/C13.jpeg";
-import c15 from "./Components/img/C15.jpeg";
-import c51 from "./Components/img/C51Y.jpeg";
-import c21 from "./Components/img/C21.jpeg";
-import carad from "./Components/img/carAd.avif";
-import game from "./Components/img/game.jpeg";
-import apple from "./Components/img/apple.png";
-import lg from "./Components/img/lg.png";
-import huawei from "./Components/img/huawei.png";
-import realme from "./Components/img/realme.png";
-import infinix from "./Components/img/infinix.png";
-import samsunglogo from "./Components/img/samsunglogo.png";
-import oneplus from "./Components/img/oneplus.png";
-import oppologo from "./Components/img/oppologo.png";
-import techno from "./Components/img/techno.png";
-import xiaomilogo from "./Components/img/xiaomilogo.png";
-import review1 from "./Components/img/review1.png";
-import review2 from "./Components/img/review2.png";
-import comparison from "./Components/img/comparison.png";
+import realme50 from "../img/realme50.jpeg";
+import samsung from "../img/samsung.jpeg";
+import xiaomi from "../img/xaiomi.jpeg";
+import infinity from "../img/infinity.jpeg";
+import c13 from "../img/C13.jpeg";
+import c15 from "../img/C15.jpeg";
+import c51 from "../img/C51Y.jpeg";
+import c21 from "../img/C21.jpeg";
+import carad from "../img/carAd.avif";
+import game from "../img/game.jpeg";
+import apple from "../img/apple.png";
+import lg from "../img/lg.png";
+import huawei from "../img/huawei.png";
+import realme from "../img/realme.png";
+import infinix from "../img/infinix.png";
+import samsunglogo from "../img/samsunglogo.png";
+import oneplus from "../img/oneplus.png";
+import oppologo from "../img/oppologo.png";
+import techno from "../img/techno.png";
+import xiaomilogo from "../img/xiaomilogo.png";
+import review1 from "../img/review1.png";
+import review2 from "../img/review2.png";
+import comparison from "../img/comparison.png";
 //  videos
-import vd1 from "./Components/img/vd1.mp4";
-import vd2 from "./Components/img/vd2.mp4";
-import vd3 from "./Components/img/vd3.mp4";
+import vd1 from "../img/vd1.mp4";
+import vd2 from "../img/vd2.mp4";
+import vd3 from "../img/vd3.mp4";
 // icons 
 import { IoSearch } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
+// router
+import { Link } from "react-router-dom";
 
 function App() {
   return (
     <div>
+      <div className="col-sm-2 offset-10 mt-2">
+      <Link to="/login" className="text-secondary p-3 fw-bold" style={{textDecoration: 'none'}}>
+          Log In 
+          </Link>
+          <Link to="/signup" className="text-secondary p-3 fw-bold" style={{textDecoration: 'none'}}>
+          Sign Up 
+          </Link>
+      </div>
        {/* Navbar */}
        <ul class="nav justify-content-end mt-4 mx-5 mb-2">
           <li class="nav-item dropdown">
