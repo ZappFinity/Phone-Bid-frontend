@@ -57,7 +57,7 @@ function Table() {
     ]
 
   return (
-    <div>
+    <div className='mx-lg-5'>
       <DataTable className='col-md-10'
        rows={columns}
        data={data}

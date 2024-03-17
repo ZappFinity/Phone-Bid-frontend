@@ -142,7 +142,7 @@ function App() {
                   Sell your mobile Fast at the Best Price
                 </p3>
                 <br />
-                <button type="button" class="btn mt-4" style={{backgroundColor:"#52AB98"}}>
+                <button type="button" class="btn mt-4 text-white" style={{backgroundColor:"#52AB98"}}>
                   Post Your Ad
                 </button>
               </div>
@@ -167,7 +167,7 @@ function App() {
                   We ensure Safe & Secure Transection
                 </p3>
                 <br />
-                <button type="button" class="btn mt-4" style={{backgroundColor:"#2B6777"}}>
+                <button type="button" class="btn mt-4 text-white" style={{backgroundColor:"#2B6777"}}>
                   Register Your Mobile
                 </button>
               </div>
@@ -280,7 +280,7 @@ function App() {
             <h6>Realme C51Y</h6>
           </div>
           <div className="mt-5 mx-3">
-          <Link to='/comparisan'><button type="button" class="btn mt-5 mx-4" style={{backgroundColor:"#52AB98"}}>
+          <Link to='/comparisan'><button type="button" class="btn mt-5 mx-4 text-white" style={{backgroundColor:"#52AB98"}}>
               View Comparison
             </button>
             </Link>
