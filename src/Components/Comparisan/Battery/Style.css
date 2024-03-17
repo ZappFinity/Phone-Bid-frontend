@@ -1,0 +1,25 @@
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .custom-table td, .custom-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .custom-table tr {
+    background-color: white;
+  }
+  
+  .custom-table tr:hover {
+    background-color: rgb(197, 197, 197);
+  }
+  
+  .custom-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: white;
+    color: white;
+  }

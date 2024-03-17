@@ -3,6 +3,14 @@ import Navbar from '../LandingPage/Navbar'
 import infinix from '../img/infinix-zero-x-pro.svg'
 import xiaomi from '../img/xiaomi-14.svg'
 import End from '../LandingPage/End'
+import Table from '../Comparisan/GeneralFeatures/Table'
+import DisplayData from './Display/DisplayData'
+import Memory from './Memory/Memory'
+import Performance from '../Comparisan/Performance/Performance'
+import Battery from './Battery/Battery'
+import Camera from './Camera/Camera'
+import Connectivity from '../Comparisan/Connectivity/Connectivity'
+
 function Comparisan() {
   return (
     <>
@@ -13,13 +21,13 @@ function Comparisan() {
         <div className='mt-5'>
         <h5 className='mt-5'>Comparison</h5>
         </div>
-        <div className='d-flex flex-column mt-4'>
+        <div className='d-flex flex-column mt-4 mb-4'>
             <img src={infinix} className='col-sm-10'/>
             <p>Realme Note 50</p>
             <p>RS 22,499</p>
             <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div>
-        <div className='d-flex flex-column mt-4'>
+        <div className='d-flex flex-column mt-4 mb-5'>
             <img src={xiaomi} className='col-sm-9'/>
             <p>Xiaomi Redmi C13</p>
             <p>RS 26,399</p>
@@ -37,7 +45,20 @@ function Comparisan() {
         </div>
       </div>
 
-
+      <h5 className='offset-1 pt-3'>General Features</h5>
+      <Table/>
+      <h5 className='offset-1 pt-5'>Display</h5>
+     <DisplayData/>
+     <h5 className='offset-1 pt-5'>Memory</h5>
+     <Memory/>
+     <h5 className='offset-1 pt-5'>Performance</h5>
+     <Performance/>
+     <h5 className='offset-1 pt-5'>Battery</h5>
+     <Battery/>
+     <h5 className='offset-1 pt-5'>Camera</h5>
+     <Camera/>
+     <h5 className='offset-1 pt-5'>Connectivity</h5>
+     <Connectivity/>
     </div>
     <End/>
     </>
