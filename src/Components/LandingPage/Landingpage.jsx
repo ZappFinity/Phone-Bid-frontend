@@ -1,238 +1,54 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./index.css";
 import './Style.css'
+import Accessories from '../LandingPage/Accessories'
+import Categories from '../LandingPage/Categories'
+import FeaturedMobile from "./FeaturedMobile";
+import UsedMobile from "./UsedMobile";
+import Brands from "./Brands";
+import PhoneBidOffers from "./PhoneBidOffers";
 
 //images
-import realme50 from "../img/realme50.jpeg";
-import samsung from "../img/samsung.jpeg";
-import xiaomi from "../img/xaiomi.jpeg";
-import infinity from "../img/infinity.jpeg";
-import c13 from "../img/C13.jpeg";
-import c15 from "../img/C15.jpeg";
-import c51 from "../img/C51Y.jpeg";
-import c21 from "../img/C21.jpeg";
-import carad from "../img/carAd.avif";
-import game from "../img/game.jpeg";
-import apple from "../img/apple.png";
-import lg from "../img/lg.png";
-import huawei from "../img/huawei.png";
-import realme from "../img/realme.png";
-import infinix from "../img/infinix.png";
-import samsunglogo from "../img/samsunglogo.png";
-import oneplus from "../img/oneplus.png";
-import oppologo from "../img/oppologo.png";
-import techno from "../img/techno.png";
-import xiaomilogo from "../img/xiaomilogo.png";
 import review1 from "../img/review1.png";
 import review2 from "../img/review2.png";
 import comparison from "../img/comparison.png";
-//  videos
-import vd1 from "../img/vd1.mp4";
-import vd2 from "../img/vd2.mp4";
-import vd3 from "../img/vd3.mp4";
+import slider from '../img/Slider.svg'
 // icons 
 import { IoSearch } from "react-icons/io5";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaTwitterSquare } from "react-icons/fa";
+// router
+import Navbar from "./Navbar";
 // router
 import { Link } from "react-router-dom";
+import End from "./End";
+
+
+
 
 function App() {
   return (
+    <>
     <div>
-      <div className="col-sm-2 offset-10 mt-2">
-      <Link to="/login" className="text-secondary p-3 fw-bold" style={{textDecoration: 'none'}}>
-          Log In 
-          </Link>
-          <Link to="/signup" className="text-secondary p-3 fw-bold" style={{textDecoration: 'none'}}>
-          Sign Up 
-          </Link>
-      </div>
-       {/* Navbar */}
-       <ul class="nav justify-content-end mt-4 mx-5 mb-2">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-dark"
-              data-bs-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-expanded="false"
-            >
-              New Mobiles
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Separated link
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-dark"
-              data-bs-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-expanded="false"
-            >
-              Used Mobiles
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Separated link
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-dark"
-              data-bs-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-expanded="false"
-            >
-              Accessories
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Separated link
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="#">
-              Mobile Repair
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="#">
-              Bidding
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#">
-              Reviews
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-dark"
-              data-bs-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-expanded="false"
-            >
-              More
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  Separated link
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <button className="btn btn-danger">Sell Your Mobile</button>
-          </li>
-        </ul>
+        <Navbar/>
         {/* video  */}
-      <div
-        className="d-flex flex-column bd-highlight vh-50">
-          <video id="video1" autoPlay muted loop>
-          <source src={vd3} type="video/mp4" />
-        </video>
+      <div className="d-flex flex-column ">
+      <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src={slider}/>
+    </div>
 
-        <video id="video2" muted loop >
-          <source src={vd2} type="video/mp4" />
-        </video>
+    <div class="mySlides fade">
+      <img src={slider}/>
+    </div>
 
-        <video id="video3" muted loop>
-          <source src={vd1} type="video/mp4" />
-        </video>
+    <div class="mySlides fade">
+      <img src={slider}/>
+    </div>
+  </div>
 
         {/* search  */}
-        <div className="d-flex flex-column align-items-center justify-content-end vh-100" style={{ backgroundColor: "#e9ecef" }}>
-          <h1 className="text-dark">Find Used Mobiles in Pakistan</h1>
+        
+        <div className="d-flex flex-column align-items-center justify-content-end" style={{ backgroundColor: "#e9ecef" }}>
+          <h1 className="text- mt-5">Find Used Mobiles in Pakistan</h1>
           <p1 className="text-dark">
             With thousands of mobiles, we have just the right one for you
           </p1>
@@ -326,7 +142,7 @@ function App() {
                   Sell your mobile Fast at the Best Price
                 </p3>
                 <br />
-                <button type="button" class="btn btn-success mt-4">
+                <button type="button" class="btn mt-4" style={{backgroundColor:"#52AB98"}}>
                   Post Your Ad
                 </button>
               </div>
@@ -351,7 +167,7 @@ function App() {
                   We ensure Safe & Secure Transection
                 </p3>
                 <br />
-                <button type="button" class="btn btn-primary mt-4">
+                <button type="button" class="btn mt-4" style={{backgroundColor:"#2B6777"}}>
                   Register Your Mobile
                 </button>
               </div>
@@ -361,91 +177,16 @@ function App() {
       </div>
 
       {/* Used mobiles */}
-      <div style={{ backgroundColor: "#e9ecef" }}>
-        <div className="d-flex flex-row justify-content-around ">
-          <h4 className="mt-5">Used Mobiles For Sales</h4>
-          <p className="mt-5 text-primary">View All Mobiles For Sales</p>
-        </div>
-        <div class="mt-3 d-flex flex-row justify-content-evenly ">
-          <div class="card mb-5">
-            <img src={c13} class="card-img-top " />
-            <div class="card-body">
-              <h6 class="card-title">Realme C13</h6>
-              <p5 class="card-text text-success">PKR 19,700</p5>
-              <p className="text-secondary">Islamabad</p>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img src={c15} class="card-img-top" />
-            <div class="card-body">
-              <h6 class="card-title">Realme C15</h6>
-              <p5 class="card-text text-success">PKR 23,000</p5>
-              <p className="text-secondary">Lahore</p>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img src={c51} class="card-img-top" />
-            <div class="card-body">
-              <h6 class="card-title">Realme C51Y</h6>
-              <p5 class="card-text text-success">PKR 29,500</p5>
-              <p className="text-secondaary">Rawalpindi</p>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img src={c21} class="card-img-top" />
-            <div class="card-body">
-              <h6 class="card-title">Realme C21</h6>
-              <p5 class="card-text text-success">PKR 24,500</p5>
-              <p className="text-seconday">Multan</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <UsedMobile/>
 
       {/* Featured mobiles */}
-      <div>
-        <div className="d-flex flex-row justify-content-around ">
-          <h4 className="mt-5">Featured New Mobiles</h4>
-          <p className="mt-5 text-primary">View All Featured Mobiles</p>
-        </div>
-        <div class="mt-3 d-flex flex-row justify-content-evenly ">
-          <div class="card mb-5">
-            <img src={realme50} class="card-img-top mt-5 mb-4" />
-            <div class="card-body">
-              <h6 class="card-title">Realme Note 50</h6>
-              <p5 class="card-text text-success">PKR 55,000</p5>
-              <p className="text-secondary">Islamabad</p>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img src={samsung} class="card-img-top mt-4" />
-            <div class="card-body">
-              <h6 class="card-title">Samsung Galaxy A25</h6>
-              <p5 class="card-text text-success">PKR 75,000</p5>
-              <p className="text-secondary">Islamabad</p>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img src={xiaomi} class="card-img-top mt-4" />
-            <div class="card-body">
-              <h6 class="card-title">Xiaomi 14</h6>
-              <p5 class="card-text text-success">PKR 49,500</p5>
-              <p className="text-secondaary">Islamabad</p>
-            </div>
-          </div>
-          <div class="card mb-5">
-            <img src={infinity} class="card-img-top mt-4 mb-4" />
-            <div class="card-body">
-              <h6 class="card-title">Infinity Zero X Pro</h6>
-              <p5 class="card-text text-success">PKR 52,500</p5>
-              <p className="text-seconday">islamabad</p>
-            </div>
-          </div>
-        </div>
-      </div>
+     <FeaturedMobile/>
 
       {/* brands */}
       <div style={{ backgroundColor: "#e9ecef" }}>
+        {/* Categories  */}
+        <Categories/>
+        {/* browsed used mobile  */}
         <div className="d-flex flex-row justify-content-center">
           <h4 className="mt-5">Browsed Used Mobiles</h4>
         </div>
@@ -511,157 +252,11 @@ function App() {
         </div>
 
         {/* Accessories  */}
-        <div className="d-flex flex-row justify-content-center">
-          <h4 className="mt-5">Accessories</h4>
-        </div>
-        <div className="mt-3 d-flex flex-row justify-content-evenly">
-          <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Earpods</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Handsfree</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Cables</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Chargers</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Mobile Covers</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Handphone</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <div class="card-body d-flex flex-row justify-content-center align-item-center">
-                  <h5 class="card-title mt-2 mb-2">Protecters</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Accessories/>
       </div>
 
       {/* PhoneBid Offers  */}
-      <div>
-        <div className="d-flex flex-row justify-content-center">
-          <h4 className="mt-5">PhoneBid Offerings</h4>
-        </div>
-
-        <div class="row mt-3 mx-5 d-flex flex-row align-item-center justify-content-center">
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <p2 class="card-title mt-2 mb-2 text-primary">PhoneBids</p2>
-                <p>INSURANCE</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <p2 class="card-title mt-2 mb-2 text-primary">PhoneBids</p2>
-                <p>PHONEBID SELL IT FOR ME</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-3 mx-5 d-flex flex-row align-item-center justify-content-center">
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <p2 class="card-title mt-2 mb-2 text-primary">PhoneBids</p2>
-                <p>BUY NEW MOBILES</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <p2 class="card-title mt-2 mb-2 text-primary">PhoneBids</p2>
-                <p>PTA APPROVAL</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-3 mx-5 mb-5 d-flex flex-row align-item-center justify-content-center">
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <p2 class="card-title mt-2 mb-2 text-primary">PhoneBids</p2>
-                <p>PHONEBID PARTNER</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <p2 class="card-title mt-2 mb-2 text-primary">PhoneBids</p2>
-                <p>MOBILE INSPECTION</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Sponserd  */}
-      <div
-        className="d-flex flex-row justify-content-evenly"
-        style={{ backgroundColor: "#e9ecef" }}
-      >
-        <img src={carad} className="mt-4 mb-4" />
-        <img src={game} className="mb-4 mt-4" />
-      </div>
-
-      {/* Mobile brands  */}
-      <div>
-        <div className="mt-4 d-flex justify-content-center">
-          <h4>New Mobiles By Make</h4>
-        </div>
-        <div className=" d-flex flex-row align-item-center justify-content-evenly">
-          <img src={apple} style={{ width: "10%", height: "10%" }} />
-          <img src={lg} style={{ width: "20%", height: "20%" }} />
-          <img src={huawei} style={{ width: "10%", height: "10%" }} />
-          <img src={realme} style={{ width: "15%", height: "20%" }} />
-          <img src={techno} style={{ width: "13%", height: "10%" }} />
-        </div>
-        <div className="d-flex flex-row align-item-start justify-content-evenly">
-          <img src={infinix} style={{ width: "8%", height: "10%" }} />
-          <img src={samsunglogo} style={{ width: "13%", height: "13%" }} />
-          <img src={oneplus} style={{ width: "13%", height: "12%" }} />
-          <img src={xiaomilogo} style={{ width: "8%", height: "10%" }} />
-          <img src={oppologo} style={{ width: "10%", height: "10%" }} />
-        </div>
-      </div>
+     <PhoneBidOffers/>
 
       {/* Mobile Comparison  */}
       <div style={{ backgroundColor: "#e9ecef" }}>
@@ -674,12 +269,8 @@ function App() {
             <p className="mx-4">
               Samsung Galaxy S21 <b>Vs </b> iPhone 12
             </p>
-            <button type="button" class="btn btn-outline-primary">
-              View Comparison
-            </button>
           </div>
-          <vr style={{ border: "2px solid #808080" }} className="mx-5" />
-          <div className="d-flex flex-column text-center">
+          <div className="d-flex flex-column text-center mx-4">
             <h6>Realme Note 50</h6>
             <h3>VS</h3>
             <h6>Samsung Galaxy A25</h6>
@@ -688,57 +279,69 @@ function App() {
             <h3>VS</h3>
             <h6>Realme C51Y</h6>
           </div>
+          <div className="mt-5 mx-3">
+          <Link to='/comparisan'><button type="button" class="btn mt-5 mx-4" style={{backgroundColor:"#52AB98"}}>
+              View Comparison
+            </button>
+            </Link>
+          </div>
         </div>
       </div>
 
+      {/* Mobile brands  */}
+     <Brands/>
+
+
       {/* videos  */}
+      <div style={{ backgroundColor: "#e9ecef" }}>
       <div>
         <div className="d-flex flex-row justify-content-around">
-          <h4 className="mb-5 mt-4">Browse Our Videos</h4>
-          <p className="text-primary mb-5 mt-4">View All Videos</p>
+          <h4 className="mb-4 mt-4">Browse Our Videos</h4>
+          <p className="text-primary mb-4 mt-4">View All Videos</p>
         </div>
-        <div class="embed-responsive embed-responsive-4by3 d-flex flex-row justify-content-evenly mb-5">
+        <div class="embed-responsive embed-responsive-4by3 d-flex flex-row justify-content-evenly ">
           <iframe
-            class="embed-responsive-item"
-            style={{ width: "500px", height: "300px" }}
+            class="embed-responsive-item mb-5"
+            style={{ width: "400px", height: "200px" }}
             src="https://www.youtube.com/embed/keYat4iSYAQ"
-            allowfullscreen
+            allowFullscreen
           ></iframe>
           <iframe
-            class="embed-responsive-item"
-            style={{ width: "500px", height: "300px" }}
+            class="embed-responsive-item mb-5"
+            style={{ width: "400px", height: "200px" }}
             src="https://www.youtube.com/embed/ztqM-JZl7Eg"
-            allowfullscreen
+            allowFullscreen
           ></iframe>
         </div>
+      </div>
       </div>
 
       {/* Mobile Reviews  */}
-      <div style={{ backgroundColor: "#e9ecef" }}>
-        <div className="d-flex justify-content-start mx-5">
+        <div className="offset-2">
           <h4 className="mt-5 mb-4">Mobile Reviews</h4>
         </div>
-        <div className="container d-flex flex-row align-items-center">
-          <div className="d-flex flex-column">
-            <div className=" container  d-flex flex-row ">
-              <img src={review1} style={{ width: "15%", height: "100%" }} />
-              <div className=" container text-vertical">
-                <h5 className="text-primary">
+      
+      <div class="row mt-2 mb-5 mx-5 d-flex flex-row align-item-center justify-content-center">
+          <div class="col-sm-5">
+            <div class="card d-flex flex-row">
+                <img src={review1} className="img-fluid col-sm-2 mt-2" style={{ width: "6rem", height: "10rem" }}/>
+              <div class="card-body d-flex flex-column">
+              <h5 className="text-primary">
                   Why Should Buy Infinix Zero X Pro
                 </h5>
                 <p>
                   The Infinix Zero X Pro is an affordable phone that give you a
                   120HZ OLED display and an impressively rounded the triple
-                  camers system,display and an impressively rounded the triple
-                  camers system
+                  camers system,display and an impressively rounded.
                 </p>
               </div>
             </div>
-
-            <div className="container  d-flex flex-row mt-3">
-              <img src={review2} style={{ width: "15%", height: "100%" }} />
-              <div className=" container">
-                <h5 className="text-primary">Why Should Buy Xiaomi 14</h5>
+          </div>
+          <div class="col-sm-5">
+            <div class="card d-flex flex-row">
+            <img src={review2} className="img-fluid col-sm-2 mt-2" style={{ width: "6rem", height: "10rem" }}/>
+              <div class="card-body d-flex flex-column">
+              <h5 className="text-primary">Why Should Buy Xiaomi 14</h5>
                 <p>
                   the Xiaomi 14 is compatible with 50W wireless charging, which
                   is quite impressive.The display of the Xiaomi 14 is
@@ -748,77 +351,12 @@ function App() {
               </div>
             </div>
           </div>
-          <img
-            src={game}
-            className="mb-4 mt-4 mx-5 d-flex justify-content-start"
-            style={{ width: "40%", height: "100%" }}
-          />
         </div>
-      </div>
 
       {/* end  */}
-      <div style={{ backgroundColor: "#15363F" }}>
-        <div className="d-flex flex-row justify-content-around">
-          <div className="d-flex flex-row">
-            <div className=" mt-5 mx-5">
-              <h5 className="text-light">Popular Mobiles</h5>
-              <p className="text-light">iPhone 15 Pro</p>
-              <p className="text-light">Samsung Galaxy S22</p>
-              <p className="text-light">OnePlus12R</p>
-              <p className="text-light">Realme C67</p>
-              <p className="text-light">Oppo A18</p>
-              <p className="text-light">Xiaomi Redmi Note 13</p>
-              <p className="text-light">Samsung Galaxy S23</p>
-              <p className="text-light">Infinix 40 Pro</p>
-            </div>
-            <div className=" mt-5 mx-5">
-              <h5 className="text-light">Popular Brands</h5>
-              <p className="text-light">Apple</p>
-              <p className="text-light">Samsung</p>
-              <p className="text-light">OnePlus</p>
-              <p className="text-light">Realme</p>
-              <p className="text-light">Oppo</p>
-              <p className="text-light">Xiaomi</p>
-              <p className="text-light">Huawei</p>
-              <p className="text-light">Infinix</p>
-            </div>
-          </div>
-          <div className=" mt-5 mx-5">
-            <h5 className="text-light">Sell on PhoneBid</h5>
-            <p className="text-light mt-4">Sell Your Mobile</p>
-            <p className="text-light">Bid Your Mobile</p>
-            <h4 className="text-light mt-5">Subscribe to our newsletter</h4>
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="name@email.com"
-                aria-label="Input group example"
-                aria-describedby="btnGroupAddon"
-              />
-              <div class="input-group-text btn btn-success" id="btnGroupAddon">
-                Subscribe
-              </div>
-            </div>
-            <h5 className="text-light mt-4">Follow Us</h5>
-            <FaFacebook style={{height: '10%', width: '10%'}}/>
-            <FaInstagramSquare className="mx-3" style={{height: '10%', width: '10%'}}/>
-            <FaTwitterSquare style={{height: '10%', width: '10%'}}/>
-          </div>
-        </div>
-
-        <div className="text-center">
-          <hr style={{ color: "#fff" }} />
-          <p2 className="text-light">
-            Copyright @ 2023-2024 PhoneBid(Pvt)Ltd. All Rights Reserved{" "}
-          </p2>
-          <p className="text-light pb-4">
-            Reproduction of matrial from any PhoneBid.com pages without
-            permission is strictly prohibited.
-          </p>
-        </div>
-      </div>
+      <End/>
     </div>
+    </>
   );
 }
 
