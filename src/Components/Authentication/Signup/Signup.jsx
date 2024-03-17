@@ -12,19 +12,23 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [passwordTouched, setPasswordTouched] = useState(false);
+  
 
   const navigate = useNavigate();
-  // validation
+
   const validation = () => confirmPassword === password;
   const validatePassword = (password) => {
-    // Regular expressions for checking password requirements
     const hasUpperCase = /[A-Z]/.test(password);
     const hasLowerCase = /[a-z]/.test(password);
     const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     const isLengthValid = password.length >= 8;
 
     return hasUpperCase && hasLowerCase && hasSymbol && isLengthValid;
+  };
+  const handlePassword = (e) => {
+    setPasswordTouched(true);
+    setPassword(e.target.value);
   };
 
 
@@ -33,7 +37,8 @@ function App() {
       return;
     }
     if (!validatePassword(password)) {
-      setError('Password should contain symbol, capital & small letter.');
+      // setError('Password should contain symbol, capital & small letter.');
+      return;
     }
     try {
       if (!name || !email || !password || !confirmPassword) {
@@ -108,9 +113,15 @@ function App() {
               aria-label="Password"
               aria-describedby="basic-addon1"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePassword}
             />
-            {error && <p className="text-danger">{error}</p>}
+           {passwordTouched && (
+              <p className="text-danger">
+                {validatePassword(password)
+                  ? ""
+                  : "Password should contain symbol, capital & small letter"}
+              </p>
+            )}
             <input
               type="password"
               className="form-control mt-3"
