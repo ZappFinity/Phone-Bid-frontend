@@ -44,7 +44,7 @@ function Comparisan() {
             <input type="text" class="form-control" placeholder="Add mobiles" />
         </div>
       </div>
-
+      <div className='pb-5'>
       <h5 className='offset-1 pt-3'>General Features</h5>
       <Table/>
       <h5 className='offset-1 pt-5'>Display</h5>
@@ -59,6 +59,7 @@ function Comparisan() {
      <Camera/>
      <h5 className='offset-1 pt-5'>Connectivity</h5>
      <Connectivity/>
+     </div>
     </div>
     <End/>
     </>

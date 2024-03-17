@@ -36,8 +36,8 @@ const Camera = () => {
       ['NFC', 
       'No',
        'Yes (market/region dependent)',
-        'Yes (market/region dependent)', 
-        'Yes (market/region dependent)']
+        '', 
+        '']
 
   ];
 

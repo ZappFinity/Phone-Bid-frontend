@@ -12,19 +12,28 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   // validation
   const validation = () => confirmPassword === password;
+  const validatePassword = (password) => {
+    // Regular expressions for checking password requirements
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const isLengthValid = password.length >= 8;
+
+    return hasUpperCase && hasLowerCase && hasSymbol && isLengthValid;
+  };
+
 
   async function signUp() {
     if (!validation()) {
       return;
     }
-    if (password.length < 8) {
-      setMessage("Password should be at least 8 characters.");
-      return;
+    if (!validatePassword(password)) {
+      setError('Password should contain symbol, capital & small letter.');
     }
     try {
       if (!name || !email || !password || !confirmPassword) {
@@ -101,7 +110,7 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {message && <p className="text-danger">{message}</p>}
+            {error && <p className="text-danger">{error}</p>}
             <input
               type="password"
               className="form-control mt-3"

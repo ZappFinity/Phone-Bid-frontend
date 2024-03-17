@@ -7,8 +7,8 @@ const Battery = () => {
     ['Type', 
     '5000 mAh', 
     '5000 mAh', 
-    '5000 mAh', 
-    '5000 mAh'],
+    '        ', 
+    '        '],
   ];
 
   return (

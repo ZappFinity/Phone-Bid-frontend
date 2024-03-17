@@ -31,8 +31,8 @@ const Camera = () => {
     ['Back Video Recording', 
     '1080p@30fps',
      '1080p@30fps',
-      '1080p@30fps', 
-      '1080p@30fps']
+      '', 
+      '']
   ];
 
   return (
