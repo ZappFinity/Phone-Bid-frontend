@@ -51,9 +51,9 @@ function End() {
               </div>
             </div>
             <h5 className="text-light mt-4">Follow Us</h5>
-            <FaFacebook style={{height: '10%', width: '10%'}}/>
-            <FaInstagramSquare className="mx-3" style={{height: '10%', width: '10%'}}/>
-            <FaTwitterSquare style={{height: '10%', width: '10%'}}/>
+            <FaFacebook className='text-white' style={{height: '10%', width: '10%'}}/>
+            <FaInstagramSquare className="mx-3 text-white" style={{height: '10%', width: '10%'}}/>
+            <FaTwitterSquare className='text-white' style={{height: '10%', width: '10%'}}/>
           </div>
         </div>
 

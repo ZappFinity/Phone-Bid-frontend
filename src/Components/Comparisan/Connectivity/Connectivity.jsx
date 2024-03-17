@@ -42,7 +42,7 @@ const Camera = () => {
   ];
 
   return (
-    <div>
+    <div className='mx-lg-5'>
       <table className="custom-table">
         <tbody>
           {data.map((row, rowIndex) => (
