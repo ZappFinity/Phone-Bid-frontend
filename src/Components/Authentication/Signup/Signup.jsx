@@ -72,18 +72,16 @@ function App() {
   return (
     <div className="container-fluid ">
       <div className="row ">
-        <div className="col-sm-6">
-          <img
-            src={mobile}
-            className=""
-            style={{ height: "40rem", width: "100%" }}
-          />
-        </div>
+      <div className="col-sm-6 d-none d-sm-block">
+      <img src={mobile} className="img-fluid" alt="Mobile" style={{ height: "40rem", width: "100%" }} />
+    </div>
 
         <div className="col-md-5">
-          <img src={logo} className=" col-sm-2" />
+          <img src={logo} className=" col-sm-2 d-none d-sm-block" />
+          <img src={logo} className="img-fluid col-md-4 mx-4 d-sm-none" alt="Icon" style={{ maxWidth: "90px" }} />
           <div className=" mt-5 mx-5">
-          <img src={icon} className="img-fluid col-md-4  mb-3 mx-4" />
+          <img src={icon} className="img-fluid col-md-4 mb-3 mx-4 d-none d-sm-block" />
+        <img src={icon} className="img-fluid col-md-4 mb-3 mx-4 d-sm-none" alt="Icon" style={{ maxWidth: "150px" }} />
           <h3 className="mt-3" style={{ color: "#16363F" }}>
             Sign Up
           </h3>

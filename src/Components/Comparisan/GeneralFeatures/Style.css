@@ -23,3 +23,15 @@
     background-color: white;
     color: white;
   }
+
+  /* Media query for smaller screens  */
+  @media (max-width: 768px) {
+    .custom-table {
+      width: 10%; 
+    }
+    .custom-table td:nth-last-child(-n+2),
+    .custom-table th:nth-last-child(-n+2) {
+      display: none;
+    }
+    
+  }

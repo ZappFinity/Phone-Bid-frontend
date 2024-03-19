@@ -1,6 +1,5 @@
 import Login from './Components/Authentication/Login/Login';
 import Signup from "./Components/Authentication/Signup/Signup";
-import dashboard from './Components/Dashboard/Dashboard';
 import LandingPage from './Components/LandingPage/Landingpage';
 import Comparisan from './Components/Comparisan/Comparisan';
 
@@ -14,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/login" exact Component={Login}/>
           <Route path="/signup" exact Component={Signup}/>
-          <Route path="/dashboard" exact Component={dashboard}/>
+          
           <Route path="/" exact Component={LandingPage}/>
           <Route path='/comparisan' Component={Comparisan}/>
         </Routes>

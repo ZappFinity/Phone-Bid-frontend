@@ -31,19 +31,35 @@ const Table = () => {
   ];
 
   return (
+    // <div className='mx-lg-5'>
+    //   <table className="custom-table">
+    //     <tbody>
+    //       {data.map((row, rowIndex) => (
+    //         <tr key={rowIndex}>
+    //           {row.map((cell, colIndex) => (
+    //             <td key={colIndex}>{cell}</td>
+    //           ))}
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
+
     <div className='mx-lg-5'>
-      <table className="custom-table">
-        <tbody>
-          {data.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((cell, colIndex) => (
-                <td key={colIndex}>{cell}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <table className="custom-table">
+      <tbody>
+        {data.map((row, rowIndex) => (
+          <tr key={rowIndex}>
+            {row.map((cell, colIndex) => (
+              <td key={colIndex}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+    
+    // </div>
+    
   );
 };
 
