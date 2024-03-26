@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from "react";
+
 import End from "../LandingPage/End";
 import Navbar from "../LandingPage/Navbar";
+import doodle from '../img/blog.png'
 
 function Blog() {
   const [blogPosts, setBlogPosts] = useState("[]");
   const [visiblePosts, setVisiblePosts] = useState(2);
+  const [expandedPostId, setExpandedPostId] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const tokenData = localStorage.getItem("token");
-        console.log("Token data:", tokenData);
-        if (!tokenData) {
-          console.error("Token is missing");
-          return;
-        }
-        const token = JSON.parse(tokenData);
-        console.log("Parsed token:", token);
-
         const response = await fetch("http://127.0.0.1:8000/api/blog/list", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -45,7 +38,11 @@ function Blog() {
   }, []);
 
   const handleLoadMore = () => {
-    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 2); // Increase the number of visible posts by 5
+    setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 2);
+  };
+
+  const handleReadMore = (postId) => {
+    setExpandedPostId(postId === expandedPostId ? null : postId); // Toggle expanded post
   };
 
   return (
@@ -56,35 +53,40 @@ function Blog() {
           Latest Blogs
         </h3>
         <div
-          className="bg-white pt-3 offset-2 pb-2 mb-5"
-          style={{ width: "67%", height: "100%" }}
+          className="bg-white pt-3 offset-3 pb-2 mb-5"
+          style={{ width: "50%", height: "100%" }}
         >
-          {blogPosts.length
-            ? Array.isArray(blogPosts) &&
-              blogPosts.slice(0, visiblePosts).map((post, index) => (
+          {blogPosts && blogPosts.length > 0 
+            ?( Array.isArray(blogPosts) &&
+              blogPosts.slice(0, visiblePosts).map((blog) => (
                 <div
-                  className="offset-1 mx-4 "
+                  className=" mx-4 "
                   style={{ boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)" }}
-                  key={index}
+                  key={blog.id}
                 >
-                  <div className="card mb-3">
-                    <div className="row">
-                      <div className="col-sm-6 px-4 pt-2">
-                        <video width="100%" height="auto" controls>
-                          {/* <source src={post.content} type="video/mp4" /> */}
-                        </video>
-                      </div>
-                      <div className="col-sm-6">
+                  <div className="d-flex flex-row justify-content-center card mb-3">
+                      <div className="col-sm-9">
                         <div className="card-body">
                           <p className="card-title">Blog</p>
-                          <h5 className="card-text">{post.title}</h5>
-                        </div>
+                          <h5 className="card-text">{blog.title}</h5>
+                          <p
+                          className="text-primary"
+                          onClick={() => handleReadMore(blog.id)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          Read more
+                        </p>
+                        {expandedPostId === blog.id && (
+                          <p>{blog.content}</p>
+                        )}
                       </div>
-                    </div>
                   </div>
                 </div>
-              ))
-            : null}
+              </div>
+            ))
+          ) : (
+            <p>No blog posts available</p>
+          )}
         </div>
         {visiblePosts < blogPosts.length && (
           <div className="d-flex justify-content-center pt-4 pb-5 mb-5">

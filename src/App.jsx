@@ -4,6 +4,7 @@ import LandingPage from './Components/LandingPage/Landingpage';
 import Comparisan from './Components/Comparisan/Comparisan';
 import Blog from './Components/Blog/Blog'
 
+
 // import router
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/login" exact Component={Login}/>
           <Route path="/signup" exact Component={Signup}/>
-          <Route path='/blog' exact Component={Blog}/>
+          <Route path="/blog" element={<Blog />} />
           <Route path="/" exact Component={LandingPage}/>
           <Route path='/comparisan' Component={Comparisan}/>
         </Routes>

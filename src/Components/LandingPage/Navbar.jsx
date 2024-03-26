@@ -238,9 +238,9 @@ function Navbar() {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">
+          <Link  class="nav-link text-dark" to="/comparisan">
             Comparison
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">
@@ -654,9 +654,9 @@ function Navbar() {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">
+          <Link class="nav-link text-dark" to="/comparisan">
             Comparison
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">
