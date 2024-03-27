@@ -1,6 +1,6 @@
 import React , {useState, useEffect}from 'react'
-// import infinix from '../../img/infinix-zero-x-pro.svg'
-// import xiaomi from '../../img/xiaomi-14.svg'
+import infinix from '../../img/infinix-zero-x-pro.svg'
+import xiaomi from '../../img/xiaomi-14.svg'
  
 function Buy({ selectedMobileId1, selectedMobileId2, selectedMobileId3, selectedMobileId4}) {
     const [mobileData1, setMobileData1] = useState(null);
@@ -120,7 +120,7 @@ useEffect(() => {
     <>
        <div className='pt-5'>
       <div className='d-flex flex-row justify-content-around offset-1 mb-5' style={{ backgroundColor: "white", width:'83%'}}>
-      {mobileData1 && mobileData1.data && (
+      {mobileData1 && mobileData1.data ? (
         
         <div className='d-flex flex-column mt-4 mb-4 offset-1'>
             <img src={mobileData1.data.image} className='col-sm-10'/>
@@ -128,31 +128,59 @@ useEffect(() => {
             <p>{mobileData1.data.price}</p>
             <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div>
-      )}
-      {mobileData2 && mobileData2.data && (
+      ):
+      <div className='d-flex flex-column mt-4 mb-4 offset-1'>
+      <img src={infinix} className='col-sm-10'/>
+      <p>Infinix</p>
+      <p>49,000 price</p>
+      <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+  </div>
+    }
+      {mobileData2 && mobileData2.data ? (
          <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
             <img src={mobileData2.data.image} className='col-sm-9'/>
             <p>{mobileData2.data.name}</p>
             <p>{mobileData2.data.price}</p>
             <button className="btn text-white px-5" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div>
-      )}
-      {mobileData3 && mobileData3.data && (
+      ):
+      <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
+      <img src={infinix} className='col-sm-7'/>
+      <p>Xiaomi C13</p>
+      <p>55,000 price</p>
+      <button className="btn text-white px-5" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+  </div>
+    }
+      {mobileData3 && mobileData3.data ? (
         <div className='d-flex flex-column mt-4 mb-4 offset-1'>
             <img src={mobileData3.data.image} className='col-sm-10'/>
             <p>{mobileData3.data.name}</p>
             <p>{mobileData3.data.price}</p>
             <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div>
-      )}
-      {mobileData4 && mobileData4.data && (
+      ):
+      <div className='d-flex flex-column mt-4 mb-4 offset-1'>
+            <img src={xiaomi} className='col-sm-10'/>
+            <p>Samsung</p>
+            <p>89,000 price</p>
+            <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+        </div>
+      }
+      {mobileData4 && mobileData4.data ? (
         <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
             <img src={mobileData4.data.image} className='col-sm-9'/>
             <p>{mobileData4.data.name}</p>
             <p>{mobileData4.data.price}</p>
             <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div> 
-      )}
+      ):
+      <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
+            <img src={infinix} className='col-sm-10'/>
+            <p>Oppo</p>
+            <p>67,000 price</p>
+            <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+        </div> 
+      }
         
       </div>
       </div>

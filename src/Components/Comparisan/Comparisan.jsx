@@ -196,7 +196,8 @@ function Comparisan() {
     <>
       <Navbar/>
     <div style={{ backgroundColor: "#e9ecef" }}>
-      <Buy selectedMobileId1={selectedMobileId1}
+      <Buy 
+      selectedMobileId1={selectedMobileId1}
       selectedMobileId2={selectedMobileId2}
       selectedMobileId3={selectedMobileId3}
       selectedMobileId4={selectedMobileId4}
@@ -288,7 +289,7 @@ function Comparisan() {
         </div>
       </div>
        {/* dropdown3 */}
-       <div className='mx-3'>
+       <div className='mx-3 d-none d-sm-block'>
       <div
           style={{
             position: "relative",
@@ -330,7 +331,7 @@ function Comparisan() {
         </div>
       </div>
        {/* dropdown3 */}
-       <div className='mx-3'>
+       <div className='mx-3 d-none d-sm-block'>
       <div
           style={{
             position: "relative",
@@ -377,19 +378,54 @@ function Comparisan() {
       {/* Table  */}
       <div className='pb-5'>
       <h5 className='offset-1 pt-3'>General Features</h5>
-      <Table selectedMobileId1={selectedMobileId1} />
+      <Table 
+      selectedMobileId1={selectedMobileId1}
+      selectedMobileId2={selectedMobileId2} 
+      selectedMobileId3={selectedMobileId3} 
+      selectedMobileId4={selectedMobileId4} 
+       />
       <h5 className='offset-1 pt-5'>Display</h5>
-     <DisplayData/>
+     <DisplayData
+      selectedMobileId1={selectedMobileId1}
+      selectedMobileId2={selectedMobileId2} 
+      selectedMobileId3={selectedMobileId3} 
+      selectedMobileId4={selectedMobileId4} 
+     />
      <h5 className='offset-1 pt-5'>Memory</h5>
-     <Memory/>
+     <Memory
+     selectedMobileId1={selectedMobileId1}
+     selectedMobileId2={selectedMobileId2} 
+     selectedMobileId3={selectedMobileId3} 
+     selectedMobileId4={selectedMobileId4}
+     />
      <h5 className='offset-1 pt-5'>Performance</h5>
-     <Performance/>
+     <Performance
+     selectedMobileId1={selectedMobileId1}
+     selectedMobileId2={selectedMobileId2} 
+     selectedMobileId3={selectedMobileId3} 
+     selectedMobileId4={selectedMobileId4}
+     />
      <h5 className='offset-1 pt-5'>Battery</h5>
-     <Battery/>
+     <Battery
+     selectedMobileId1={selectedMobileId1}
+     selectedMobileId2={selectedMobileId2} 
+     selectedMobileId3={selectedMobileId3} 
+     selectedMobileId4={selectedMobileId4}
+     />
      <h5 className='offset-1 pt-5'>Camera</h5>
-     <Camera/>
+     <Camera
+     selectedMobileId1={selectedMobileId1}
+     selectedMobileId2={selectedMobileId2} 
+     selectedMobileId3={selectedMobileId3} 
+     selectedMobileId4={selectedMobileId4}
+     />
      <h5 className='offset-1 pt-5'>Connectivity</h5>
-     <Connectivity/>
+     <Connectivity
+     selectedMobileId1={selectedMobileId1}
+     selectedMobileId2={selectedMobileId2} 
+     selectedMobileId3={selectedMobileId3} 
+     selectedMobileId4={selectedMobileId4}
+     />
      </div>
     </div>
     <End/>
