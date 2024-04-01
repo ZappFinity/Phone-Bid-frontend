@@ -30,7 +30,7 @@ function App() {
         <Navbar />
         {/* images  */}
         <div className="d-flex flex-column ">
-          <div class="slideshow-container">
+          {/* <div class="slideshow-container">
             <div class="mySlides fade">
               <img src={slider} />
             </div>
@@ -42,7 +42,7 @@ function App() {
             <div class="mySlides fade">
               <img src={slider} />
             </div>
-          </div>
+          </div> */}
 
           {/* search  */}
 
