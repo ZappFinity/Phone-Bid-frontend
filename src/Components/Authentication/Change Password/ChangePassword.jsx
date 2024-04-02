@@ -42,10 +42,14 @@ function ChangePassword() {
           confirm_password: confirmPassword
         }),
       });
-
+      console.log(response);
       if (response.ok) {
         setSuccess(true);
         setError('');
+        // all states should be reset here
+        setCurrentPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
       } else {
         const data = await response.json();
         setError(data.message || 'Failed to change password');
