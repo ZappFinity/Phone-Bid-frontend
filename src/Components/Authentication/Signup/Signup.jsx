@@ -54,8 +54,13 @@ function App() {
         },
       });
       result = await result.json();
+
+      const token = await result.token;
+      console.warn("result", result);
+
       if (result.success == true) {
         localStorage.setItem("user", JSON.stringify(result));
+        localStorage.setItem("token", JSON.stringify(token));
         navigate("/");
       } else {
         alert("User already exist");
