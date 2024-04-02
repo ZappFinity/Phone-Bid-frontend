@@ -10,6 +10,7 @@
 /* Slideshow container */
 .slideshow-container {
   position: relative;
+  z-index: -1;
 }
 
 /* Fade animation */

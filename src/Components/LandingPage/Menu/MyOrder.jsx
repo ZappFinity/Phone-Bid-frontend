@@ -21,7 +21,7 @@ function MyOrder() {
               role="group"
               aria-label="Basic mixed styles example"
             >
-              <Link to='/myads' type="button"  class="btn text-secondary" style={{border: '1px solid lightgrey'}}>
+              <Link to='/myads' type="button"  class="btn text-secondary" style={{border: '1px solid lightgrey', borderRadius: '0'}}>
                 My Ads
               </Link>
               <Link to='/mysavedads' type="button"  class="btn text-secondary" style={{border: '1px solid lightgrey'}}>
@@ -33,7 +33,7 @@ function MyOrder() {
               <Link to='/mymessage' type="button"  class="btn text-secondary" style={{border: '1px solid lightgrey'}}>
                 My Messages
               </Link>
-              <Link to='/myorder' type="button"  class="btn text-secondary" style={{border: '1px solid lightgrey'}}>
+              <Link to='/myorder' type="button"  class="btn text-secondary" style={{border: '1px solid lightgrey', borderRadius: '0'}}>
                 My Orders
               </Link>
             </div>
