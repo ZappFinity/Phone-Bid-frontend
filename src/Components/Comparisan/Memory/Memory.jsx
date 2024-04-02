@@ -18,9 +18,9 @@ const Memory = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
             'Accept': "application/json",
           },
         });
-        console.warn(response);
+     
         const data = await response.json();
-        console.warn('dropdown1', data);
+        
         setMobileData(data);
       } catch (error) {
         console.error('Error fetching mobile data:', error);
@@ -45,9 +45,9 @@ const Memory = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
             'Accept': "application/json",
           },
         });
-        console.warn(response);
+        
         const data = await response.json();
-        console.warn('dropdown2', data);
+       
         setMobileData2(data);
       } catch (error) {
         console.error('Error fetching mobile data:', error);
@@ -72,9 +72,9 @@ const Memory = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
             'Accept': "application/json",
           },
         });
-        console.warn(response);
+        
         const data = await response.json();
-        console.warn('dropdown2', data);
+       
         setMobileData3(data);
       } catch (error) {
         console.error('Error fetching mobile data:', error);
@@ -99,9 +99,8 @@ const Memory = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
             'Accept': "application/json",
           },
         });
-        console.warn(response);
+        
         const data = await response.json();
-        console.warn('dropdown2', data);
         setMobileData4(data);
       } catch (error) {
         console.error('Error fetching mobile data:', error);

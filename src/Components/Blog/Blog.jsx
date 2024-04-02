@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import End from "../LandingPage/End";
 import Navbar from "../LandingPage/Navbar";
-import doodle from '../img/blog.png'
 
 function Blog() {
   const [blogPosts, setBlogPosts] = useState("[]");
@@ -20,11 +19,8 @@ function Blog() {
           },
         });
 
-        console.warn(response);
-
         if (response.ok) {
           const responseData = await response.json();
-          console.warn("Data", responseData.data);
           setBlogPosts(responseData.data);
         } else {
           console.error("Failed to fetch user data");

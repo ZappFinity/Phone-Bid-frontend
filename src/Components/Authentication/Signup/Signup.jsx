@@ -37,7 +37,6 @@ function App() {
       return;
     }
     if (!validatePassword(password)) {
-      // setError('Password should contain symbol, capital & small letter.');
       return;
     }
     try {
@@ -46,7 +45,6 @@ function App() {
         return;
       }
       let item = { name, email, password, confirmPassword };
-      console.warn(item);
       let result = await fetch("http://127.0.0.1:8000/api/register", {
         method: "POST",
         body: JSON.stringify(item),
@@ -56,7 +54,6 @@ function App() {
         },
       });
       result = await result.json();
-      console.warn("result", result);
       if (result.success == true) {
         localStorage.setItem("user", JSON.stringify(result));
         navigate("/");
@@ -64,7 +61,6 @@ function App() {
         alert("User already exist");
       }
     } catch (err) {
-      console.error(err);
       alert(err.message);
     }
   }

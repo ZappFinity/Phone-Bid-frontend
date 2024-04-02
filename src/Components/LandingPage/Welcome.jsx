@@ -45,6 +45,7 @@ console.log('Token data:', tokenData);
 console.log('Parsed token:', token);
         
         const response = await fetch('http://127.0.0.1:8000/api/user', {
+          method: "GET",
           headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json',
@@ -72,25 +73,28 @@ console.log('Parsed token:', token);
   const handleLogout = async () => {
     try {
       const tokenData = localStorage.getItem('token');
-      console.log('Token data:', tokenData);
+console.log('Token data:', tokenData);
       if (!tokenData) {
         console.error('Token is missing');
         return;
       }
       const token = JSON.parse(tokenData);
-      console.log('Parsed token:', token);
-      const response = await fetch('http://127.0.0.1:8000/api/logout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Authorization': `Bearer ${token}` // Corrected here
-        },
-      });
+console.log('Parsed token:', token);
+        
+        const response = await fetch('http://127.0.0.1:8000/api/logout', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        
+        console.warn(response);
   
       if (response.ok) {
         setIsLoggedOut(true);
-        localStorage.removeItem('token'); // Corrected here
+        localStorage.removeItem('token');
         console.warn("logout successfully")
       } else {
         console.error('Logout failed');

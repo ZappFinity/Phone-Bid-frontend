@@ -12,7 +12,6 @@ import { Link, useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -28,12 +27,9 @@ function Login() {
         body: JSON.stringify(item),
       });
 
-      // if (result.ok) {
       result = await result.json();
-      console.warn("result", result);
       if (result.success == true) {
         const token = result.token;
-        // put the token in local storage
         localStorage.setItem("token", JSON.stringify(token));
       }
       if (result.success == true) {
@@ -43,7 +39,6 @@ function Login() {
         alert("Incorrect email or password. Please try again.");
       }
     } catch (err) {
-      console.error(err);
       alert(err.message);
     }
   }
