@@ -38,13 +38,10 @@ function Welcome() {
     const fetchUserData = async () => {
       try {
         const tokenData = localStorage.getItem("token");
-        console.log("Token data:", tokenData);
         if (!tokenData) {
-          console.error("Token is missing");
           return;
         }
         const token = JSON.parse(tokenData);
-        console.log("Parsed token:", token);
 
         const response = await fetch("http://127.0.0.1:8000/api/user", {
           headers: {
@@ -54,12 +51,9 @@ function Welcome() {
           },
         });
 
-        console.warn(response);
-
         if (response.ok) {
           const data = await response.json();
           setUser(data);
-          console.warn(data.name);
         } else {
           console.error("Failed to fetch user data");
         }
@@ -74,9 +68,7 @@ function Welcome() {
   const handleLogout = async () => {
     try {
       const tokenData = localStorage.getItem("token");
-      console.log("Token data::::", tokenData);
       if (!tokenData) {
-        console.error("Token is missing");
         return;
       }
       const token = JSON.parse(tokenData);
@@ -94,16 +86,9 @@ function Welcome() {
       if (response.ok) {
         setIsLoggedOut(true);
         localStorage.removeItem("token"); // Corrected here
-        console.warn("logout successfully");
         navigate("/login");
       } else {
 
-        console.log(
-          "Failed to logout",
-          await response.json(),
-          response.status
-        
-        )
       }
     } catch (error) {
       console.error("Network error:", error);

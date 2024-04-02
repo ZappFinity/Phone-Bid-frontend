@@ -29,7 +29,7 @@ function ChangePassword() {
       }
       const token = JSON.parse(tokenData);
       
-      const response = await fetch('http://127.0.0.1:8000/api/change-password', {
+      const response = await fetch('http://127.0.0.1:8000/api/changepassword', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -42,11 +42,9 @@ function ChangePassword() {
           confirm_password: confirmPassword
         }),
       });
-      console.log(response);
       if (response.ok) {
         setSuccess(true);
         setError('');
-        // all states should be reset here
         setCurrentPassword('');
         setNewPassword('');
         setConfirmPassword('');
