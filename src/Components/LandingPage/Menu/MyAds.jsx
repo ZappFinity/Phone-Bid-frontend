@@ -60,7 +60,10 @@ function MyAds() {
               role="group"
               aria-label="Basic mixed styles example"
             >
-              <Link to='/myads' type="button" class="btn hov text-secondary" style={{border: '1px solid lightgrey', borderRadius: '0'}}>
+              <Link to='/myads' type="button" 
+              class="btn hov text-secondary"
+              style={{border: '1px solid lightgrey', borderRadius: '0'}}
+              >
                 My Ads
               </Link>
               <Link to='/mysavedads' type="button" class="btn hov text-secondary" style={{border: '1px solid lightgrey'}}>

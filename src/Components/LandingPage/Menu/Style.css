@@ -1,16 +1,14 @@
-.hov::after {
+ .hov::after {
     content: '';
     display: block;
     width: 0;
     height: 3px;
     background: #18534b;
-    transition: width .3s;
     bottom: 0;
-    transform-origin: left;
 }
 
 .hov:hover::after {
     width: 100%;
     transition: width .3s;
-    transform-origin: right;
-}
+} 
+
