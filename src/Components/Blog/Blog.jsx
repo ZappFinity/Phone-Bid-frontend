@@ -73,7 +73,7 @@ function Blog() {
                           Read more
                         </p>
                         {expandedPostId === blog.id && (
-                          <p>{blog.content}</p>
+                          <p style={{textAlign: 'justify'}}>{blog.content}</p>
                         )}
                       </div>
                   </div>
