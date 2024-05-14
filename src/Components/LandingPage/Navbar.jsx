@@ -189,10 +189,10 @@ function Navbar() {
             }}
             onClick={handleClick}
           >
-            <p className="mt-2">
+            <Link to='/accessories' className="mt-2">
               Accessories
               <IoMdArrowDropdown />
-            </p>
+            </Link>
 
             {accessDropdown && (
               <div
@@ -536,10 +536,10 @@ function Navbar() {
             }}
             onClick={handleClick}
           >
-            <p className="mt-2 mx-3">
+            <Link to='/accessories' className="mt-2 mx-3 d-flex align-items-center text-decoration-none text-black">
               Accessories
               <IoMdArrowDropdown />
-            </p>
+            </Link>
 
             {accessDropdown && (
               <div

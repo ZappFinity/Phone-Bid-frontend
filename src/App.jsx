@@ -12,6 +12,7 @@ import MySavedAds from './Components/LandingPage/Menu/MySavedAds'
 import MyMessages from './Components/LandingPage/Menu/MyMessages'
 import NewMobiles from './Components/LandingPage/NewMobile/NewMobiles';
 import UsedMobiles from './Components/LandingPage/UsedMobile/UsedMobiles';
+import MobileAccessories from './Components/LandingPage/Accessories/MobileAccessories';
 import ChangePassword from './Components/Authentication/Change Password/ChangePassword';
 
 // import router
@@ -38,6 +39,7 @@ function App() {
           <Route path='/usedmobile' exact Component={UsedMobiles}/>
           <Route path="/mysavedads" exact Component={MySavedAds}/>
           <Route path="/sellmobile" exact Component={SellMobile}/>
+          <Route path='/accessories' exact Component={MobileAccessories}/>
           <Route path="/changePass" exact Component={ChangePassword}/>
         </Routes>
       </Router>
