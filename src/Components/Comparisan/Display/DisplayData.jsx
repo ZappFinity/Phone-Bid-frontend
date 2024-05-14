@@ -130,7 +130,10 @@ const DisplayData = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,sel
                   {data.map((row, rowIndex) => (
                       <tr key={rowIndex}>
                           {row.map((cell, colIndex) => (
-                              <td key={colIndex}>{cell}</td>
+                              <td key={colIndex}>
+                                <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span>
+                                 </td>
                           ))}
                       </tr>
                   ))}
@@ -145,21 +148,21 @@ const DisplayData = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,sel
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Screen Size</td>
+            <td><b>Screen Size</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.screen_size : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.screen_size : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.screen_size : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.screen_size : ' '}</td>
           </tr>
           <tr>
-            <td>Screen Resolution</td>
+            <td><b>Screen Resolution</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.screen_resolution : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.screen_resolution : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.screen_resolution : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.screen_resolution : ' '}</td>
           </tr>
           <tr>
-            <td>Screen Type</td>
+            <td><b>Screen Type</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.screen_type : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.screen_type : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.screen_type : ' '}</td>
@@ -167,7 +170,7 @@ const DisplayData = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,sel
 
           </tr>
           <tr>
-            <td>Screen Protection</td>
+            <td><b>Screen Protection</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.screen_protection : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.screen_protection : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.screen_protection : ' '}</td>

@@ -133,7 +133,10 @@ const Connectivity = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,se
                     {data.map((row, rowIndex) => (
                         <tr key={rowIndex}>
                             {row.map((cell, colIndex) => (
-                                <td key={colIndex}>{cell}</td>
+                                <td key={colIndex}>
+                                   <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span>
+                                  </td>
                             ))}
                         </tr>
                     ))}
@@ -148,21 +151,21 @@ const Connectivity = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,se
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Bluetooth</td>
+            <td><b>Bluetooth</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.bluetooth : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.bluetooth : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.bluetooth : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.bluetooth : ' '}</td>
           </tr>
           <tr>
-            <td>3G</td>
+            <td><b>3G</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.three_G : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.three_G : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.three_G : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.three_G : ' '}</td>
           </tr>
           <tr>
-            <td>4G/LTE</td>
+            <td><b>4G/LTE</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.four_G_LTE : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.four_G_LTE : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.four_G_LTE : ' '}</td>
@@ -170,28 +173,28 @@ const Connectivity = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,se
 
           </tr>
           <tr>
-            <td>5G</td>
+            <td><b></b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.five_G : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.five_G : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.five_G : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.five_G : ' '}</td>
           </tr>
           <tr>
-            <td>Radio</td>
+            <td><b>Radio</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.radio : ''}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.radio : ''}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.radio : ''}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.radio : ''}</td>
           </tr>
           <tr>
-            <td>Wifi</td>
+            <td><b>Wifi</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.wifi : ''}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.wifi : ''}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.wifi : ''}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.wifi : ''}</td>
           </tr>
           <tr>
-            <td>NFC</td>
+            <td><b>NFC</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.nfc : ''}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.nfc : ''}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.nfc : ''}</td>

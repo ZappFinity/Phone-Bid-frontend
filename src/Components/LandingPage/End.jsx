@@ -1,8 +1,8 @@
 import React from 'react'
 // icons 
 import { FaFacebook } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
 
 function End() {
   return (
@@ -12,24 +12,24 @@ function End() {
           <div className="d-flex flex-row">
             <div className=" mt-5 mx-5">
               <h5 className="text-light">Popular Mobiles</h5>
-              <p className="text-light">iPhone 15 Pro</p>
-              <p className="text-light">Samsung Galaxy S22</p>
-              <p className="text-light">OnePlus12R</p>
-              <p className="text-light">Realme C67</p>
               <p className="text-light">Oppo A18</p>
-              <p className="text-light">Xiaomi Redmi Note 13</p>
-              <p className="text-light">Samsung Galaxy S23</p>
+              <p className="text-light">Realme C67</p>
+              <p className="text-light">OnePlus12R</p>
+              <p className="text-light">iPhone 15 Pro</p>
               <p className="text-light">Infinix 40 Pro</p>
+              <p className="text-light">Samsung Galaxy S22</p>
+              <p className="text-light">Samsung Galaxy S23</p>
+              <p className="text-light">Xiaomi Redmi Note 13</p>
             </div>
             <div className=" mt-5 mx-5">
               <h5 className="text-light">Popular Brands</h5>
-              <p className="text-light">Apple</p>
-              <p className="text-light">Samsung</p>
-              <p className="text-light">OnePlus</p>
-              <p className="text-light">Realme</p>
               <p className="text-light">Oppo</p>
+              <p className="text-light">Apple</p>
+              <p className="text-light">Realme</p>
               <p className="text-light">Xiaomi</p>
               <p className="text-light">Huawei</p>
+              <p className="text-light">OnePlus</p>
+              <p className="text-light">Samsung</p>
               <p className="text-light">Infinix</p>
             </div>
           </div>

@@ -112,14 +112,20 @@ const Battery = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selecte
   ['Battery', '5000 mAh', '5000 mAh', '', ''],
 ];
 
+const info = [ 
+  ['Battery', '5000 mAh', '', '', ''],
+];
   return (
       <div className='mx-lg-5'>
           <table className="custom-table">
-              <tbody>
+              <tbody className=''>
                   {data.map((row, rowIndex) => (
                       <tr key={rowIndex}>
                           {row.map((cell, colIndex) => (
-                              <td key={colIndex}>{cell}</td>
+                              <td key={colIndex}>
+                                 <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span>
+                                </td>
                           ))}
                       </tr>
                   ))}
@@ -134,7 +140,7 @@ const Battery = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selecte
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Battery</td>
+            <td><b>Battery</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.battery : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.battery : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.battery : ' '}</td>

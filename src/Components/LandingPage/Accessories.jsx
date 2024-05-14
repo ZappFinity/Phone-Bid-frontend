@@ -1,11 +1,11 @@
 import React from 'react'
 // img 
 import cable from '../img/Cable.svg'
-import charger from '../img/charger.svg'
 import cover from '../img/covers.svg'
+import charger from '../img/charger.svg'
 import airpods from '../img/Earpods.svg'
-import headphones from '../img/Headphones.svg'
 import protector from '../img/protector.svg'
+import headphones from '../img/Headphones.svg'
 
 function Accessories() {
   return (

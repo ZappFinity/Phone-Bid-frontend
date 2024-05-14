@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import Navbar from '../Navbar'
-import End from '../End'
-import { Link } from 'react-router-dom'
 import './Style.css'
+import End from '../End'
+import Navbar from '../Navbar'
+import { Link } from 'react-router-dom'
 
 function MyOrder() {
   const [user, setUser] = useState("");

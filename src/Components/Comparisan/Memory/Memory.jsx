@@ -128,7 +128,10 @@ const Memory = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
                   {data.map((row, rowIndex) => (
                       <tr key={rowIndex}>
                           {row.map((cell, colIndex) => (
-                              <td key={colIndex}>{cell}</td>
+                              <td key={colIndex}>
+                                 <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span>
+                                 </td>
                           ))}
                       </tr>
                   ))}
@@ -143,21 +146,21 @@ const Memory = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Internal Memory</td>
+            <td><b>Internal Memory</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.internal_memory : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.internal_memory : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.internal_memory : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.internal_memory : ' '}</td>
           </tr>
           <tr>
-            <td>RAM</td>
+            <td><b>RAM</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.ram : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.ram : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.ram : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.ram : ' '}</td>
           </tr>
           <tr>
-            <td>Card Slot</td>
+            <td><b>Card Slot</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.card_slot : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.card_slot : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.card_slot : ' '}</td>

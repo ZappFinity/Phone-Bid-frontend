@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import Navbar from '../../LandingPage/Navbar'
 import End from '../../LandingPage/End'
+import Navbar from '../../LandingPage/Navbar'
 
 function ChangePassword() {
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
 
   const handleChange = (e, setter) => {
     setter(e.target.value);

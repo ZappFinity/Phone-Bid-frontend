@@ -128,7 +128,10 @@ const Performance = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,sel
                   {data.map((row, rowIndex) => (
                       <tr key={rowIndex}>
                           {row.map((cell, colIndex) => (
-                              <td key={colIndex}>{cell}</td>
+                              <td key={colIndex}>
+                                <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span>
+                                </td>
                           ))}
                       </tr>
                   ))}
@@ -143,14 +146,14 @@ const Performance = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,sel
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Processor</td>
+            <td><b>Processor</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.processor : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.processor : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.processor : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.processor : ' '}</td>
           </tr>
           <tr>
-            <td>GPU</td>
+            <td><b>GPU</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.gpu : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.gpu : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.gpu : ' '}</td>

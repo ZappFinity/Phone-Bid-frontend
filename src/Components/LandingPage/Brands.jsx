@@ -1,15 +1,16 @@
 import React from 'react'
 // img 
-import apple from '../img/apple.svg'  
-import huawei from '../img/huawei.svg'
-import infinix  from '../img/infinix.png'
 import lg from '../img/lg.png'
-import oneplus from '../img/OnePlus-Logo.svg'
-import oppo from '../img/Oppo-Logo.svg'
-import samsung from '../img/Samsung-Logo.svg'
-import techno from '../img/tecno-logo.svg'
+import apple from '../img/apple.svg'  
 import realme from '../img/realme.png'
 import xiaomi from '../img/xiaomi.png'
+import huawei from '../img/huawei.svg'
+import oppo from '../img/Oppo-Logo.svg'
+import infinix  from '../img/infinix.png'
+import techno from '../img/tecno-logo.svg'
+import samsung from '../img/Samsung-Logo.svg'
+import oneplus from '../img/OnePlus-Logo.svg'
+
 function Brands() {
   return (
     <>

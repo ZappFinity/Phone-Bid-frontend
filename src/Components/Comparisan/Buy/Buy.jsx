@@ -1,6 +1,6 @@
 import React , {useState, useEffect}from 'react'
-import infinix from '../../img/infinix-zero-x-pro.svg'
 import xiaomi from '../../img/xiaomi-14.svg'
+import infinix from '../../img/infinix-zero-x-pro.svg'
  
 function Buy({ selectedMobileId1, selectedMobileId2, selectedMobileId3, selectedMobileId4}) {
     const [mobileData1, setMobileData1] = useState(null);

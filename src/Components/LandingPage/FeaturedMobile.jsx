@@ -1,9 +1,10 @@
 import React from 'react'
 // img 
+import {Link} from 'react-router-dom'
+import xiaomi from '../img/xiaomi-14.svg'
 import realme50 from '../img/realme-note-50.svg'
 import samsung from '../img/samsung-galaxy-a25.svg'
 import infinix from '../img/infinix-zero-x-pro.svg'
-import xiaomi from '../img/xiaomi-14.svg'
 
 function FeaturedMobile() {
   return (
@@ -12,8 +13,8 @@ function FeaturedMobile() {
         <div className="d-flex flex-row justify-content-around ">
           <h4 className="mt-5 d-none d-sm-block">Featured New Mobiles</h4>
           <h5 className="mt-5 d-sm-none mx-2">Featured New Mobiles</h5>
-          <p className="mt-5 text-primary d-none d-sm-block">View All Featured Mobiles</p>
-          <p5 className="mt-5 text-primary d-sm-none mx-2">View All Featured Mobiles</p5>
+          <Link to='/newmobile' className="mt-5 text-primary d-none d-sm-block text-decoration-none">View All Featured Mobiles</Link>
+          <Link to='/newmobile' className="mt-5 text-primary d-sm-none mx-2 text-decoration-none">View All Featured Mobiles</Link>
         </div>
         {/* on large screen  */}
         <div class="mt-2 d-flex flex-row justify-content-evenly d-none d-sm-flex">

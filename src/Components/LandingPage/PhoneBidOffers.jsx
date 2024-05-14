@@ -1,11 +1,12 @@
 import React from 'react'
 // img 
-import insurance from '../img/insurance.svg'
-import  sellme from '../img/sell-it-for-me.svg'
-import buy from '../img/buy-new-mobiles.svg'
 import pta from '../img/pta-approval.svg'
+import insurance from '../img/insurance.svg'
+import buy from '../img/buy-new-mobiles.svg'
+import sellme from '../img/sell-it-for-me.svg'
 import partner from '../img/phonebid-partner.svg'
 import inspection from '../img/mobile-inspection.svg'
+
 function PhoneBidOffers() {
   return (
     <>

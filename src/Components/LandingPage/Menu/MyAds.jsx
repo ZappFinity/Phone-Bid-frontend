@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
-import realme from "../../img/realme-c21.png";
+import './Style.css'
 import End from "../End";
 import Navbar from "../Navbar";
 import {Link} from 'react-router-dom'
-import './Style.css'
+import realme from "../../img/realme-c21.png";
 
 function MyAds() {
   const [user, setUser] = useState("");

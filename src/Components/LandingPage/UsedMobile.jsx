@@ -1,5 +1,5 @@
 import React from 'react'
-// img
+import {Link} from 'react-router-dom'
 import c15 from '../img/realme-c15.png'
 import c21 from '../img/realme-c21.png'
 import c13 from '../img/random-phone-0.png'
@@ -12,8 +12,8 @@ function UsedMobile() {
         <div className="d-flex flex-row justify-content-around ">
           <h4 className="mt-4 d-none d-sm-block ">Used Mobiles For Sales</h4>
           <h5 className="mt-4 d-sm-none mx-2">Used Mobiles For Sales</h5>
-          <p className="mt-4 text-primary d-none d-sm-block">View All Mobiles For Sales</p>
-          <p5 className="mt-4 text-primary d-sm-none mx-2">View All Mobiles For Sales</p5>
+          <Link to='/usedmobile' className="mt-4 text-primary d-none d-sm-block text-decoration-none">View All Mobiles For Sales</Link>
+          <Link to='/usedmobile' className="mt-4 text-primary d-sm-none mx-2 text-decoration-none">View All Mobiles For Sales</Link>
         </div>
         {/* on large screen  */}
         <div class="mt-3 d-flex flex-row justify-content-evenly d-none d-sm-flex ">

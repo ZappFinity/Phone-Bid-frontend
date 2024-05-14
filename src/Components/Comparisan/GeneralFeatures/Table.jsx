@@ -124,19 +124,22 @@ const Table = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selectedM
     ];
 
     return (
-        <div className='mx-lg-5'>
-            <table className="custom-table">
-                <tbody>
-                    {data.map((row, rowIndex) => (
-                        <tr key={rowIndex}>
-                            {row.map((cell, colIndex) => (
-                                <td key={colIndex}>{cell}</td>
-                            ))}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+      <div className='mx-lg-5'>
+      <table className="custom-table">
+          <tbody>
+              {data.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                      {row.map((cell, colIndex) => (
+                          <td key={colIndex}>
+                                 <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span>
+                          </td>
+                      ))}
+                  </tr>
+              ))}
+          </tbody>
+      </table>
+  </div>
     );
 }
 
@@ -145,21 +148,21 @@ const Table = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selectedM
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Release Date</td>
+            <td><b>Release Date</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.release_date : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.release_date : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.release_date : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.release_date : ' '}</td>
           </tr>
           <tr>
-            <td>SIM Support</td>
+            <td><b>SIM Support</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.sim_support : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.sim_support : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.sim_support : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.sim_support : ' '}</td>
           </tr>
           <tr>
-            <td>Operating System</td>
+            <td><b>Operating System</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.operating_system : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.operating_system : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.operating_system : ' '}</td>
@@ -167,14 +170,14 @@ const Table = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selectedM
 
           </tr>
           <tr>
-            <td>Phone Weight</td>
+            <td><b>Phone Weight</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.phone_weight : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.phone_weight : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.phone_weight : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.phone_weight : ' '}</td>
           </tr>
           <tr>
-            <td>Phone Dimension</td>
+            <td><b>Phone Dimension</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.phone_dimensions : ''}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.phone_dimensions : ''}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.phone_dimensions : ''}</td>

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
-import Navbar from '../Navbar'
-import End from '../End'
 import './Style.css'
+import End from '../End'
+import Navbar from '../Navbar'
+import {Link} from 'react-router-dom'
 
 function MyMobiles() {
   const [user, setUser] = useState("");

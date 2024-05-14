@@ -129,7 +129,10 @@ const Camera = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
                     {data.map((row, rowIndex) => (
                         <tr key={rowIndex}>
                             {row.map((cell, colIndex) => (
-                                <td key={colIndex}>{cell}</td>
+                                <td key={colIndex}>
+                                  <span className='d-none d-sm-block'>{colIndex === 0 ? <b>{cell}</b> : cell} </span>
+                                <span className='d-sm-none'> {colIndex === 0 ? <b>{cell}</b> : cell && colIndex == 1 ? cell : null} </span> 
+                                  </td>
                             ))}
                         </tr>
                     ))}
@@ -144,21 +147,21 @@ const Camera = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
       <table className="custom-table">
       <tbody>
       <tr>
-            <td>Front Camera</td>
+            <td><b>Front Camera</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.front_camera : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.front_camera : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.front_camera : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.front_camera : ' '}</td>
           </tr>
           <tr>
-            <td>Front Flash</td>
+            <td><b>Front Flash</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.front_flash : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.front_flash : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.front_flash : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.front_flash : ' '}</td>
           </tr>
           <tr>
-            <td>Front Video Recording</td>
+            <td><b>Front Video Recording</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.front_video_recording : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.front_video_recording : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.front_video_recording : ' '}</td>
@@ -166,21 +169,21 @@ const Camera = ({ selectedMobileId1,selectedMobileId2,selectedMobileId3,selected
 
           </tr>
           <tr>
-            <td>Back Camera</td>
+            <td><b>Back Camera</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.back_camera : ' '}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.back_camera : ' '}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.back_camera : ' '}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.back_camera : ' '}</td>
           </tr>
           <tr>
-            <td>Back Flash</td>
+            <td><b>Back Flash</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.back_flash : ''}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.back_flash : ''}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.back_flash : ''}</td>
             <td>{mobileData4 && mobileData4.data ? mobileData4.data.back_flash : ''}</td>
           </tr>
           <tr>
-            <td>Back Video Recording</td>
+            <td><b>Back Video Recording</b></td>
             <td>{mobileData && mobileData.data ? mobileData.data.back_video_recording : ''}</td>
             <td>{mobileData2 && mobileData2.data ? mobileData2.data.back_video_recording : ''}</td>
             <td>{mobileData3 && mobileData3.data ? mobileData3.data.back_video_recording : ''}</td>

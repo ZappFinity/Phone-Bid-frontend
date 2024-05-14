@@ -1,26 +1,26 @@
 import React, { useState, useRef, useEffect } from "react";
 import Welcome from "./Welcome";
 import logo from "../img/logo.png";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
-import { IoMdArrowDropdown } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
-import { BsFillTagFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import { MdCheckBox } from "react-icons/md";
-import { FaRegThumbsUp } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
 import { FaMobileAlt } from "react-icons/fa";
-import { IoSearchOutline } from "react-icons/io5";
 import { MdRateReview } from "react-icons/md";
-import { MdOutlineDifference } from "react-icons/md";
+import { FaRegThumbsUp } from "react-icons/fa";
+import { BsFillTagFill } from "react-icons/bs";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoSearchOutline } from "react-icons/io5";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowForward } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { MdOutlineDifference } from "react-icons/md";
 
 
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [accessDropdown, setAccessDropdown] = useState(false);
 
   const toggleMenu = () => {
@@ -92,10 +92,10 @@ function Navbar() {
             }}
             onClick={handledropdown}
           >
-            <p className="mt-2">
+            <Link to='/usedmobile' className="mt-2">
               Used Mobiles
               <IoMdArrowDropdown />
-            </p>
+            </Link>
 
             {showDropdown && (
               <div
@@ -103,6 +103,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.5rem",
                   left: "7rem",
+                  zIndex: '3',
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -141,10 +142,10 @@ function Navbar() {
             }}
             onClick={handleItemClick}
           >
-            <p className="mt-2">
+            <Link to='/newmobile' className="mt-2 text-decoration-none">
               New Mobiles
               <IoMdArrowDropdown />
-            </p>
+            </Link>
 
             {newDropdown && (
               <div
@@ -152,6 +153,7 @@ function Navbar() {
                   position: "absolute",
                   top: "9rem",
                   left: "7rem",
+                  zIndex: '1',
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -198,6 +200,7 @@ function Navbar() {
                   position: "absolute",
                   top: "12rem",
                   left: "7rem",
+                  zIndex: '1',
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -274,10 +277,10 @@ function Navbar() {
             }}
             onClick={handledropdown}
           >
-            <p className="mt-2">
+            <Link to='/usedmobile' className="mt-2 d-flex align-items-center text-decoration-none text-black">
               Used Mobiles
               <IoMdArrowDropdown />
-            </p>
+            </Link>
 
             {showDropdown && (
               <div
@@ -285,6 +288,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.25rem",
                   left: "10rem",
+                  zIndex: '3',
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -409,10 +413,10 @@ function Navbar() {
             }}
             onClick={handleItemClick}
           >
-            <p className="mt-2 mx-3">
+            <Link to ='/newmobile' className="mt-2 mx-3 d-flex align-items-center text-decoration-none text-black">
               New Mobiles
               <IoMdArrowDropdown />
-            </p>
+            </Link>
 
             {newDropdown && (
               <div
@@ -420,6 +424,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.29rem",
                   left: "22rem",
+                  zIndex: '1',
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -542,6 +547,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.29rem",
                   left: "32rem",
+                  zIndex: '1',
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -644,9 +650,9 @@ function Navbar() {
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="#">
+          <Link class="nav-link active text-dark" aria-current="page" >
             Mobile Repair
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
           <a class="nav-link active text-dark" aria-current="page" href="#">

@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import Navbar from '../LandingPage/Navbar'
-import End from '../LandingPage/End'
-import Table from '../Comparisan/GeneralFeatures/Table'
-import DisplayData from './Display/DisplayData'
-import Memory from './Memory/Memory'
-import Performance from '../Comparisan/Performance/Performance'
-import Battery from './Battery/Battery'
-import Camera from './Camera/Camera'
-import Connectivity from '../Comparisan/Connectivity/Connectivity'
 import Buy from './Buy/Buy'
+import Camera from './Camera/Camera'
+import Memory from './Memory/Memory'
+import End from '../LandingPage/End'
+import Battery from './Battery/Battery'
+import Navbar from '../LandingPage/Navbar'
+import DisplayData from './Display/DisplayData'
+import Table from '../Comparisan/GeneralFeatures/Table'
+import Performance from '../Comparisan/Performance/Performance'
+import Connectivity from '../Comparisan/Connectivity/Connectivity'
 
 function Comparisan() {
   const [inputValue1, setInputValue1] = useState('');

@@ -1,10 +1,11 @@
 import React from 'react'
 // img 
-import accessories from '../img/accessories.png'
+import repair from '../img/repair.png'
 import bidding from '../img/bidding.png'
 import mobile from '../img/new-mobiles.jpg'
-import repair from '../img/repair.png'
+import accessories from '../img/accessories.png'
 import usedMobile from '../img/used-mobiles.jpg'
+
 function Categories() {
   return (
     <>

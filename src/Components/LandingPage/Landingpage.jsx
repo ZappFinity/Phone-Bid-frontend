@@ -1,27 +1,22 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./Style.css";
-import Accessories from "../LandingPage/Accessories";
-import Categories from "../LandingPage/Categories";
-import FeaturedMobile from "./FeaturedMobile";
-import UsedMobile from "./UsedMobile";
-import Brands from "./Brands";
-import PhoneBidOffers from "./PhoneBidOffers";
-
-//images
-import review1 from "../img/review1.png";
-import review2 from "../img/review2.png";
-import comparison from "../img/comparison.png";
-import slider from "../img/Slider.svg";
-// icons
-import { IoSearch } from "react-icons/io5";
-import { TiTick } from "react-icons/ti";
-// router
-import Navbar from "./Navbar";
-// router
-import { Link } from "react-router-dom";
 import End from "./End";
+import Brands from "./Brands";
+import Navbar from "./Navbar";
+import UsedMobile from "./UsedMobile";
+import slider from "../img/Slider.svg";
+import { Link } from "react-router-dom";
+import { TiTick } from "react-icons/ti";
+import review2 from "../img/review2.png";
+import review1 from "../img/review1.png";
+import { IoSearch } from "react-icons/io5";
 import BrowsedMobile from "./BrowsedMobile";
+import FeaturedMobile from "./FeaturedMobile";
+import PhoneBidOffers from "./PhoneBidOffers";
+import "bootstrap/dist/css/bootstrap.min.css";
+import comparison from "../img/comparison.png";
+import Categories from "../LandingPage/Categories";
+import Accessories from "../LandingPage/Accessories";
 
 function App() {
   return (
