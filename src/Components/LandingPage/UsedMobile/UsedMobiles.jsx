@@ -850,7 +850,7 @@ function UsedMobiles() {
                             <img
                               src={mobile.image}
                               className="mt-4 mx-4 mb-3"
-                              style={{ height: "8rem", width: "8rem" }}
+                              style={{ height: "8rem", width: "5rem" }}
                             />
                           </div>
                           <div className="d-flex flex-column mt-3 mb-3">
@@ -984,7 +984,7 @@ function UsedMobiles() {
                             <img
                               src={mobile.image}
                               className="mt-4 mx-4 mb-3"
-                              style={{ height: "8rem", width: "8rem" }}
+                              style={{ height: "8rem", width: "5rem" }}
                             />
                           </div>
                           <div className="d-flex flex-column mt-3 mb-3">
@@ -1062,7 +1062,7 @@ function UsedMobiles() {
                             <img
                               src={mobile.image}
                               className="mt-3 mx-4 mb-3"
-                              style={{ height: "8rem", width: "8rem" }}
+                              style={{ height: "8rem", width: "5rem" }}
                             />
                           </div>
                           <div className="d-flex flex-column mt-3 mb-3">

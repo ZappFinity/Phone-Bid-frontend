@@ -5,12 +5,120 @@ import airbuds from "../../img/airbuds.jpeg";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 function NewMobiles() {
+  const [data, setData] = useState([]);
   const [price, setPrice] = useState(false);
   const [brand, setBrand] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [sorting, setSorting] = useState(false);
   const [accessories, setAccessories] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
+  const [searchInitiated, setSearchInitiated] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState([]);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8000/api/accessories/list",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const responseData = await response.json();
+          setData(responseData.data || []);
+          setFilter(responseData.data || []);
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleGoClick = () => {
+    const lowerCaseSearch = search.toLowerCase();
+    const filtered = data.filter((accessories) =>
+      accessories.name.toLowerCase().includes(lowerCaseSearch)
+    );
+    console.log("Filtered Data:", filtered);
+    setFilter(filtered);
+    setSearchInitiated(true);
+
+    if (filtered.length === 0) {
+      setNotFound(true);
+    } else {
+      setNotFound(false);
+    }
+    };
+
+  const handleAccessoriesBrand = (brand) => {
+    brand = brand.trim();
+    const filteredProducts = data.filter((product) => {
+      const matches = product.brand.includes(brand);
+      return matches;
+    });
+    console.log("Filtered products:", filteredProducts);
+    setFilter(filteredProducts);
+    setSearch("");
+  };
+
+  const handlePrice = (price) => {
+    const filteredProducts = data.filter((product) => {
+      const priceRange = parseInt(product.price, 10);
+      if (price === "Below Rs. 2,000") {
+        return priceRange <= 2000;
+      } else if (price === "Rs. 2,000 - Rs. 4,000") {
+        return priceRange > 2000 && priceRange <= 4000;
+      } else if (price === "Rs. 4,000 - Rs. 6,000") {
+        return priceRange > 4000 && priceRange <= 6000;
+      } else if (price === "Rs. 6,000 - Rs. 8,000") {
+        return priceRange > 6000 && priceRange <= 8000;
+      } else if (price === "Above Rs. 8,000") {
+        return priceRange > 8000;
+      }
+    });
+
+    console.log("Filtered products:", filteredProducts);
+
+    if (filteredProducts.length === 0) {
+      setFilter([]);
+      setNotFound(true);
+    } else {
+      setFilter(filteredProducts);
+      setNotFound(false);
+    }
+  };
+
+  const handleType = (type) => {
+    type = type.trim();
+    const filteredProducts = data.filter((product) => {
+      const matches = product.type.includes(type);
+      return matches;
+    });
+    console.log("Filtered products:", filteredProducts);
+    if (filteredProducts.length === 0) {
+      setFilter([]);
+      setNotFound(true);
+    } else {
+      setFilter(filteredProducts);
+      setNotFound(false);
+    }
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -46,7 +154,7 @@ function NewMobiles() {
   const handleAccessories = () => {
     setAccessories(!accessories);
   };
-  const handleprice = (e) => {
+  const handleprice = () => {
     setPrice(!price);
   };
   const handleBrand = () => {
@@ -105,11 +213,13 @@ function NewMobiles() {
                         type="text"
                         placeholder="search ..."
                         onClick={(e) => e.stopPropagation()}
+                        onChange={handleSearchChange}
                       />
                       <button
                         class="btn btn-outline-secondary text-white"
                         type="button"
                         style={{ backgroundColor: "#233d7b" }}
+                        onClick={handleGoClick}
                       >
                         Go
                       </button>
@@ -192,12 +302,20 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                      <span>Headphones</span>
-                      <span>Cables</span>
-                      <span>Chargers</span>
-                      <sapn>Earpods</sapn>
-                      <span>Covers</span>
-                      <span>Screen Protector</span>
+                      <span onClick={() => handleType("Headphones")}>
+                        Headphones
+                      </span>
+                      <span onClick={() => handleType("Power Bank")}>
+                        Power Bank
+                      </span>
+                      <span onClick={() => handleType("Chargers")}>
+                        Chargers
+                      </span>
+                      <sapn onClick={() => handleType("Earbuds")}>Earbuds</sapn>
+                      <span onClick={() => handleType("Covers")}>Covers</span>
+                      <span onClick={() => handleType("Screen Protector")}>
+                        Screen Protector
+                      </span>
                     </div>
                   </div>
                 )}
@@ -236,11 +354,27 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                      <span>Below Rs. 2,000</span>
-                      <span>Rs. 2,000 - Rs. 4,000</span>
-                      <span>Rs. 4,000 - Rs. 6,000</span>
-                      <span>Rs. 6,000 - Rs. 8,000</span>
-                      <span>Above Rs. 8,000</span>
+                      <span onClick={() => handlePrice("Below Rs. 2,000")}>
+                        Below Rs. 2,000
+                      </span>
+                      <span
+                        onClick={() => handlePrice("Rs. 2,000 - Rs. 4,000")}
+                      >
+                        Rs. 2,000 - Rs. 4,000
+                      </span>
+                      <span
+                        onClick={() => handlePrice("Rs. 4,000 - Rs. 6,000")}
+                      >
+                        Rs. 4,000 - Rs. 6,000
+                      </span>
+                      <span
+                        onClick={() => handlePrice("Rs. 6,000 - Rs. 8,000")}
+                      >
+                        Rs. 6,000 - Rs. 8,000
+                      </span>
+                      <span onClick={() => handlePrice("Above Rs. 8,000")}>
+                        Above Rs. 8,000
+                      </span>
                     </div>
                   </div>
                 )}
@@ -279,16 +413,36 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                      <span>Audionic</span>
-                      <span>Remax </span>
-                      <span>Romoss</span>
-                      <span>Anker</span>
-                      <span>Mi</span>
-                      <span>JBL</span>
-                      <span>Airox</span>
-                      <span>Amezfit</span>
-                      <span>Oppo</span>
-                      <span>Tronsmart</span>
+                      <span onClick={() => handleAccessoriesBrand("Audionic")}>
+                        Audionic
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Remax")}>
+                        Remax{" "}
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Romoss")}>
+                        Romoss
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Max")}>
+                        Max
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Mi")}>
+                        Mi
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("JBL")}>
+                        JBL
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Airox")}>
+                        Airox
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Mibro")}>
+                        Mibro
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Oppo")}>
+                        Oppo
+                      </span>
+                      <span onClick={() => handleAccessoriesBrand("Tromsmart")}>
+                        Tronsmart
+                      </span>
                     </div>
                   </div>
                 )}
@@ -298,25 +452,57 @@ function NewMobiles() {
 
           <div className="container mt-3 pb-5 d-sm-flex d-none">
             <div className="row row-cols-3 row-cols-md-1 mx-0">
-              <div className="col" style={{ width: "18rem", height: "18rem" }}>
-                <div
-                  className="card"
-                  style={{
-                    boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <div className="card-body d-flex flex-column justify-content-center align-item-center">
-                    <img
-                      src={airbuds}
-                      style={{ width: "4.5rem", height: "8rem" }}
-                    />
-                    <p className="card-title mt-2 mb-2">Audionic Airbuds 500</p>
-                    <p>
-                      <b>Rs. 3,999</b>
-                    </p>
-                  </div>
+              {searchInitiated && notFound  ? (
+                <div>
+                  <p
+                    style={{
+                      position: "relative",
+                      top: "10rem",
+                      left: "20rem",
+                      color: "black",
+                      backgroundColor: "#fff",
+                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                      borderRadius: "4px",
+                      width: "10rem",
+                      paddingLeft: "15px ",
+                      paddingRight: "15px",
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                    }}
+                  >
+                    No results found
+                  </p>
                 </div>
-              </div>
+              ) : (
+                filter.map((accessories) => (
+                  <div
+                    className="col"
+                    style={{ width: "18rem", height: "18rem" }}
+                    key={accessories.id}
+                  >
+                    <div
+                      className="card"
+                      style={{
+                        boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
+                      }}
+                    >
+                      <div className="card-body d-flex flex-column col-sm-9 justify-content-center align-item-center">
+                        <img
+                          src={accessories.image}
+                          className="offset-5"
+                          style={{ width: "4.5rem", height: "6rem" }}
+                        />
+                        <p className="card-title mt-2 mb-2">
+                          {accessories.name}
+                        </p>
+                        <p>
+                          <b>{accessories.price}</b>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>

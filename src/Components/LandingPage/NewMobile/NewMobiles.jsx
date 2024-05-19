@@ -18,9 +18,7 @@ function NewMobiles() {
   const [notFound, setNotFound] = useState(false);
   const [features, setFeatures] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
-  const [priceRange, setPriceRange] = useState({ min: '', max: '' });
-
-
+  const [priceRange, setPriceRange] = useState({ min: "", max: "" });
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -48,7 +46,6 @@ function NewMobiles() {
     fetchUserData();
   }, []);
 
-
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
@@ -60,63 +57,63 @@ function NewMobiles() {
     );
     console.log("Filtered Data:", filtered);
     setFilter(filtered);
-  
   };
 
   const handlePriceClick = () => {
-    const min = parseFloat(priceRange.min.replace(/,/g, ''));
-    const max = parseFloat(priceRange.max.replace(/,/g, ''));
+    const min = parseFloat(priceRange.min.replace(/,/g, ""));
+    const max = parseFloat(priceRange.max.replace(/,/g, ""));
     if (!isNaN(min) && !isNaN(max)) {
-      const filtered = data.filter(item => {
-        const itemPrice = parseFloat(item.price.replace(/,/g, '').split(' ')[1]);
+      const filtered = data.filter((item) => {
+        const itemPrice = parseFloat(
+          item.price.replace(/,/g, "").split(" ")[1]
+        );
         const matches = itemPrice >= min && itemPrice <= max;
         return matches;
       });
-      
-      console.log('filter', filtered);
+
+      console.log("filter", filtered);
       setFilter(filtered);
     }
   };
 
   const handleCameraClick = (cameraType) => {
     console.log("Camera type:", cameraType);
-    cameraType = cameraType.trim(); 
-    const filteredProducts = data.filter(product => {
+    cameraType = cameraType.trim();
+    const filteredProducts = data.filter((product) => {
       const matches = product.back_camera.includes(cameraType);
       return matches;
-      
     });
-  console.log("Filtered products:", filteredProducts);
-  setFilter(filteredProducts);
-  setSearch("");
+    console.log("Filtered products:", filteredProducts);
+    setFilter(filteredProducts);
+    setSearch("");
   };
 
   const handleMobileBrand = (brand) => {
     brand = brand.trim();
-    const filteredProducts = data.filter(product => {
+    const filteredProducts = data.filter((product) => {
       const matches = product.name.includes(brand);
       return matches;
-    })
+    });
     console.log("Filtered products:", filteredProducts);
 
     if (filteredProducts.length === 0) {
-      setFilter([]); 
-      setNotFound(true); 
+      setFilter([]);
+      setNotFound(true);
     } else {
-      setFilter(filteredProducts); 
+      setFilter(filteredProducts);
       setNotFound(false);
     }
-  }
+  };
 
   const handleMobileFeatures = (feature) => {
-    const filteredProducts = data.filter(product => {
+    const filteredProducts = data.filter((product) => {
       return product[feature] === "Yes" || product[feature] === "Available";
     });
     setFilter(filteredProducts);
-  }
+  };
 
   const handleScreenSize = (size) => {
-    const filteredProducts = data.filter(product => {
+    const filteredProducts = data.filter((product) => {
       const screenSize = parseFloat(product.screen_size.replace(" inches", ""));
       if (size === "4 inch") {
         return screenSize <= 4.0;
@@ -134,18 +131,18 @@ function NewMobiles() {
     console.log("Filtered products:", filteredProducts);
 
     if (filteredProducts.length === 0) {
-      setFilter([]); 
-      setNotFound(true); 
+      setFilter([]);
+      setNotFound(true);
     } else {
       setFilter(filteredProducts);
-      setNotFound(false); 
+      setNotFound(false);
     }
-  }
+  };
 
   const handleMobileRam = (ram) => {
-    ram = ram.trim(); 
-    const filteredProducts = data.filter(product => {
-      const matches = parseFloat(product.ram.replace('GB'," "));
+    ram = ram.trim();
+    const filteredProducts = data.filter((product) => {
+      const matches = parseFloat(product.ram.replace("GB", " "));
       if (ram === "1GB or less") {
         return matches <= 1;
       } else if (ram === "2GB") {
@@ -157,36 +154,32 @@ function NewMobiles() {
       } else if (ram === "6GB or more") {
         return matches >= 6;
       }
-      
     });
-  console.log("Filtered products:", filteredProducts);
-  if (filteredProducts.length === 0) {
-    setFilter([]); 
-    setNotFound(true); 
-  } else {
-    setFilter(filteredProducts);
-    setNotFound(false); 
-  }
+    console.log("Filtered products:", filteredProducts);
+    if (filteredProducts.length === 0) {
+      setFilter([]);
+      setNotFound(true);
+    } else {
+      setFilter(filteredProducts);
+      setNotFound(false);
+    }
   };
-
 
   const handleMobileMemory = (memory) => {
-    memory = memory.trim(); 
-    const filteredProducts = data.filter(product => {
+    memory = memory.trim();
+    const filteredProducts = data.filter((product) => {
       const matches = product.internal_memory.includes(memory);
-      return matches
-      
+      return matches;
     });
-  console.log("Filtered products:", filteredProducts);
-  if (filteredProducts.length === 0) {
-    setFilter([]); 
-    setNotFound(true); 
-  } else {
-    setFilter(filteredProducts);
-    setNotFound(false); 
-  }
+    console.log("Filtered products:", filteredProducts);
+    if (filteredProducts.length === 0) {
+      setFilter([]);
+      setNotFound(true);
+    } else {
+      setFilter(filteredProducts);
+      setNotFound(false);
+    }
   };
-
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -197,15 +190,15 @@ function NewMobiles() {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-          setRam(false);
-          setCity(false);
-          setPrice(false);
-          setBrand(false);
-          setScreen(false);
-          setMemory(false);
-          setCamera(false);
-          setFeatures(false);
-          setNewDropdown(false);
+        setRam(false);
+        setCity(false);
+        setPrice(false);
+        setBrand(false);
+        setScreen(false);
+        setMemory(false);
+        setCamera(false);
+        setFeatures(false);
+        setNewDropdown(false);
       }
     };
 
@@ -241,10 +234,10 @@ function NewMobiles() {
   };
   const handleScreen = () => {
     setScreen(!screen);
-  }
+  };
   const handleFeatures = () => {
     setFeatures(!features);
-  }
+  };
 
   return (
     <>
@@ -293,13 +286,13 @@ function NewMobiles() {
                     }}
                   >
                     <div class="input-group w-100">
-                    <input
-        className='form-control'
-          type="text"
-          placeholder="Iphone"
-          onClick={(e) => e.stopPropagation()}
-          onChange={handleSearchChange}
-        />
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Iphone"
+                        onClick={(e) => e.stopPropagation()}
+                        onChange={handleSearchChange}
+                      />
                       <button
                         class="btn btn-outline-secondary text-white"
                         type="button"
@@ -392,7 +385,9 @@ function NewMobiles() {
                         placeholder="From"
                         onClick={(e) => e.stopPropagation()}
                         value={priceRange.min}
-                        onChange={e => setPriceRange({ ...priceRange, min: e.target.value })}
+                        onChange={(e) =>
+                          setPriceRange({ ...priceRange, min: e.target.value })
+                        }
                       />
                       <input
                         type="text"
@@ -400,7 +395,9 @@ function NewMobiles() {
                         placeholder="To"
                         onClick={(e) => e.stopPropagation()}
                         value={priceRange.max}
-                        onChange={e => setPriceRange({ ...priceRange, max: e.target.value })}
+                        onChange={(e) =>
+                          setPriceRange({ ...priceRange, max: e.target.value })
+                        }
                       />
                       <button
                         class="btn btn-outline-secondary text-white"
@@ -448,9 +445,15 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                    <span onClick={() => handleCameraClick("108 MP")}>Minimum 108 MP</span>
-          <span onClick={() => handleCameraClick("48 MP")}>Minimum 48 MP</span>
-          <span onClick={() => handleCameraClick("13 MP")}>Minimum 13 MP</span>
+                      <span onClick={() => handleCameraClick("108 MP")}>
+                        Minimum 108 MP
+                      </span>
+                      <span onClick={() => handleCameraClick("48 MP")}>
+                        Minimum 48 MP
+                      </span>
+                      <span onClick={() => handleCameraClick("13 MP")}>
+                        Minimum 13 MP
+                      </span>
                     </div>
                   </div>
                 )}
@@ -489,11 +492,15 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileRam("1GB or less")}>1 GB or Less</span>
+                      <span onClick={() => handleMobileRam("1GB or less")}>
+                        1 GB or Less
+                      </span>
                       <span onClick={() => handleMobileRam("2GB")}>2 GB</span>
                       <span onClick={() => handleMobileRam("3GB")}>3 GB</span>
                       <span onClick={() => handleMobileRam("4GB")}>4 GB</span>
-                      <span onClick={() => handleMobileRam("6GB or more")}>6 GB or More</span>
+                      <span onClick={() => handleMobileRam("6GB or more")}>
+                        6 GB or More
+                      </span>
                     </div>
                   </div>
                 )}
@@ -532,14 +539,30 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileMemory("4GB")}>4 GB </span>
-                      <span onClick={() => handleMobileMemory("8GB")}>8 GB</span>
-                      <span onClick={() => handleMobileMemory("16GB")}>16 GB</span>
-                      <span onClick={() => handleMobileMemory("31GB")}>31 GB</span>
-                      <span onClick={() => handleMobileMemory("64GB")}>64 GB</span>
-                      <span onClick={() => handleMobileMemory("128GB")}>128 GB</span>
-                      <span onClick={() => handleMobileMemory("256GB")}>256 GB</span>
-                      <span onClick={() => handleMobileMemory("512GB")}>512 GB</span>
+                      <span onClick={() => handleMobileMemory("4GB")}>
+                        4 GB{" "}
+                      </span>
+                      <span onClick={() => handleMobileMemory("8GB")}>
+                        8 GB
+                      </span>
+                      <span onClick={() => handleMobileMemory("16GB")}>
+                        16 GB
+                      </span>
+                      <span onClick={() => handleMobileMemory("31GB")}>
+                        31 GB
+                      </span>
+                      <span onClick={() => handleMobileMemory("64GB")}>
+                        64 GB
+                      </span>
+                      <span onClick={() => handleMobileMemory("128GB")}>
+                        128 GB
+                      </span>
+                      <span onClick={() => handleMobileMemory("256GB")}>
+                        256 GB
+                      </span>
+                      <span onClick={() => handleMobileMemory("512GB")}>
+                        512 GB
+                      </span>
                     </div>
                   </div>
                 )}
@@ -578,25 +601,63 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                    <span onClick={() => handleMobileBrand("Redmi")}>Redmi</span>
-                      <span onClick={() => handleMobileBrand("Samsung")}>Samsung </span>
-                      <span onClick={() => handleMobileBrand("Infinix")}>Infinix</span>
-                      <span onClick={() => handleMobileBrand("Oppo")}>Oppo</span>
-                      <span onClick={() => handleMobileBrand("Apple")}>Apple</span>
-                      <span onClick={() => handleMobileBrand("Asus")}>Asus</span>
-                      <span onClick={() => handleMobileBrand("Alcatel")}>Alcatel</span>
-                      <span onClick={() => handleMobileBrand("Itel")}>itel</span>
-                      <span onClick={() => handleMobileBrand("Google")}>Google</span>
-                      <span onClick={() => handleMobileBrand("Oneplus")}>Oneplus</span>
-                      <span onClick={() => handleMobileBrand("Haier")}>Haier</span>
-                      <span onClick={() => handleMobileBrand("Huawei")}>Huawei</span>
-                      <span onClick={() => handleMobileBrand("Nokia")}>Nokia</span>
-                      <span onClick={() => handleMobileBrand("Motorola")}>Motorola</span>
-                      <span onClick={() => handleMobileBrand("Sony")}>Sony</span>
-                      <span onClick={() => handleMobileBrand("Vivo")}>Vivo</span>
-                      <span onClick={() => handleMobileBrand("Realme")}>Realme</span>
-                      <span onClick={() => handleMobileBrand("Lenovo")}>Lenovo</span>
-                      <span onClick={() => handleMobileBrand("Xaiomi")}>Xiaomi</span>
+                      <span onClick={() => handleMobileBrand("Redmi")}>
+                        Redmi
+                      </span>
+                      <span onClick={() => handleMobileBrand("Samsung")}>
+                        Samsung{" "}
+                      </span>
+                      <span onClick={() => handleMobileBrand("Infinix")}>
+                        Infinix
+                      </span>
+                      <span onClick={() => handleMobileBrand("Oppo")}>
+                        Oppo
+                      </span>
+                      <span onClick={() => handleMobileBrand("Apple")}>
+                        Apple
+                      </span>
+                      <span onClick={() => handleMobileBrand("Asus")}>
+                        Asus
+                      </span>
+                      <span onClick={() => handleMobileBrand("Alcatel")}>
+                        Alcatel
+                      </span>
+                      <span onClick={() => handleMobileBrand("Itel")}>
+                        itel
+                      </span>
+                      <span onClick={() => handleMobileBrand("Google")}>
+                        Google
+                      </span>
+                      <span onClick={() => handleMobileBrand("Oneplus")}>
+                        Oneplus
+                      </span>
+                      <span onClick={() => handleMobileBrand("Haier")}>
+                        Haier
+                      </span>
+                      <span onClick={() => handleMobileBrand("Huawei")}>
+                        Huawei
+                      </span>
+                      <span onClick={() => handleMobileBrand("Nokia")}>
+                        Nokia
+                      </span>
+                      <span onClick={() => handleMobileBrand("Motorola")}>
+                        Motorola
+                      </span>
+                      <span onClick={() => handleMobileBrand("Sony")}>
+                        Sony
+                      </span>
+                      <span onClick={() => handleMobileBrand("Vivo")}>
+                        Vivo
+                      </span>
+                      <span onClick={() => handleMobileBrand("Realme")}>
+                        Realme
+                      </span>
+                      <span onClick={() => handleMobileBrand("Lenovo")}>
+                        Lenovo
+                      </span>
+                      <span onClick={() => handleMobileBrand("Xaiomi")}>
+                        Xiaomi
+                      </span>
                     </div>
                   </div>
                 )}
@@ -635,11 +696,29 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                    <span onClick={() => handleScreenSize("4 inch")}>4 inch</span>
-        <span onClick={() => handleScreenSize("4.0 inch to 4.5 inch")}>4.0 inch to 4.5 inch</span>
-        <span onClick={() => handleScreenSize("4.5 inch to 5.0 inch")}>4.5 inch to 5.0 inch</span>
-        <span onClick={() => handleScreenSize("5.0 inch to 5.5 inch")}>5.0 inch to 5.5 inch</span>
-        <span onClick={() => handleScreenSize("5.5 inch to 6.9 inch")}>5.5 inch to 6.9 inch</span>
+                      <span onClick={() => handleScreenSize("4 inch")}>
+                        4 inch
+                      </span>
+                      <span
+                        onClick={() => handleScreenSize("4.0 inch to 4.5 inch")}
+                      >
+                        4.0 inch to 4.5 inch
+                      </span>
+                      <span
+                        onClick={() => handleScreenSize("4.5 inch to 5.0 inch")}
+                      >
+                        4.5 inch to 5.0 inch
+                      </span>
+                      <span
+                        onClick={() => handleScreenSize("5.0 inch to 5.5 inch")}
+                      >
+                        5.0 inch to 5.5 inch
+                      </span>
+                      <span
+                        onClick={() => handleScreenSize("5.5 inch to 6.9 inch")}
+                      >
+                        5.5 inch to 6.9 inch
+                      </span>
                     </div>
                   </div>
                 )}
@@ -678,14 +757,26 @@ function NewMobiles() {
                     }}
                   >
                     <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileFeatures("back_flash")}>Flash Light </span>
-                      <span onClick={() => handleMobileFeatures("Auto Focus")}>Auto Focus</span>
-                      <span onClick={() => handleMobileFeatures("bluetooth")}>Bluetooth</span>
+                      <span onClick={() => handleMobileFeatures("back_flash")}>
+                        Flash Light{" "}
+                      </span>
+                      <span onClick={() => handleMobileFeatures("Auto Focus")}>
+                        Auto Focus
+                      </span>
+                      <span onClick={() => handleMobileFeatures("bluetooth")}>
+                        Bluetooth
+                      </span>
                       <span onClick={() => handleMobileFeatures("3G")}>3G</span>
-                      <span onClick={() => handleMobileFeatures("4G/LTE")}>4G / LTE</span>
+                      <span onClick={() => handleMobileFeatures("4G/LTE")}>
+                        4G / LTE
+                      </span>
                       <span onClick={() => handleMobileFeatures("5G")}>5G</span>
-                      <span onClick={() => handleMobileFeatures("wifi")}>Wifi</span>
-                      <span onClick={() => handleMobileFeatures("nfc")}>NFC</span>
+                      <span onClick={() => handleMobileFeatures("wifi")}>
+                        Wifi
+                      </span>
+                      <span onClick={() => handleMobileFeatures("nfc")}>
+                        NFC
+                      </span>
                     </div>
                   </div>
                 )}
@@ -693,55 +784,58 @@ function NewMobiles() {
             </p>
           </div>
 
-<div className="container mt-3 pb-5 d-sm-flex d-none">
-  <div className="row row-cols-3 row-cols-md-1 mx-0">
-    {search || notFound &&  filter.length === 0 ? (
-      <div>
-    <p style={{position: "relative",
-    top: '10rem',
-    left: '20rem',
-    color: "black",
-    backgroundColor: "#fff",
-    boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-    borderRadius: "4px",
-    width: '10rem',
-    paddingLeft: "15px ",
-    paddingRight: "15px",
-    paddingTop: "5px",
-    paddingBottom: "5px",
-    }}>
-      No results found</p>
-    </div>
-    ) : (
-         filter.map((mobile) => (
-              <div
-                className="col"
-                style={{ width: "18rem", height: "18rem" }}
-                key={mobile.id}
-              >
-                <div
-                  className="card"
-                  style={{
-                    boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <div className="card-body d-flex flex-column justify-content-center align-item-center">
-                    <img
-                      src={mobile.image}
-                      style={{ width: "4.5rem", height: "8rem" }}
-                    />
-                    <p className="card-title mt-2 mb-2">{mobile.name}</p>
-                    <p>
-                      <b>{mobile.price}</b>
-                    </p>
-                  </div>
+          <div className="container mt-3 pb-5 d-sm-flex d-none">
+            <div className="row row-cols-3 row-cols-md-1 mx-0">
+              {search || (notFound && filter.length === 0) ? (
+                <div>
+                  <p
+                    style={{
+                      position: "relative",
+                      top: "10rem",
+                      left: "20rem",
+                      color: "black",
+                      backgroundColor: "#fff",
+                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                      borderRadius: "4px",
+                      width: "10rem",
+                      paddingLeft: "15px ",
+                      paddingRight: "15px",
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                    }}
+                  >
+                    No results found
+                  </p>
                 </div>
-              </div>
-            ))
-     )}
-  </div>
-</div>
-
+              ) : (
+                filter.map((mobile) => (
+                  <div
+                    className="col"
+                    style={{ width: "18rem", height: "18rem" }}
+                    key={mobile.id}
+                  >
+                    <div
+                      className="card"
+                      style={{
+                        boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
+                      }}
+                    >
+                      <div className="card-body d-flex flex-column justify-content-center align-item-center">
+                        <img
+                          src={mobile.image}
+                          style={{ width: "4.5rem", height: "8rem" }}
+                        />
+                        <p className="card-title mt-2 mb-2">{mobile.name}</p>
+                        <p>
+                          <b>{mobile.price}</b>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
         </div>
       </div>
       <End />

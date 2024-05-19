@@ -122,14 +122,14 @@ useEffect(() => {
       {mobileData1 && mobileData1.data ? (
         
         <div className='d-flex flex-column mt-4 mb-4 offset-1'>
-            <img src={mobileData1.data.image} className='col-sm-10'/>
+            <img src={mobileData1.data.image} className='' style={{width: '9rem', height: '15rem'}}/>
             <p>{mobileData1.data.name}</p>
             <p>{mobileData1.data.price}</p>
-            <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+            <button className="btn text-white" style={{ backgroundColor: "#52AB98",width: '8rem',height: '2.5rem' }}>Buy Now</button>
         </div>
       ):
       <div className='d-flex flex-column mt-4 mb-4 offset-1'>
-      <img src={infinix} className='col-sm-10'/>
+      <img src={infinix} className='' style={{width: '9rem', height: '12rem'}}/>
       <p>Infinix</p>
       <p>49,000 price</p>
       <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
@@ -137,47 +137,47 @@ useEffect(() => {
     }
       {mobileData2 && mobileData2.data ? (
          <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
-            <img src={mobileData2.data.image} className='col-sm-9'/>
+            <img src={mobileData2.data.image} className='' style={{width: '9rem', height: '15rem'}}/>
             <p>{mobileData2.data.name}</p>
             <p>{mobileData2.data.price}</p>
             <button className="btn text-white px-5" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div>
       ):
       <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
-      <img src={infinix} className='col-sm-7'/>
+      <img src={infinix} className='' style={{width: '9rem', height: '12rem'}}/>
       <p>Xiaomi C13</p>
       <p>55,000 price</p>
-      <button className="btn text-white px-5" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+      <button className="btn text-white" style={{ backgroundColor: "#52AB98",width: '8rem',height: '2.5rem' }}>Buy Now</button>
   </div>
     }
       {mobileData3 && mobileData3.data ? (
         <div className='d-flex flex-column mt-4 mb-4 offset-1'>
-            <img src={mobileData3.data.image} className='col-sm-10'/>
+            <img src={mobileData3.data.image} className='' style={{width: '9rem', height: '15rem'}}/>
             <p>{mobileData3.data.name}</p>
             <p>{mobileData3.data.price}</p>
             <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div>
       ):
       <div className='d-flex flex-column mt-4 mb-4 offset-1'>
-            <img src={xiaomi} className='col-sm-10'/>
+            <img src={xiaomi} className='' style={{width: '9rem', height: '12rem'}}/>
             <p>Samsung</p>
             <p>89,000 price</p>
-            <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+            <button className="btn text-white" style={{ backgroundColor: "#52AB98",width: '8rem',height: '2.5rem' }}>Buy Now</button>
         </div>
       }
       {mobileData4 && mobileData4.data ? (
         <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
-            <img src={mobileData4.data.image} className='col-sm-9'/>
+            <img src={mobileData4.data.image} className=''style={{width: '9rem', height: '15rem'}}/>
             <p>{mobileData4.data.name}</p>
             <p>{mobileData4.data.price}</p>
             <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
         </div> 
       ):
       <div className='d-flex flex-column mx-4 mt-4 mb-5 d-none d-sm-block'>
-            <img src={infinix} className='col-sm-10'/>
+            <img src={infinix} className='' style={{width: '9rem', height: '12rem'}}/>
             <p>Oppo</p>
             <p>67,000 price</p>
-            <button className="btn text-white" style={{ backgroundColor: "#52AB98" }}>Buy Now</button>
+            <button className="btn text-white" style={{ backgroundColor: "#52AB98",width: '8rem',height: '2.5rem' }}>Buy Now</button>
         </div> 
       }
         
