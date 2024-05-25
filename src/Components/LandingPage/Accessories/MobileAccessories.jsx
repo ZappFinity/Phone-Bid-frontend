@@ -3,6 +3,8 @@ import End from "../End";
 import Navbar from "../Navbar";
 import airbuds from "../../img/airbuds.jpeg";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { IoFilter } from "react-icons/io5";
+import "./Style.css";
 
 function NewMobiles() {
   const [data, setData] = useState([]);
@@ -64,7 +66,7 @@ function NewMobiles() {
     } else {
       setNotFound(false);
     }
-    };
+  };
 
   const handleAccessoriesBrand = (brand) => {
     brand = brand.trim();
@@ -75,6 +77,7 @@ function NewMobiles() {
     console.log("Filtered products:", filteredProducts);
     setFilter(filteredProducts);
     setSearch("");
+    handleCloseDropdown();
   };
 
   const handlePrice = (price) => {
@@ -102,6 +105,7 @@ function NewMobiles() {
       setFilter(filteredProducts);
       setNotFound(false);
     }
+    handleCloseDropdown();
   };
 
   const handleType = (type) => {
@@ -118,6 +122,7 @@ function NewMobiles() {
       setFilter(filteredProducts);
       setNotFound(false);
     }
+    handleCloseDropdown();
   };
 
   const toggleMenu = () => {
@@ -144,8 +149,15 @@ function NewMobiles() {
     };
   }, []);
 
-  const handleItemClick = (e) => {
-    e.stopPropagation();
+  const handleCloseDropdown = () => {
+    setNewDropdown(false);
+    setSorting(false);
+    setAccessories(false);
+    setPrice(false);
+    setBrand(false);
+  };
+
+  const handleItemClick = () => {
     setNewDropdown(!newDropdown);
   };
   const handleSorting = () => {
@@ -169,14 +181,15 @@ function NewMobiles() {
           Buy Accessories In Pakistan
         </h2>
         <div className="d-flex flex-row gap-4">
-          <div className="d-flex flex-column offset-1 mt-3">
+          {/* Filtering on big screen  */}
+          <div className="d-flex flex-column offset-1 mt-3 d-none d-sm-block">
             <h5
               className="p-3 text-white"
               style={{ backgroundColor: "#518ecb" }}
             >
               SHOW RESULT BY
             </h5>
-            <p class="nav-item">
+            <div class="nav-item">
               <div
                 style={{
                   position: "rerlative",
@@ -205,6 +218,7 @@ function NewMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: "3px",
                     }}
                   >
                     <div class="input-group w-100">
@@ -227,8 +241,8 @@ function NewMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -257,6 +271,7 @@ function NewMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: "3px",
                       width: "17.5rem",
                     }}
                   >
@@ -268,8 +283,8 @@ function NewMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -298,6 +313,7 @@ function NewMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: "3px",
                       width: "17.5rem",
                     }}
                   >
@@ -320,8 +336,8 @@ function NewMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -350,6 +366,7 @@ function NewMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: "3px",
                       width: "17.5rem",
                     }}
                   >
@@ -379,8 +396,8 @@ function NewMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -409,6 +426,7 @@ function NewMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: "3px",
                       width: "17.5rem",
                     }}
                   >
@@ -447,62 +465,427 @@ function NewMobiles() {
                   </div>
                 )}
               </div>
-            </p>
+            </div>
           </div>
 
-          <div className="container mt-3 pb-5 d-sm-flex d-none">
-            <div className="row row-cols-3 row-cols-md-1 mx-0">
-              {searchInitiated && notFound  ? (
-                <div>
-                  <p
-                    style={{
-                      position: "relative",
-                      top: "10rem",
-                      left: "20rem",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      width: "10rem",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                    }}
+          {/* filtering on small screen  */}
+          <div className="col">
+            <div
+              className=" bg-white column d-flex d-lg-none justify-content-between p-2"
+              style={{ width: "88%", marginLeft: "2rem" }}
+            >
+              <div>
+                {/* main dropdown   */}
+                <div
+                  style={{
+                    position: "rerlative",
+                    cursor: "pointer",
+                    display: "inline-block",
+                  }}
+                  onClick={handleItemClick}
+                >
+                  <button
+                    className="btn px-2"
+                    style={{ backgroundColor: "#c8d8e4" }}
                   >
-                    No results found
-                  </p>
-                </div>
-              ) : (
-                filter.map((accessories) => (
-                  <div
-                    className="col"
-                    style={{ width: "18rem", height: "18rem" }}
-                    key={accessories.id}
-                  >
+                    <IoFilter className="mx-2" />
+                    Filter
+                  </button>
+
+                  {newDropdown && (
                     <div
-                      className="card"
                       style={{
-                        boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
+                        position: "absolute",
+                        zIndex: "3",
+                        left: "2rem",
+                        color: "black",
+                        backgroundColor: "#fff",
+                        boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                        borderRadius: "4px",
+                        paddingLeft: "15px ",
+                        paddingRight: "15px",
+                        paddingTop: "5px",
+                        paddingBottom: "5px",
+                        marginBottom: "3px",
                       }}
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      <div className="card-body d-flex flex-column col-sm-9 justify-content-center align-item-center">
-                        <img
-                          src={accessories.image}
-                          className="offset-5"
-                          style={{ width: "4.5rem", height: "6rem" }}
-                        />
-                        <p className="card-title mt-2 mb-2">
-                          {accessories.name}
-                        </p>
-                        <p>
-                          <b>{accessories.price}</b>
-                        </p>
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleSorting}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            Sorting
+                            <IoMdArrowDropdown />
+                          </h6>
+
+                          {sorting && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span>Popularity</span>
+                                <span>Price (Low to High)</span>
+                                <span>Price (High to Low)</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleAccessories}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                            
+                          >
+                            Accessories
+                            <IoMdArrowDropdown />
+                          </h6>
+
+                          {accessories && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span onClick={() => handleType("Headphones")}>
+                                  Headphones
+                                </span>
+                                <span onClick={() => handleType("Power Bank")}>
+                                  Power Bank
+                                </span>
+                                <span onClick={() => handleType("Chargers")}>
+                                  Chargers
+                                </span>
+                                <sapn onClick={() => handleType("Earbuds")}>
+                                  Earbuds
+                                </sapn>
+                                <span onClick={() => handleType("Covers")}>
+                                  Covers
+                                </span>
+                                <span
+                                  onClick={() => handleType("Screen Protector")}
+                                >
+                                  Screen Protector
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleprice}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            Price Range
+                            <IoMdArrowDropdown />
+                          </h6>
+
+                          {price && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() => handlePrice("Below Rs. 2,000")}
+                                >
+                                  Below Rs. 2,000
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handlePrice("Rs. 2,000 - Rs. 4,000")
+                                  }
+                                >
+                                  Rs. 2,000 - Rs. 4,000
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handlePrice("Rs. 4,000 - Rs. 6,000")
+                                  }
+                                >
+                                  Rs. 4,000 - Rs. 6,000
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handlePrice("Rs. 6,000 - Rs. 8,000")
+                                  }
+                                >
+                                  Rs. 6,000 - Rs. 8,000
+                                </span>
+                                <span
+                                  onClick={() => handlePrice("Above Rs. 8,000")}
+                                >
+                                  Above Rs. 8,000
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleBrand}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            BRANDS
+                            <IoMdArrowDropdown />
+                          </h6>
+
+                          {brand && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() =>
+                                    handleAccessoriesBrand("Audionic")
+                                  }
+                                >
+                                  Audionic
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleAccessoriesBrand("Remax")
+                                  }
+                                >
+                                  Remax{" "}
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleAccessoriesBrand("Romoss")
+                                  }
+                                >
+                                  Romoss
+                                </span>
+                                <span
+                                  onClick={() => handleAccessoriesBrand("Max")}
+                                >
+                                  Max
+                                </span>
+                                <span
+                                  onClick={() => handleAccessoriesBrand("Mi")}
+                                >
+                                  Mi
+                                </span>
+                                <span
+                                  onClick={() => handleAccessoriesBrand("JBL")}
+                                >
+                                  JBL
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleAccessoriesBrand("Airox")
+                                  }
+                                >
+                                  Airox
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleAccessoriesBrand("Mibro")
+                                  }
+                                >
+                                  Mibro
+                                </span>
+                                <span
+                                  onClick={() => handleAccessoriesBrand("Oppo")}
+                                >
+                                  Oppo
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleAccessoriesBrand("Tromsmart")
+                                  }
+                                >
+                                  Tronsmart
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
+                  )}
+                </div>
+              </div>
+
+              <div class="nav-item">
+                <div class="input-group w-100">
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="search ..."
+                    onClick={(e) => e.stopPropagation()}
+                    onChange={handleSearchChange}
+                  />
+                  <button
+                    class="btn btn-outline-secondary text-white"
+                    type="button"
+                    style={{ backgroundColor: "#233d7b" }}
+                    onClick={handleGoClick}
+                  >
+                    Go
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="container mt-3 pb-5 ">
+              <div className="row row-cols-2 row-cols-md-3  mx-0">
+                {searchInitiated && notFound ? (
+                  <div>
+                    <p
+                    className="d-none d-sm-block"
+                      style={{
+                        position: "relative",
+                        top: "10rem",
+                        left: "20rem",
+                        color: "black",
+                        backgroundColor: "#fff",
+                        boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                        borderRadius: "4px",
+                        width: "10rem",
+                        paddingLeft: "15px ",
+                        paddingRight: "15px",
+                        paddingTop: "5px",
+                        paddingBottom: "5px",
+                      }}
+                    >
+                      No results found
+                    </p>
+                    <p
+                    className="d-flex d-lg-none"
+                      style={{
+                        position: "relative",
+                        top: "2rem",
+                        left: "8rem",
+                        color: "black",
+                        backgroundColor: "#fff",
+                        boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                        borderRadius: "4px",
+                        width: "10rem",
+                        paddingLeft: "15px ",
+                        paddingRight: "15px",
+                        paddingTop: "5px",
+                        paddingBottom: "5px",
+                      }}
+                    >
+                      No results found
+                    </p>
                   </div>
-                ))
-              )}
+                ) : (
+                  filter.map((accessories) => (
+                    <div
+                      className="col mb-4"
+                      key={accessories.id}
+                    >
+                      <div
+                        className="card card-custom"
+                        style={{
+                          boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
+                        }}
+                      >
+                        <div className="card-body d-flex flex-column justify-content-center align-item-center">
+                          <img
+                            src={accessories.image}
+                            className="offset-5"
+                            style={{ width: "4.5rem", height: "6rem" }}
+                          />
+                          <p className="card-title mt-2 mb-2">
+                            {accessories.name}
+                          </p>
+                          <p>
+                            <b>{accessories.price}</b>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,11 @@
+.card-custom {
+    width: 17rem;
+    height: 15rem;
+  }
+  
+  @media (max-width: 576px) {
+    .card-custom {
+      width: 13rem;
+      height: 14rem;
+    }
+  }

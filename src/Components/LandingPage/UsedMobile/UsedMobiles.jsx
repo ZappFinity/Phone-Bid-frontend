@@ -271,7 +271,7 @@ function UsedMobiles() {
             >
               SHOW RESULT BY
             </h5>
-            <p class="nav-item">
+            <div class="nav-item">
               <div
                 style={{
                   position: "rerlative",
@@ -300,6 +300,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                     }}
                   >
                     <div class="input-group w-100">
@@ -322,8 +323,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -352,6 +353,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -363,8 +365,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "rerlative",
@@ -393,6 +395,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                     }}
                   >
                     <div class="input-group" style={{ width: "15.5rem" }}>
@@ -428,8 +431,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -458,6 +461,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -475,8 +479,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -505,6 +509,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -522,8 +527,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -552,6 +557,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -584,8 +590,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -614,6 +620,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -679,8 +686,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -709,6 +716,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -740,8 +748,8 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
-            <p class="nav-item">
+            </div>
+            <div class="nav-item">
               <div
                 style={{
                   position: "relative",
@@ -770,6 +778,7 @@ function UsedMobiles() {
                       paddingRight: "15px",
                       paddingTop: "5px",
                       paddingBottom: "5px",
+                      marginBottom: '3px',
                       width: "17.5rem",
                     }}
                   >
@@ -798,7 +807,7 @@ function UsedMobiles() {
                   </div>
                 )}
               </div>
-            </p>
+            </div>
           </div>
 
           <div className="d-flex flex-column">
@@ -973,7 +982,7 @@ function UsedMobiles() {
                   </div>
                 </div>
 
-                {filter.slice(0, 3).map((mobile) => (
+                {filter.slice(3, 6).map((mobile) => (
                   <div className="d-flex flex-column" key={mobile.id}>
                     <div className="mb-3" style={{ width: "125%" }}>
                       <div
@@ -1051,7 +1060,7 @@ function UsedMobiles() {
                   </div>
                 </div>
 
-                {filter.map((mobile) => (
+                {filter.slice(6).map((mobile) => (
                   <div className="d-flex flex-column" key={mobile.id}>
                     <div style={{ width: "125%" }}>
                       <div

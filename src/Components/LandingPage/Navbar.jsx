@@ -92,7 +92,7 @@ function Navbar() {
             }}
             onClick={handledropdown}
           >
-            <Link to='/usedmobile' className="mt-2">
+            <Link to='/usedmobile' className="mt-2 d-flex align-items-center text-black text-decoration-none">
               Used Mobiles
               <IoMdArrowDropdown />
             </Link>
@@ -142,7 +142,7 @@ function Navbar() {
             }}
             onClick={handleItemClick}
           >
-            <Link to='/newmobile' className="mt-2 text-decoration-none">
+            <Link to='/newmobile' className="mt-2 d-flex align-items-center text-decoration-none text-black">
               New Mobiles
               <IoMdArrowDropdown />
             </Link>
@@ -189,7 +189,7 @@ function Navbar() {
             }}
             onClick={handleClick}
           >
-            <Link to='/accessories' className="mt-2">
+            <Link to='/accessories' className="mt-2 d-flex align-items-center text-black text-decoration-none">
               Accessories
               <IoMdArrowDropdown />
             </Link>
@@ -231,14 +231,14 @@ function Navbar() {
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="#">
+          <Link class="nav-link active text-dark" aria-current="page" href="#">
             Mobile Repair
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="#">
+          <Link class="nav-link active text-dark" aria-current="page" href="#">
             Bidding
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
           <Link  class="nav-link text-dark" to="/comparisan">
@@ -246,9 +246,9 @@ function Navbar() {
           </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">
+          <Link class="nav-link text-dark" href="#">
             Reviews
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
           <Link class="nav-link text-dark" to="/blog">
