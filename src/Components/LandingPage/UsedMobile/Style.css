@@ -1,0 +1,19 @@
+.custom {
+    width: 90%;
+  }
+.direction{
+  display: flex;
+  flex-direction: row;
+}
+  
+  @media (max-width: 576px) {
+    .custom {
+      width: 95%;
+     margin-left: .7rem;
+    }
+    .direction {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2rem;
+    }
+  }
