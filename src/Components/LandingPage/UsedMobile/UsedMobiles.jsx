@@ -9,7 +9,9 @@ import { TiTick } from "react-icons/ti";
 import realme from "../../img/realme-c21.png";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
-import './Style.css';
+import { Link } from "react-router-dom";
+import "./Style.css";
+import AddPost from "../AddPost/AddPost";
 
 function UsedMobiles() {
   const [data, setData] = useState([]);
@@ -25,6 +27,7 @@ function UsedMobiles() {
   const [camera, setCamera] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [features, setFeatures] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
 
@@ -241,14 +244,14 @@ function UsedMobiles() {
 
   const handleCloseDropdown = () => {
     setRam(false);
-        setCity(false);
-        setPrice(false);
-        setBrand(false);
-        setScreen(false);
-        setMemory(false);
-        setCamera(false);
-        setFeatures(false);
-        setNewDropdown(false);
+    setCity(false);
+    setPrice(false);
+    setBrand(false);
+    setScreen(false);
+    setMemory(false);
+    setCamera(false);
+    setFeatures(false);
+    setNewDropdown(false);
   };
 
   const handleItemClick = () => {
@@ -1495,6 +1498,16 @@ function UsedMobiles() {
             </div>
 
             <div className="d-flex flex-column">
+              <div className="container mt-3">
+                <button
+                  className="btn text-white"
+                  style={{ backgroundColor: "#52AB98" }}
+                  onClick={() => setShowModal(true)}
+                >
+                  Add Post
+                </button>
+                <AddPost showModal={showModal} setShowModal={setShowModal} />
+              </div>
               {search || (notFound && filter.length === 0) ? (
                 <div>
                   <p
@@ -1540,7 +1553,7 @@ function UsedMobiles() {
                 <>
                   {filter.slice(0, 3).map((mobile) => (
                     <div className="d-flex flex-column" key={mobile.id}>
-                      <div  className="custom">
+                      <div className="custom">
                         <span
                           style={{
                             position: "relative",
@@ -1558,7 +1571,10 @@ function UsedMobiles() {
                         <div
                           style={{ boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)" }}
                         >
-                          <div className="d-flex flex-row bg-white" style={{ width: "100%" }}>
+                          <div
+                            className="d-flex flex-row bg-white"
+                            style={{ width: "100%" }}
+                          >
                             <div>
                               <img
                                 src={mobile.image}
@@ -1581,20 +1597,20 @@ function UsedMobiles() {
                               </p>
                               <p>Last Updated: about 1 hour ago</p>
                               <div className="d-flex flex-column pt-3 d-flex d-lg-none">
-                              <h4 className="pb-1">{mobile.price}</h4>
-                              <button
-                                className="btn mb-3 "
-                                style={{
-                                  cursor: "pointer",
-                                  backgroundColor: "#52AB98",
-                                  color: "white",
-                                  borderRadius: "0",
-                                  width: "12rem",
-                                }}
-                              >
-                                Show Phone Number
-                              </button>
-                            </div>
+                                <h4 className="pb-1">{mobile.price}</h4>
+                                <button
+                                  className="btn mb-3 "
+                                  style={{
+                                    cursor: "pointer",
+                                    backgroundColor: "#52AB98",
+                                    color: "white",
+                                    borderRadius: "0",
+                                    width: "12rem",
+                                  }}
+                                >
+                                  Show Phone Number
+                                </button>
+                              </div>
                             </div>
                             <div className="d-flex flex-column offset-2 pt-3 pb-2 d-none d-sm-block">
                               <h4 className="px-4 mb-5">{mobile.price}</h4>
@@ -1633,7 +1649,7 @@ function UsedMobiles() {
                         color: "white",
                         borderRadius: "20px",
                         boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
-                        width: '22%'
+                        width: "22%",
                       }}
                       className="px-4 py-2 d-none d-sm-block"
                     >
@@ -1649,7 +1665,7 @@ function UsedMobiles() {
                         backgroundColor: "#518ecb",
                         color: "white",
                         borderRadius: "20px",
-                        width: '12rem',
+                        width: "12rem",
                         boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
                       }}
                       className="px-4 py-2 d-flex d-lg-none"
@@ -1725,7 +1741,7 @@ function UsedMobiles() {
 
                   {filter.slice(3, 6).map((mobile) => (
                     <div className="d-flex flex-column" key={mobile.id}>
-                      <div className="mb-3 custom" >
+                      <div className="mb-3 custom">
                         <div
                           style={{ boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)" }}
                         >
@@ -1752,20 +1768,20 @@ function UsedMobiles() {
                               </p>
                               <p>Last Updated: about 1 hour ago</p>
                               <div className="d-flex flex-column pt-3 pb-2 d-flex d-lg-none">
-                              <h4 className="pb-1">{mobile.price}</h4>
-                              <button
-                                className="btn "
-                                style={{
-                                  cursor: "pointer",
-                                  backgroundColor: "#52AB98",
-                                  color: "white",
-                                  borderRadius: "0",
-                                  width: "12rem",
-                                }}
-                              >
-                                Show Phone Number
-                              </button>
-                            </div>
+                                <h4 className="pb-1">{mobile.price}</h4>
+                                <button
+                                  className="btn "
+                                  style={{
+                                    cursor: "pointer",
+                                    backgroundColor: "#52AB98",
+                                    color: "white",
+                                    borderRadius: "0",
+                                    width: "12rem",
+                                  }}
+                                >
+                                  Show Phone Number
+                                </button>
+                              </div>
                             </div>
                             <div className="d-flex flex-column offset-2 pt-3 pb-2 d-none d-sm-block">
                               <h4 className="px-4 mb-5">{mobile.price}</h4>
@@ -1813,14 +1829,14 @@ function UsedMobiles() {
                           Standout with the <b>Feature Ad tag</b>
                         </p>
                         <img
-                        className="d-flex d-lg-none "
-                        src={featured}
-                        style={{ width: "13.25rem", height: "10rem" }}
-                      />
+                          className="d-flex d-lg-none "
+                          src={featured}
+                          style={{ width: "13.25rem", height: "10rem" }}
+                        />
                       </div>
 
                       <img
-                      className="d-none d-sm-block"
+                        className="d-none d-sm-block"
                         src={featured}
                         style={{ width: "13.25rem", height: "10rem" }}
                       />
@@ -1840,7 +1856,7 @@ function UsedMobiles() {
                                 className="mt-5 mx-4 mb-3 d-flex d-lg-none"
                                 style={{ height: "10rem", width: "6rem" }}
                               />
-                               <img
+                              <img
                                 src={mobile.image}
                                 className="mt-3 mx-4 mb-3 d-none d-sm-block"
                                 style={{ height: "8rem", width: "5rem" }}
@@ -1856,20 +1872,20 @@ function UsedMobiles() {
                               </p>
                               <p>Last Updated: about 1 hour ago</p>
                               <div className="d-flex flex-column pt-3 pb-2 d-flex d-lg-none">
-                              <h4 className=" pb-1">{mobile.price}</h4>
-                              <button
-                                className="btn"
-                                style={{
-                                  cursor: "pointer",
-                                  backgroundColor: "#52AB98",
-                                  color: "white",
-                                  borderRadius: "0",
-                                  width: "12rem",
-                                }}
-                              >
-                                Show Phone Number
-                              </button>
-                            </div>
+                                <h4 className=" pb-1">{mobile.price}</h4>
+                                <button
+                                  className="btn"
+                                  style={{
+                                    cursor: "pointer",
+                                    backgroundColor: "#52AB98",
+                                    color: "white",
+                                    borderRadius: "0",
+                                    width: "12rem",
+                                  }}
+                                >
+                                  Show Phone Number
+                                </button>
+                              </div>
                             </div>
                             <div className="d-flex flex-column offset-2 pt-3 pb-2 d-none d-sm-block">
                               <h4 className="px-3 mb-5">{mobile.price}</h4>

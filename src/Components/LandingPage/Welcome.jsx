@@ -86,6 +86,7 @@ function Welcome() {
       if (response.ok) {
         setIsLoggedOut(true);
         localStorage.removeItem("token"); // Corrected here
+        console.log("token", token);
         navigate("/login");
       } else {
 
