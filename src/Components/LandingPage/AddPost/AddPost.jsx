@@ -7,15 +7,8 @@ const AddPost = ({ showModal, setShowModal }) => {
   const [memory, setMemory] = useState('');
   const [ram, setRam] = useState('');
   const [camera, setCamera] = useState('');
-  const [imageUrls, setImageUrls] = useState([]);
+  const [imageUrl, setImageUrl] = useState('');
 
-  const handleAddImageUrl = () => {
-    const urlInput = document.getElementById('imageUrl');
-    if (urlInput.value) {
-      setImageUrls((prevUrls) => [...prevUrls, urlInput.value]);
-      urlInput.value = ''; // Clear the input field
-    }
-  };
 
  
 
@@ -29,7 +22,10 @@ const AddPost = ({ showModal, setShowModal }) => {
           memory,
           ram,
           camera,
-          images: imageUrls, };  
+          imageUrl 
+        };  
+
+          console.log(item)
           
         const tokenData = localStorage.getItem("token");
         if (!tokenData) {
@@ -48,6 +44,14 @@ const AddPost = ({ showModal, setShowModal }) => {
         });
 
         const result = await response.json();
+        if(result.success === true){
+          console.log(result)
+          alert("Mobile Added Successfully")
+          window.location.reload();
+        }
+        else{
+          alert("Mobile not added")
+        }
         console.log('Post successful:', result);
     
         // Reset form fields and close the modal
@@ -57,7 +61,7 @@ const AddPost = ({ showModal, setShowModal }) => {
         setMemory('');
         setRam('');
         setCamera('');
-        setImageUrls([]);
+        setImageUrl('');
         setShowModal(false);
         
       } catch (error) {
@@ -103,7 +107,8 @@ const AddPost = ({ showModal, setShowModal }) => {
               <div className="mb-3">
                 <label htmlFor="battery" className="form-label">Battery</label>
                 <input
-                  type="text"
+
+                  type="number"
                   className="form-control"
                   id="battery"
                   placeholder="Enter battery"
@@ -151,24 +156,15 @@ const AddPost = ({ showModal, setShowModal }) => {
               <div className="mb-3">
                 <label htmlFor="imageUrl" className="form-label">Image</label>
                 <input
-                  type="url"
+                  type="text"
                   className="form-control"
                   id="imageUrl"
-                  placeholder="Enter image URL"
+                  placeholder="Enter image"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  required
                 />
-                <button type="button" className="btn text-white mt-2" style={{ backgroundColor: "#518ecb"}} onClick={handleAddImageUrl}>
-                  Add Image URL
-                </button>
-                {imageUrls.length > 0 && (
-                  <div className="mt-2">
-                    <small className="text-muted">{imageUrls.length} URLs added</small>
-                    <ul>
-                      {imageUrls.map((url, index) => (
-                        <li key={index}>{url}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                
               </div>
               <button type="submit" className="btn text-white" style={{backgroundColor: "#52AB98"}}>Submit</button>
             </form>
