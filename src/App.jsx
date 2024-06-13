@@ -12,7 +12,13 @@ import Signup from "./Components/Authentication/Signup/Signup";
 import MySavedAds from './Components/LandingPage/Menu/MySavedAds'
 import MyMessages from './Components/LandingPage/Menu/MyMessages'
 import NewMobiles from './Components/LandingPage/NewMobile/NewMobiles';
+import NewMobileDetail from './Components/LandingPage/NewMobile/Detail';
 import UsedMobiles from './Components/LandingPage/UsedMobile/UsedMobiles';
+import UsedMobileDetail from './Components/LandingPage/UsedMobile/Detail';
+import NewMobileCheckout from './Components/LandingPage/NewMobile/Checkout';
+import UsedMobileCheckout from './Components/LandingPage/UsedMobile/Checkout'
+import AccessoriesCheckout from './Components/LandingPage/Accessories/Checkout';
+import AccessoriesDetail from './Components/LandingPage/Accessories/Detail';
 import MobileAccessories from './Components/LandingPage/Accessories/MobileAccessories';
 import ChangePassword from './Components/Authentication/Change Password/ChangePassword';
 
@@ -33,16 +39,22 @@ function App() {
           <Route path="/signup" exact Component={Signup}/>
           <Route path="/profile" exact Component={Profile}/>
           <Route path='/comparisan' Component={Comparisan}/>
-          <Route path='/addpost' exact Component={AddPost}/>
           <Route path="/myorder" exact Component={MyOrder}/>
           <Route path="/mymobile" exact Component={MyMobile}/>
           <Route path="/mymessage" exact Component={MyMessages}/>
           <Route path='/newmobile' exact Component={NewMobiles}/>
-          <Route path='/usedmobile' exact Component={UsedMobiles}/>
+          <Route path='/postmobilead' exact Component={AddPost}/>
           <Route path="/mysavedads" exact Component={MySavedAds}/>
           <Route path="/sellmobile" exact Component={SellMobile}/>
-          <Route path='/accessories' exact Component={MobileAccessories}/>
+          <Route path='/usedmobile' exact Component={UsedMobiles}/>
           <Route path="/changePass" exact Component={ChangePassword}/>
+          <Route path='/accessories' exact Component={MobileAccessories}/>
+          <Route path='/newmobilecheckout' exact Component={NewMobileCheckout}/>
+          <Route path='/usedmobilecheckout' exact Component={UsedMobileCheckout}/>
+          <Route path='/accessoriescheckout' exact Component={AccessoriesCheckout}/>
+          <Route path='/accessoriesdetail/:detailId' exact Component={AccessoriesDetail}/>
+          <Route path='/usedmobiledetail/:detailId' exact Component={UsedMobileDetail}/>
+          <Route path="/newmobiledetail/:detailId" exact Component={NewMobileDetail}/>
         </Routes>
       </Router>
     </>

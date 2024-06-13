@@ -1,3 +1,15 @@
 * body {
     overflow-x: hidden;
 }
+.greenColor{
+    background-color: #52AB98
+}
+.greenColor:hover{
+    background-color: #52AB98
+}
+.greyColor{
+    background-color: #e9ecef
+}
+.blueColor{
+    background-color: #518ecb,
+}

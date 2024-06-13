@@ -60,7 +60,7 @@ function ChangePassword() {
   return (
     <>
     <Navbar/>
-    <div style={{ backgroundColor: "#e9ecef" }}>
+    <div className='greyColor'>
     <div className='pt-5 pb-5 '>
       <h4 className='offset-3 mb-3 '>Change Password</h4>
       <div className="bg-white pt-3 offset-3 pb-2 p-5"

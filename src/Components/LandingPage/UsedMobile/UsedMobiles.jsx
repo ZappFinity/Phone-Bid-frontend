@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import "./Style.css";
 import AddPost from "../AddPost/AddPost";
 
-function UsedMobiles() {
+function UsedMobiles({mobile}) {
   const [data, setData] = useState([]);
   const [ram, setRam] = useState(false);
   const [city, setCity] = useState(false);
@@ -27,7 +27,6 @@ function UsedMobiles() {
   const [camera, setCamera] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [features, setFeatures] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
 
@@ -218,6 +217,11 @@ function UsedMobiles() {
     setIsOpen(!isOpen);
   };
 
+  const handleWhatsAppClick = () => {
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -287,7 +291,7 @@ function UsedMobiles() {
       <Navbar />
       <div style={{ backgroundColor: "#f2f3f3" }}>
         <h2 className="offset-1 pt-5 pb-3" style={{ color: "#233d7b" }}>
-          Buy New Mobiles In Pakistan
+          Buy Used Mobile In Pakistan
         </h2>
         <div className="d-flex flex-row gap-4">
           {/* filtering on large screen  */}
@@ -1499,14 +1503,12 @@ function UsedMobiles() {
 
             <div className="d-flex flex-column">
               <div className="container mt-3">
+                <Link to='/postmobilead'>
                 <button
-                  className="btn text-white"
-                  style={{ backgroundColor: "#52AB98" }}
-                  onClick={() => setShowModal(true)}
-                >
-                  Add Post
+                  className="btn text-white greenColor">
+                  Sell Your Mobile
                 </button>
-                <AddPost showModal={showModal} setShowModal={setShowModal} />
+                </Link>
               </div>
               {search || (notFound && filter.length === 0) ? (
                 <div>
@@ -1588,7 +1590,7 @@ function UsedMobiles() {
                               />
                             </div>
                             <div className="d-flex flex-column mt-3 mb-3">
-                              <h5 className="">{mobile.name} for Sale</h5>
+                              <Link to={`/usedmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><h5>{mobile.name}</h5></Link>
                               <p className="card-text">Islamabad</p>
                               <p>
                                 {mobile.ram} | {mobile.internal_memory} |{" "}
@@ -1607,8 +1609,9 @@ function UsedMobiles() {
                                     borderRadius: "0",
                                     width: "12rem",
                                   }}
+                                  onClick={handleWhatsAppClick}
                                 >
-                                  Show Phone Number
+                                  Contact on WhatsApp
                                 </button>
                               </div>
                             </div>
@@ -1623,8 +1626,9 @@ function UsedMobiles() {
                                   borderRadius: "0",
                                   width: "12rem",
                                 }}
+                                onClick={handleWhatsAppClick}
                               >
-                                Show Phone Number
+                                Contact on WhatsApp
                               </button>
                             </div>
                           </div>
@@ -1759,7 +1763,7 @@ function UsedMobiles() {
                               />
                             </div>
                             <div className="d-flex flex-column mt-3 mb-3">
-                              <h5 className="">{mobile.name} for Sale</h5>
+                            <Link to={`/usedmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><h5>{mobile.name}</h5></Link>
                               <p className="card-text">Islamabad</p>
                               <p>
                                 {mobile.ram} | {mobile.internal_memory} |{" "}
@@ -1779,7 +1783,7 @@ function UsedMobiles() {
                                     width: "12rem",
                                   }}
                                 >
-                                  Show Phone Number
+                                  Contact on WhatsApp
                                 </button>
                               </div>
                             </div>
@@ -1795,7 +1799,7 @@ function UsedMobiles() {
                                   width: "12rem",
                                 }}
                               >
-                                Show Phone Number
+                                Contact on WhatsApp
                               </button>
                             </div>
                           </div>
@@ -1863,7 +1867,7 @@ function UsedMobiles() {
                               />
                             </div>
                             <div className="d-flex flex-column mt-3 mb-3">
-                              <h5 className="">{mobile.name} for Sale</h5>
+                            <Link to={`/usedmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><h5>{mobile.name}</h5></Link>
                               <p className="card-text">Islamabad</p>
                               <p>
                                 {mobile.ram} | {mobile.internal_memory} <b>|</b>{" "}
@@ -1883,7 +1887,7 @@ function UsedMobiles() {
                                     width: "12rem",
                                   }}
                                 >
-                                  Show Phone Number
+                                  Contact on WhatsApp
                                 </button>
                               </div>
                             </div>
@@ -1899,7 +1903,7 @@ function UsedMobiles() {
                                   width: "12rem",
                                 }}
                               >
-                                Show Phone Number
+                                Contact on WhatsApp
                               </button>
                             </div>
                           </div>

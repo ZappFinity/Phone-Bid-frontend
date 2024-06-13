@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import End from "../End";
 import Navbar from "../Navbar";
-import airbuds from "../../img/airbuds.jpeg";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
+import {Link} from 'react-router-dom'
 import "./Style.css";
 
-function NewMobiles() {
+function NewMobiles({accessories}) {
   const [data, setData] = useState([]);
   const [price, setPrice] = useState(false);
   const [brand, setBrand] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [sorting, setSorting] = useState(false);
-  const [accessories, setAccessories] = useState(false);
+  const [name, setName] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
   const [searchInitiated, setSearchInitiated] = useState(false);
   const [search, setSearch] = useState("");
@@ -54,8 +54,8 @@ function NewMobiles() {
 
   const handleGoClick = () => {
     const lowerCaseSearch = search.toLowerCase();
-    const filtered = data.filter((accessories) =>
-      accessories.name.toLowerCase().includes(lowerCaseSearch)
+    const filtered = data.filter((name) =>
+      name.name.toLowerCase().includes(lowerCaseSearch)
     );
     console.log("Filtered Data:", filtered);
     setFilter(filtered);
@@ -135,7 +135,7 @@ function NewMobiles() {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setSorting(false);
-        setAccessories(false);
+        setName(false);
         setPrice(false);
         setBrand(false);
         setNewDropdown(false);
@@ -152,7 +152,7 @@ function NewMobiles() {
   const handleCloseDropdown = () => {
     setNewDropdown(false);
     setSorting(false);
-    setAccessories(false);
+    setName(false);
     setPrice(false);
     setBrand(false);
   };
@@ -164,7 +164,7 @@ function NewMobiles() {
     setSorting(!sorting);
   };
   const handleAccessories = () => {
-    setAccessories(!accessories);
+    setName(!name);
   };
   const handleprice = () => {
     setPrice(!price);
@@ -301,7 +301,7 @@ function NewMobiles() {
                   <IoMdArrowDropdown />
                 </h6>
 
-                {accessories && (
+                {name && (
                   <div
                     style={{
                       position: "relative",
@@ -571,7 +571,7 @@ function NewMobiles() {
                             <IoMdArrowDropdown />
                           </h6>
 
-                          {accessories && (
+                          {name && (
                             <div
                               style={{
                                 position: "relative",
@@ -874,9 +874,11 @@ function NewMobiles() {
                             className="offset-5"
                             style={{ width: "4.5rem", height: "6rem" }}
                           />
+                           <Link to={`/accessoriesdetail/${accessories.id}`} className="text-decoration-none text-black">
                           <p className="card-title mt-2 mb-2">
                             {accessories.name}
                           </p>
+                          </Link>
                           <p>
                             <b>{accessories.price}</b>
                           </p>

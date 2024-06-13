@@ -675,12 +675,14 @@ function Navbar() {
           </Link>
         </li>
         <li class="nav-item">
+          <Link to='/postmobilead'>
           <button
             className="btn"
             style={{ backgroundColor: "#52AB98", color: "white" }}
           >
             Sell Your Mobile
           </button>
+          </Link>
         </li>
       </ul>
     </>

@@ -4,8 +4,9 @@ import Navbar from "../Navbar";
 import './Style.css'
 import { IoFilter } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
+import {Link} from 'react-router-dom'
 
-function NewMobiles() {
+function NewMobiles({mobile}) {
   const [data, setData] = useState([]);
   const [ram, setRam] = useState(false);
   const [city, setCity] = useState(false);
@@ -21,6 +22,7 @@ function NewMobiles() {
   const [features, setFeatures] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
+  const [detailId, setDetailId] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -47,6 +49,10 @@ function NewMobiles() {
 
     fetchUserData();
   }, []);
+
+  const handleMobileDetail = (mobile) => {
+    setDetailId(mobile.id);
+  };
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -1436,6 +1442,7 @@ function NewMobiles() {
                     <div
                       className="col mb-4"
                       key={mobile.id}
+                      // onClick={() => handleMobileDetail(mobile)}
                     >
                       <div
                         className="card card-custom"
@@ -1448,7 +1455,7 @@ function NewMobiles() {
                             src={mobile.image}
                             style={{ width: "4.5rem", height: "8rem" }}
                           />
-                          <p className="card-title mt-2 mb-2">{mobile.name}</p>
+                          <Link to={`/newmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><p className="card-title mt-2 mb-2" >{mobile.name}</p></Link>
                           <p>
                             <b>{mobile.price}</b>
                           </p>
