@@ -54,7 +54,14 @@ const AddPost = () => {
         cardSlot,
         backFlash,
         processor,
-        frontvd, price, battery, ram, imageUrl, operatingSystem, screenResolution,screenProtection,
+        frontvd, 
+        price, 
+        battery, 
+        ram, 
+        imageUrl, 
+        operatingSystem, 
+        screenResolution,
+        screenProtection,
         internalMemory,
         bluetooth,
         newMobile,
@@ -119,7 +126,7 @@ const AddPost = () => {
       setFrontVd(""), 
       setOperatingSystem(""), 
       setScreenResolution(""),
-      screenProtection(""),
+      setScreenProtection(""),
       setBlueTooth(""),
       setNewMobile(""),
       setFrontFlash(""),
@@ -144,7 +151,7 @@ const AddPost = () => {
         <div className="bg-white p-5">
           <h4> Post Your Ad Now</h4>
           <div class="container-fluid">
-            <form onClick={handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <div class="row">
                 <div class="col-md-6">
                   <label for="">Name</label>
