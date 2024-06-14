@@ -14,28 +14,28 @@ const AddPost = () => {
   const [radio, setRadio] = useState("");
   const [threeg, setThreeG] = useState("");
   const [memory, setMemory] = useState("");
-  const [backvd, setBackVd] = useState("");
-  const [frontvd, setFrontVd] = useState("");
+  const [back_video_recording, setBackVd] = useState("");
+  const [front_video_recording, setFrontVd] = useState("");
   const [battery, setBattery] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [cardSlot, setCardSlot] = useState("");
-  const [backFlash, setBackFlash] = useState("");
+  const [card_slot, setCardSlot] = useState("");
+  const [back_flash, setBackFlash] = useState("");
   const [processor, setProcessor] = useState("");
   const [bluetooth, setBlueTooth] = useState("");
-  const [newMobile, setNewMobile] = useState("");
-  const [frontFlash, setFrontFlash] = useState("");
-  const [simsupport, setSimSupport] = useState("");
-  const [screenSize, setScreenSize] = useState("");
-  const [screenType, setScreenType] = useState("");
+  const [is_new, setNewMobile] = useState("");
+  const [front_flash, setFrontFlash] = useState("");
+  const [sim_support, setSimSupport] = useState("");
+  const [screen_size, setScreenSize] = useState("");
+  const [screen_type, setScreenType] = useState("");
   const [backCamera, setBackCamera] = useState("");
-  const [frontCamera, setFrontCamera] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
-  const [phoneWeight, setPhoneWeight] = useState("");
-  const [phoneDimension, setPhoneDimension] = useState("");
-  const [internalMemory, setInternalMemory] = useState("");
-  const [operatingSystem, setOperatingSystem] = useState("");
-  const [screenResolution, setScreenResolution] = useState("");
-  const [screenProtection, setScreenProtection] = useState("");
+  const [front_camera, setFrontCamera] = useState("");
+  const [release_date, setReleaseDate] = useState("");
+  const [phone_weight, setPhoneWeight] = useState("");
+  const [phone_dimensions, setPhoneDimension] = useState("");
+  const [internal_memory, setInternalMemory] = useState("");
+  const [operating_system, setOperatingSystem] = useState("");
+  const [screen_resolution, setScreenResolution] = useState("");
+  const [screen_protection, setScreenProtection] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,30 +50,30 @@ const AddPost = () => {
         radio,
         threeg,
         memory,
-        backvd,
-        cardSlot,
-        backFlash,
+        back_video_recording,
+        card_slot,
+        back_flash,
         processor,
-        frontvd, 
+        front_video_recording, 
         price, 
         battery, 
         ram, 
         imageUrl, 
-        operatingSystem, 
-        screenResolution,
-        screenProtection,
-        internalMemory,
+        operating_system, 
+        screen_resolution,
+        screen_protection,
+        internal_memory,
         bluetooth,
-        newMobile,
-        frontFlash,
-        simsupport,
-        screenSize,
-        phoneDimension,
-        phoneWeight,
-        releaseDate,
-        frontCamera,
+        is_new,
+        front_flash,
+        sim_support,
+        screen_size,
+        phone_dimensions,
+        phone_weight,
+        release_date,
+        front_camera,
         backCamera,
-        screenType,
+        screen_type,
        };
 
       console.log(item);
@@ -179,15 +179,15 @@ const AddPost = () => {
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Price</label>
-                  <input type="text" class="form-control" name="price" value={price} onChange={(e) => setPrice(e.target.value)}/>
+                  <input type="number" class="form-control" name="price" value={price} onChange={(e) => setPrice(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Release Date</label>
-                  <input type="text" class="form-control" name="release_date" value={releaseDate} onChange={(e) => setReleaseDate(e.target.value)}/>
+                  <input type="date" class="form-control" name="release_date" value={release_date} onChange={(e) => setReleaseDate(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Sim Support</label>
-                  <input type="text" class="form-control" name="sim_support" value={simsupport} onChange={(e) => setSimSupport(e.target.value)}/>
+                  <input type="text" class="form-control" name="sim_support" value={sim_support} onChange={(e) => setSimSupport(e.target.value)}/>
                 </div>
               </div>
               <div class="row">
@@ -197,12 +197,12 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="operating_system"
-                    value={operatingSystem} onChange={(e) => setOperatingSystem(e.target.value)}
+                    value={operating_system} onChange={(e) => setOperatingSystem(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
                   <label for="">Phone Wieght</label>
-                  <input type="text" class="form-control" name="phone_weight" value={phoneWeight} onChange={(e) => setPhoneWeight(e.target.value)}/>
+                  <input type="text" class="form-control" name="phone_weight" value={phone_weight} onChange={(e) => setPhoneWeight(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Phone Dimensions</label>
@@ -210,14 +210,14 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="phone_dimensions"
-                    value={phoneDimension} onChange={(e) => setPhoneDimension(e.target.value)}
+                    value={phone_dimensions} onChange={(e) => setPhoneDimension(e.target.value)}
                   />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Screen Size</label>
-                  <input type="text" class="form-control" name="screen_size" value={screenSize} onChange={(e) => setScreenSize(e.target.value)}/>
+                  <input type="text" class="form-control" name="screen_size" value={screen_size} onChange={(e) => setScreenSize(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Screen Type</label>
@@ -225,12 +225,12 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="screen_resolution"
-                    value={screenResolution} onChange={(e) => setScreenResolution(e.target.value)}
+                    value={screen_resolution} onChange={(e) => setScreenResolution(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
                   <label for="">Screen Resolution</label>
-                  <input type="text" class="form-control" name="screen_type" value={screenType} onChange={(e) => setScreenType(e.target.value)}/>
+                  <input type="text" class="form-control" name="screen_type" value={screen_type} onChange={(e) => setScreenType(e.target.value)}/>
                 </div>
               </div>
               <div class="row">
@@ -240,7 +240,7 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="screen_protection"
-                    value={screenProtection} onChange={(e) => setScreenProtection(e.target.value)}
+                    value={screen_protection} onChange={(e) => setScreenProtection(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
@@ -249,7 +249,7 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="internal_memory"
-                    value={internalMemory} onChange={(e) => setInternalMemory(e.target.value)}
+                    value={internal_memory} onChange={(e) => setInternalMemory(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
@@ -260,7 +260,7 @@ const AddPost = () => {
               <div class="row">
                 <div class="col-md-3">
                   <label for="">Card Slot</label>
-                  <input type="text" class="form-control" name="card_slot" value={cardSlot} onChange={(e) => setCardSlot(e.target.value)}/>
+                  <input type="text" class="form-control" name="card_slot" value={card_slot} onChange={(e) => setCardSlot(e.target.value)}/>
                 </div>
                 <div class="col-md-3">
                   <label for="">Processor</label>
@@ -272,17 +272,17 @@ const AddPost = () => {
                 </div>
                 <div class="col-md-3">
                   <label for="">Battery</label>
-                  <input type="text" class="form-control" name="battery" value={battery} onChange={(e) => setBattery(e.target.value)}/>
+                  <input type="number" class="form-control" name="battery" value={battery} onChange={(e) => setBattery(e.target.value)}/>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Front Camera</label>
-                  <input type="text" class="form-control" name="front_camera" value={frontCamera} onChange={(e) => setFrontCamera(e.target.value)}/>
+                  <input type="text" class="form-control" name="front_camera" value={front_camera} onChange={(e) => setFrontCamera(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Front Flash</label>
-                  <input type="text" class="form-control" name="front_flash" value={frontFlash} onChange={(e) => setFrontFlash(e.target.value)}/>
+                  <input type="text" class="form-control" name="front_flash" value={front_flash} onChange={(e) => setFrontFlash(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Front Video Recording</label>
@@ -290,7 +290,7 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="front_video_recording"
-                    value={frontvd} onChange={(e) => setFrontVd(e.target.value)}
+                    value={front_video_recording} onChange={(e) => setFrontVd(e.target.value)}
                   />
                 </div>
               </div>
@@ -301,7 +301,7 @@ const AddPost = () => {
                 </div>
                 <div class="col-md-4">
                   <label for="">Back Flash</label>
-                  <input type="text" class="form-control" name="back_flash" value={backFlash} onChange={(e) => setBackFlash(e.target.value)}/>
+                  <input type="text" class="form-control" name="back_flash" value={back_flash} onChange={(e) => setBackFlash(e.target.value)}/>
                 </div>
                 <div class="col-md-4">
                   <label for="">Back Video Recording</label>
@@ -309,7 +309,7 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="back_video_recording"
-                    value={backvd} onChange={(e) => setBackVd(e.target.value)}
+                    value={back_video_recording} onChange={(e) => setBackVd(e.target.value)}
                   />
                 </div>
               </div>
@@ -346,7 +346,7 @@ const AddPost = () => {
                 </div>
                 <div class="col-md-3">
                   <label for="">Is this a new mobile?</label>
-                  <select name="is_new" class="form-control" value={newMobile} onChange={(e) => setNewMobile(e.target.value)}>
+                  <select name="is_new" class="form-control" value={is_new} onChange={(e) => setNewMobile(e.target.value)}>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                   </select>
