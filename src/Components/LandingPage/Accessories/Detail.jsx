@@ -35,7 +35,7 @@ function Detail() {
   }, [detailId]);
 
   const handleWhatsAppClick = () => {
-    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const url = `https://api.whatsapp.com/send?phone=923077756172`;
     window.open(url, '_blank');
   };
 

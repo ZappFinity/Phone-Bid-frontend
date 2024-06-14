@@ -218,7 +218,7 @@ function UsedMobiles({mobile}) {
   };
 
   const handleWhatsAppClick = () => {
-    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const url = `https://api.whatsapp.com/send?phone=923077756172`;
     window.open(url, '_blank');
   };
 
@@ -1782,6 +1782,7 @@ function UsedMobiles({mobile}) {
                                     borderRadius: "0",
                                     width: "12rem",
                                   }}
+                                  onClick={handleWhatsAppClick}
                                 >
                                   Contact on WhatsApp
                                 </button>
@@ -1798,6 +1799,7 @@ function UsedMobiles({mobile}) {
                                   borderRadius: "0",
                                   width: "12rem",
                                 }}
+                                onClick={handleWhatsAppClick}
                               >
                                 Contact on WhatsApp
                               </button>
@@ -1886,6 +1888,7 @@ function UsedMobiles({mobile}) {
                                     borderRadius: "0",
                                     width: "12rem",
                                   }}
+                                  onClick={handleWhatsAppClick}
                                 >
                                   Contact on WhatsApp
                                 </button>
@@ -1902,6 +1905,7 @@ function UsedMobiles({mobile}) {
                                   borderRadius: "0",
                                   width: "12rem",
                                 }}
+                                onClick={handleWhatsAppClick}
                               >
                                 Contact on WhatsApp
                               </button>

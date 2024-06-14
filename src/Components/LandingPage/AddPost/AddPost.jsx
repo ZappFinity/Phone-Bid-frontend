@@ -142,7 +142,7 @@ const AddPost = () => {
       <Navbar />
       <div className="greyColor p-5">
         <div className="bg-white p-5">
-          <h4>Add New Post</h4>
+          <h4> Post Your Ad Now</h4>
           <div class="container-fluid">
             <form onClick={handleSubmit}>
               <div class="row">
