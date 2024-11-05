@@ -9,11 +9,12 @@ import { TiTick } from "react-icons/ti";
 import realme from "../../img/realme-c21.png";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
+import { HiMapPin } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import "./Style.css";
 import AddPost from "../AddPost/AddPost";
 
-function UsedMobiles({mobile}) {
+function UsedMobiles({ mobile }) {
   const [data, setData] = useState([]);
   const [ram, setRam] = useState(false);
   const [city, setCity] = useState(false);
@@ -219,7 +220,7 @@ function UsedMobiles({mobile}) {
 
   const handleWhatsAppClick = () => {
     const url = `https://api.whatsapp.com/send?phone=923077756172`;
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   const dropdownRef = useRef(null);
@@ -1503,11 +1504,10 @@ function UsedMobiles({mobile}) {
 
             <div className="d-flex flex-column">
               <div className="container mt-3">
-                <Link to='/postmobilead'>
-                <button
-                  className="btn text-white greenColor">
-                  Sell Your Mobile
-                </button>
+                <Link to="/postmobilead">
+                  <button className="btn text-white greenColor">
+                    Sell Your Mobile
+                  </button>
                 </Link>
               </div>
               {search || (notFound && filter.length === 0) ? (
@@ -1590,8 +1590,25 @@ function UsedMobiles({mobile}) {
                               />
                             </div>
                             <div className="d-flex flex-column mt-3 mb-3">
-                              <Link to={`/usedmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><h5>{mobile.name}</h5></Link>
-                              <p className="card-text">Islamabad</p>
+                              <Link
+                                to={`/usedmobiledetail/${mobile.id}`}
+                                className="text-decoration-none text-black"
+                              >
+                                <h5>{mobile.name}</h5>
+                              </Link>
+                              {mobile.lat == 0.0 && mobile.lng == 0.0 ? (
+                                 <p className="btn btn-sm btn-warning text-white">No Location Provided</p>
+                              ) : (
+                                <p className="fs-5">
+                                  <a
+                                    href={`https://www.google.com/maps/@${mobile.lat},${mobile.lng},15z`}
+                                    target="_blank"
+                                    className="btn btn-sm btn-primary"
+                                  >
+                                    <HiMapPin />
+                                  </a>
+                                </p>
+                              )}
                               <p>
                                 {mobile.ram} | {mobile.internal_memory} |{" "}
                                 {extractBatteryCapacity(mobile.battery)} |{" "}
@@ -1763,8 +1780,25 @@ function UsedMobiles({mobile}) {
                               />
                             </div>
                             <div className="d-flex flex-column mt-3 mb-3">
-                            <Link to={`/usedmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><h5>{mobile.name}</h5></Link>
-                              <p className="card-text">Islamabad</p>
+                              <Link
+                                to={`/usedmobiledetail/${mobile.id}`}
+                                className="text-decoration-none text-black"
+                              >
+                                <h5>{mobile.name}</h5>
+                              </Link>
+                              {mobile.lat == 0.0 && mobile.lng == 0.0 ? (
+                                 <p className="btn btn-sm btn-warning text-white">No Location Provided</p>
+                              ) : (
+                                <p className="fs-5">
+                                  <a
+                                    href={`https://www.google.com/maps/@${mobile.lat},${mobile.lng},15z`}
+                                    target="_blank"
+                                    className="btn btn-sm btn-primary"
+                                  >
+                                    <HiMapPin />
+                                  </a>
+                                </p>
+                              )}
                               <p>
                                 {mobile.ram} | {mobile.internal_memory} |{" "}
                                 {extractBatteryCapacity(mobile.battery)}|{" "}
@@ -1869,8 +1903,25 @@ function UsedMobiles({mobile}) {
                               />
                             </div>
                             <div className="d-flex flex-column mt-3 mb-3">
-                            <Link to={`/usedmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><h5>{mobile.name}</h5></Link>
-                              <p className="card-text">Islamabad</p>
+                              <Link
+                                to={`/usedmobiledetail/${mobile.id}`}
+                                className="text-decoration-none text-black"
+                              >
+                                <h5>{mobile.name}</h5>
+                              </Link>
+                              {mobile.lat == 0.0 && mobile.lng == 0.0 ? (
+                                 <p className="btn btn-sm btn-warning text-white">No Location Provided</p>
+                              ) : (
+                                <p className="fs-5">
+                                  <a
+                                    href={`https://www.google.com/maps/@${mobile.lat},${mobile.lng},15z`}
+                                    target="_blank"
+                                    className="btn btn-sm btn-primary"
+                                  >
+                                    <HiMapPin />
+                                  </a>
+                                </p>
+                              )}
                               <p>
                                 {mobile.ram} | {mobile.internal_memory} <b>|</b>{" "}
                                 {extractBatteryCapacity(mobile.battery)}{" "}

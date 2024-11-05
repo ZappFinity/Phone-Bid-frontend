@@ -36,9 +36,22 @@ const AddPost = () => {
   const [operating_system, setOperatingSystem] = useState("");
   const [screen_resolution, setScreenResolution] = useState("");
   const [screen_protection, setScreenProtection] = useState("");
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+  const [warning, setWarning] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!/^-?\d*\.?\d*$/.test(lat) || lat === '') {
+      setWarning(true);
+      return;
+    }
+    if (!/^-?\d*\.?\d*$/.test(lng) || lng === '') {
+      setWarning(true);
+      return;
+    }
 
     try {
       let item = { name,
@@ -74,6 +87,8 @@ const AddPost = () => {
         front_camera,
         backCamera,
         screen_type,
+        lat,
+        lng
        };
 
       console.log(item);
@@ -139,6 +154,8 @@ const AddPost = () => {
       setBackCamera(""),
       setScreenType(""),
       setShowModal(false);
+      setLat('');
+      setLng('');
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -350,6 +367,32 @@ const AddPost = () => {
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                   </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="">Latitude</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="latitude"
+                    placeholder="12.3435"
+                    value={lat}
+                    onChange={(e) => setLat(e.target.value)}
+                  />
+                     {warning && <p style={{ color: 'red' }}>Please enter a valid number for latitude.</p>}
+                </div>
+                <div class="col-md-6">
+                  <label for="">Longitude</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="longitude"
+                    placeholder="12.3435"
+                    value={lng}
+                    onChange={(e) => setLng(e.target.value)}
+                  />
+                     {warning && <p style={{ color: 'red' }}>Please enter a valid number for </p>}
                 </div>
               </div>
               <div class="col-md-3">

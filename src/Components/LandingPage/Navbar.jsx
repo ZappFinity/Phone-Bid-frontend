@@ -231,7 +231,7 @@ function Navbar() {
           </div>
         </li>
         <li class="nav-item">
-          <Link class="nav-link active text-dark" aria-current="page" href="#">
+          <Link to='/mobilerepair' class="nav-link active text-dark" aria-current="page" href="#">
             Mobile Repair
           </Link>
         </li>
@@ -650,7 +650,7 @@ function Navbar() {
           </div>
         </li>
         <li class="nav-item">
-          <Link class="nav-link active text-dark" aria-current="page" >
+          <Link to='/mobilerepair' class="nav-link active text-dark" aria-current="page" >
             Mobile Repair
           </Link>
         </li>

@@ -1,0 +1,14 @@
+.card-custom {
+    width: 20rem;
+    height: auto;
+  }
+ .grey {
+    color: #555555;
+ } 
+  
+  @media (max-width: 576px) {
+    .card-custom {
+      width: 13rem;
+      height: 14rem;
+    }
+  }

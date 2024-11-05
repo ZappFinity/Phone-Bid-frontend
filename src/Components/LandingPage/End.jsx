@@ -8,7 +8,7 @@ function End() {
   return (
     <>
        <div style={{ backgroundColor: "#15363F" }}>
-        <div className="d-flex flex-row offset-2">
+        <div className="d-flex flex-row justify-content-around">
           <div className="d-flex flex-row">
             <div className=" mt-5 mx-5">
               <h5 className="text-light">Popular Mobiles</h5>
@@ -33,7 +33,7 @@ function End() {
               <p className="text-light">Infinix</p>
             </div>
           </div>
-          <div className=" d-none d-sm-flex flex-column mt-5 mx-5">
+          <div className=" d-none d-sm-flex flex-column mt-5 me-5">
             <h5 className="text-light d-none d-sm-block">Sell on PhoneBid</h5>
             <p className="text-light mt-4 d-none d-sm-block">Sell Your Mobile</p>
             <p className="text-light d-none d-sm-block">Bid Your Mobile</p>

@@ -1466,6 +1466,8 @@ function NewMobiles({mobile}) {
                 )}
               </div>
             </div>
+
+            
           </div>
         </div>
       </div>
