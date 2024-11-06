@@ -36,25 +36,31 @@ const AddPost = () => {
   const [operating_system, setOperatingSystem] = useState("");
   const [screen_resolution, setScreenResolution] = useState("");
   const [screen_protection, setScreenProtection] = useState("");
-  const [lat, setLat] = useState('');
-  const [lng, setLng] = useState('');
+  const [lat, setLat] = useState("");
+  const [lng, setLng] = useState("");
   const [warning, setWarning] = useState(false);
+  const [is_for_bid, setIsForBid] = useState(false);
+  const [bid_starting_price, setBidStartingPrice] = useState("");
 
+  const handleCheckboxChange = (e) => {
+    setIsForBid(e.target.checked);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!/^-?\d*\.?\d*$/.test(lat) || lat === '') {
+    if (!/^-?\d*\.?\d*$/.test(lat) || lat === "") {
       setWarning(true);
       return;
     }
-    if (!/^-?\d*\.?\d*$/.test(lng) || lng === '') {
+    if (!/^-?\d*\.?\d*$/.test(lng) || lng === "") {
       setWarning(true);
       return;
     }
 
     try {
-      let item = { name,
+      let item = {
+        name,
         gpu,
         nfc,
         wifi,
@@ -67,12 +73,12 @@ const AddPost = () => {
         card_slot,
         back_flash,
         processor,
-        front_video_recording, 
-        price, 
-        battery, 
-        ram, 
-        imageUrl, 
-        operating_system, 
+        front_video_recording,
+        price,
+        battery,
+        ram,
+        imageUrl,
+        operating_system,
         screen_resolution,
         screen_protection,
         internal_memory,
@@ -88,8 +94,10 @@ const AddPost = () => {
         backCamera,
         screen_type,
         lat,
-        lng
-       };
+        lng,
+        is_for_bid,
+        bid_starting_price,
+      };
 
       console.log(item);
 
@@ -128,34 +136,36 @@ const AddPost = () => {
       setImageUrl("");
       setGpu("");
       setNfc(""),
-      setWifi(""),
-      setFourG(""),
-      setFiveG(""),
-      setRadio(""),
-      setThreeG(""),
-      setInternalMemory(""),
-      setBackVd(""),
-      setCardSlot(""),
-      setBackFlash(""),
-      setProcessor(""),
-      setFrontVd(""), 
-      setOperatingSystem(""), 
-      setScreenResolution(""),
-      setScreenProtection(""),
-      setBlueTooth(""),
-      setNewMobile(""),
-      setFrontFlash(""),
-      setSimSupport(""),
-      setScreenSize(""),
-      setPhoneDimension(""),
-      setPhoneWeight(""),
-      setReleaseDate(""),
-      setFrontCamera(""),
-      setBackCamera(""),
-      setScreenType(""),
-      setShowModal(false);
-      setLat('');
-      setLng('');
+        setWifi(""),
+        setFourG(""),
+        setFiveG(""),
+        setRadio(""),
+        setThreeG(""),
+        setInternalMemory(""),
+        setBackVd(""),
+        setCardSlot(""),
+        setBackFlash(""),
+        setProcessor(""),
+        setFrontVd(""),
+        setOperatingSystem(""),
+        setScreenResolution(""),
+        setScreenProtection(""),
+        setBlueTooth(""),
+        setNewMobile(""),
+        setFrontFlash(""),
+        setSimSupport(""),
+        setScreenSize(""),
+        setPhoneDimension(""),
+        setPhoneWeight(""),
+        setReleaseDate(""),
+        setFrontCamera(""),
+        setBackCamera(""),
+        setScreenType(""),
+        setShowModal(false);
+      setLat("");
+      setLng("");
+      setBidStartingPrice("");
+      setIsForBid(false);
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -196,15 +206,33 @@ const AddPost = () => {
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Price</label>
-                  <input type="number" class="form-control" name="price" value={price} onChange={(e) => setPrice(e.target.value)}/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="price"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Release Date</label>
-                  <input type="date" class="form-control" name="release_date" value={release_date} onChange={(e) => setReleaseDate(e.target.value)}/>
+                  <input
+                    type="date"
+                    class="form-control"
+                    name="release_date"
+                    value={release_date}
+                    onChange={(e) => setReleaseDate(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Sim Support</label>
-                  <input type="text" class="form-control" name="sim_support" value={sim_support} onChange={(e) => setSimSupport(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="sim_support"
+                    value={sim_support}
+                    onChange={(e) => setSimSupport(e.target.value)}
+                  />
                 </div>
               </div>
               <div class="row">
@@ -214,12 +242,19 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="operating_system"
-                    value={operating_system} onChange={(e) => setOperatingSystem(e.target.value)}
+                    value={operating_system}
+                    onChange={(e) => setOperatingSystem(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
                   <label for="">Phone Wieght</label>
-                  <input type="text" class="form-control" name="phone_weight" value={phone_weight} onChange={(e) => setPhoneWeight(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="phone_weight"
+                    value={phone_weight}
+                    onChange={(e) => setPhoneWeight(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Phone Dimensions</label>
@@ -227,14 +262,21 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="phone_dimensions"
-                    value={phone_dimensions} onChange={(e) => setPhoneDimension(e.target.value)}
+                    value={phone_dimensions}
+                    onChange={(e) => setPhoneDimension(e.target.value)}
                   />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Screen Size</label>
-                  <input type="text" class="form-control" name="screen_size" value={screen_size} onChange={(e) => setScreenSize(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="screen_size"
+                    value={screen_size}
+                    onChange={(e) => setScreenSize(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Screen Type</label>
@@ -242,12 +284,19 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="screen_resolution"
-                    value={screen_resolution} onChange={(e) => setScreenResolution(e.target.value)}
+                    value={screen_resolution}
+                    onChange={(e) => setScreenResolution(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
                   <label for="">Screen Resolution</label>
-                  <input type="text" class="form-control" name="screen_type" value={screen_type} onChange={(e) => setScreenType(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="screen_type"
+                    value={screen_type}
+                    onChange={(e) => setScreenType(e.target.value)}
+                  />
                 </div>
               </div>
               <div class="row">
@@ -257,7 +306,8 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="screen_protection"
-                    value={screen_protection} onChange={(e) => setScreenProtection(e.target.value)}
+                    value={screen_protection}
+                    onChange={(e) => setScreenProtection(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
@@ -266,40 +316,83 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="internal_memory"
-                    value={internal_memory} onChange={(e) => setInternalMemory(e.target.value)}
+                    value={internal_memory}
+                    onChange={(e) => setInternalMemory(e.target.value)}
                   />
                 </div>
                 <div class="col-md-4">
                   <label for="">Ram</label>
-                  <input type="text" class="form-control" name="ram" value={ram} onChange={(e) => setRam(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="ram"
+                    value={ram}
+                    onChange={(e) => setRam(e.target.value)}
+                  />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-3">
                   <label for="">Card Slot</label>
-                  <input type="text" class="form-control" name="card_slot" value={card_slot} onChange={(e) => setCardSlot(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="card_slot"
+                    value={card_slot}
+                    onChange={(e) => setCardSlot(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">Processor</label>
-                  <input type="text" class="form-control" name="processor" value={processor} onChange={(e) => setProcessor(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="processor"
+                    value={processor}
+                    onChange={(e) => setProcessor(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">GPU</label>
-                  <input type="text" class="form-control" name="gpu" value={gpu} onChange={(e) => setGpu(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="gpu"
+                    value={gpu}
+                    onChange={(e) => setGpu(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">Battery</label>
-                  <input type="number" class="form-control" name="battery" value={battery} onChange={(e) => setBattery(e.target.value)}/>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="battery"
+                    value={battery}
+                    onChange={(e) => setBattery(e.target.value)}
+                  />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Front Camera</label>
-                  <input type="text" class="form-control" name="front_camera" value={front_camera} onChange={(e) => setFrontCamera(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="front_camera"
+                    value={front_camera}
+                    onChange={(e) => setFrontCamera(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Front Flash</label>
-                  <input type="text" class="form-control" name="front_flash" value={front_flash} onChange={(e) => setFrontFlash(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="front_flash"
+                    value={front_flash}
+                    onChange={(e) => setFrontFlash(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Front Video Recording</label>
@@ -307,18 +400,31 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="front_video_recording"
-                    value={front_video_recording} onChange={(e) => setFrontVd(e.target.value)}
+                    value={front_video_recording}
+                    onChange={(e) => setFrontVd(e.target.value)}
                   />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4">
                   <label for="">Back Camera</label>
-                  <input type="text" class="form-control" name="back_camera" value={backCamera} onChange={(e) => setBackCamera(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="back_camera"
+                    value={backCamera}
+                    onChange={(e) => setBackCamera(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Back Flash</label>
-                  <input type="text" class="form-control" name="back_flash" value={back_flash} onChange={(e) => setBackFlash(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="back_flash"
+                    value={back_flash}
+                    onChange={(e) => setBackFlash(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-4">
                   <label for="">Back Video Recording</label>
@@ -326,44 +432,92 @@ const AddPost = () => {
                     type="text"
                     class="form-control"
                     name="back_video_recording"
-                    value={back_video_recording} onChange={(e) => setBackVd(e.target.value)}
+                    value={back_video_recording}
+                    onChange={(e) => setBackVd(e.target.value)}
                   />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-3">
                   <label for="">Bluetooth</label>
-                  <input type="text" class="form-control" name="bluetooth" value={bluetooth} onChange={(e) => setBlueTooth(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="bluetooth"
+                    value={bluetooth}
+                    onChange={(e) => setBlueTooth(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">3G</label>
-                  <input type="text" class="form-control" name="3G" value={threeg} onChange={(e) => setThreeG(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="3G"
+                    value={threeg}
+                    onChange={(e) => setThreeG(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">4G/LTE</label>
-                  <input type="text" class="form-control" name="4G/LTE" value={fourG} onChange={(e) => setFourG(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="4G/LTE"
+                    value={fourG}
+                    onChange={(e) => setFourG(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">5G</label>
-                  <input type="text" class="form-control" name="5G" value={FiveG} onChange={(e) => setFiveG(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="5G"
+                    value={FiveG}
+                    onChange={(e) => setFiveG(e.target.value)}
+                  />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-3">
                   <label for="">Radio</label>
-                  <input type="text" class="form-control" name="radio" value={radio} onChange={(e) => setRadio(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="radio"
+                    value={radio}
+                    onChange={(e) => setRadio(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">Wi-Fi</label>
-                  <input type="text" class="form-control" name="wifi" value={wifi} onChange={(e) => setWifi(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="wifi"
+                    value={wifi}
+                    onChange={(e) => setWifi(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">NFC</label>
-                  <input type="text" class="form-control" name="nfc" value={nfc} onChange={(e) => setNfc(e.target.value)}/>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="nfc"
+                    value={nfc}
+                    onChange={(e) => setNfc(e.target.value)}
+                  />
                 </div>
                 <div class="col-md-3">
                   <label for="">Is this a new mobile?</label>
-                  <select name="is_new" class="form-control" value={is_new} onChange={(e) => setNewMobile(e.target.value)}>
+                  <select
+                    name="is_new"
+                    class="form-control"
+                    value={is_new}
+                    onChange={(e) => setNewMobile(e.target.value)}
+                  >
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                   </select>
@@ -373,30 +527,57 @@ const AddPost = () => {
                 <div class="col-md-6">
                   <label for="">Latitude</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     name="latitude"
                     placeholder="12.3435"
                     value={lat}
                     onChange={(e) => setLat(e.target.value)}
                   />
-                     {warning && <p style={{ color: 'red' }}>Please enter a valid number for latitude.</p>}
+                  {warning && (
+                    <p style={{ color: "red" }}>
+                      Please enter a valid number for latitude.
+                    </p>
+                  )}
                 </div>
                 <div class="col-md-6">
                   <label for="">Longitude</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     name="longitude"
                     placeholder="12.3435"
                     value={lng}
                     onChange={(e) => setLng(e.target.value)}
                   />
-                     {warning && <p style={{ color: 'red' }}>Please enter a valid number for </p>}
+                  {warning && (
+                    <p style={{ color: "red" }}>
+                      Please enter a valid number for{" "}
+                    </p>
+                  )}
                 </div>
               </div>
+              <div className="row">
+                <div className="col-md-6 d-flex align-items-center mt-3">
+                  <label className="me-2">Is this for Bidding</label>
+                  <input type="checkbox" onChange={handleCheckboxChange} />
+                </div>
+
+                {is_for_bid && (
+                  <div className="col-md-6">
+                    <label>Bidding Starting</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      onChange={(e) => setBidStartingPrice(e.target.value)}
+                    />
+                  </div>
+                )}
+              </div>
               <div class="col-md-3">
-                <button className="btn greenColor mt-3 text-white">Submit</button>
+                <button className="btn greenColor mt-3 text-white">
+                  Submit
+                </button>
               </div>
             </form>
           </div>

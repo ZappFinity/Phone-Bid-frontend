@@ -655,9 +655,9 @@ function Navbar() {
           </Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="#">
+          <Link to='/bidingmobile' class="nav-link active text-dark" aria-current="page" href="#">
             Bidding
-          </a>
+          </Link>
         </li>
         <li class="nav-item">
           <Link class="nav-link text-dark" to="/comparisan">

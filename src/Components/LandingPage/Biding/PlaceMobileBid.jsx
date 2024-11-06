@@ -50,8 +50,20 @@ function PlaceMobileBid() {
 
     try {
       let item = { phone, email, bid_price };
+      if (!phone || !email || !bid_price) {
+        alert("Please fill out all fields before submitting.");
+        return;
+      }
+      const bidPriceNumber = parseFloat(bid_price);
+const startingPrice = mobiledetail.data.bid_starting_price;
+
+if (bidPriceNumber <= startingPrice) {
+  alert(`Bid price cannot be less than the starting price of ${startingPrice}`);
+  return;
+}
       const tokenData = localStorage.getItem("token");
       if (!tokenData) {
+        alert('Login to submit bid')
         return;
       }
       const token = JSON.parse(tokenData);
@@ -69,7 +81,7 @@ function PlaceMobileBid() {
       const result = await response.json();
       if (result.success === true) {
         console.log(result);
-        alert("Booking Successfully");
+        alert("Bid Placed Successfully");
         window.location.reload();
         navigate('/bidsuccess')
       } else {
@@ -109,7 +121,7 @@ function PlaceMobileBid() {
               <div className="d-flex flex-column p-5 ">
                 <div className="d-flex flex-column justify-content-center px-5">
                   <h3 className="px-5">Current Bid</h3>
-                  <h1 className="px-5">Rs {mobiledetail.data.bid_starting_price}</h1>
+                  <h1 className="px-5">{mobiledetail.data.bid_starting_price}</h1>
                 </div>
                 <div className="d-flex flex-column py-3 px-5">
                   <p className="px-5">
@@ -167,9 +179,9 @@ function PlaceMobileBid() {
               <div className="col-lg-8 col-sm-12 mx-auto mb-3">
                 <label className="pb-2">Bid Price</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
-                  placeholder="46,900"
+                  placeholder="46900"
                     value={bid_price}
                     onChange={(e) => setBidPrice(e.target.value)}
                 />
