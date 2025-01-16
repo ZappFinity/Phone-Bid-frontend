@@ -3,10 +3,10 @@ import End from "../End";
 import Navbar from "../Navbar";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./Style.css";
 
-function NewMobiles({accessories}) {
+function NewMobiles({ accessories }) {
   const [data, setData] = useState([]);
   const [price, setPrice] = useState(false);
   const [brand, setBrand] = useState(false);
@@ -182,7 +182,7 @@ function NewMobiles({accessories}) {
         </h2>
         <div className="d-flex flex-row gap-4">
           {/* Filtering on big screen  */}
-          <div className="d-flex flex-column offset-1 mt-3 d-none d-sm-block">
+          <div className="d-none d-lg-block flex-column offset-1 mt-3">
             <h5
               className="p-3 text-white"
               style={{ backgroundColor: "#518ecb" }}
@@ -471,7 +471,7 @@ function NewMobiles({accessories}) {
           {/* filtering on small screen  */}
           <div className="col">
             <div
-              className=" bg-white column d-flex d-lg-none justify-content-between p-2"
+              className=" bg-white column d-flex d-md-flex d-lg-none justify-content-between p-2"
               style={{ width: "88%", marginLeft: "2rem" }}
             >
               <div>
@@ -565,7 +565,6 @@ function NewMobiles({accessories}) {
                           <h6
                             className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
                             style={{ width: "17.5rem" }}
-                            
                           >
                             Accessories
                             <IoMdArrowDropdown />
@@ -813,7 +812,7 @@ function NewMobiles({accessories}) {
               </div>
             </div>
 
-            <div className="container mt-3 pb-5 ">
+            {/* <div className="container mt-3 pb-5 ">
               <div className="row row-cols-2 row-cols-md-3  mx-0">
                 {searchInitiated && notFound ? (
                   <div>
@@ -885,6 +884,65 @@ function NewMobiles({accessories}) {
                         </div>
                       </div>
                     </div>
+                  ))
+                )}
+              </div>
+            </div> */}
+
+            <div className="container mt-3 pb-5">
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+                {searchInitiated && notFound ? (
+                  <div className="d-flex justify-content-center align-items-center w-100">
+                    <p
+                      className="text-center"
+                      style={{
+                        color: "black",
+                        backgroundColor: "#fff",
+                        boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                        borderRadius: "4px",
+                        width: "12rem",
+                        padding: "10px",
+                      }}
+                    >
+                      No results found
+                    </p>
+                  </div>
+                ) : (
+                  filter.map((accessories) => (
+                    <div className="col-12 col-sm-7 col-md-6 col-lg-4 gap-5" key={accessories.id}>
+                      <div
+                        className="card card-custom h-100 "
+                        style={{
+                          boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        <div className="card-body d-flex flex-column justify-content-center align-items-center">
+                          <img
+                            src={accessories.image}
+                            className="mb-3"
+                            style={{
+                              width: "8rem",
+                              height: "8rem",
+                              objectFit: "cover",
+                            }}
+                            alt={accessories.name}
+                          />
+                          <Link
+                            to={`/accessoriesdetail/${accessories.id}`}
+                            className="text-decoration-none text-black text-center"
+                          >
+                            <p className="card-title fw-bold mb-2">
+                              {accessories.name}
+                            </p>
+                          </Link>
+                          <p className="text-center text-primary fw-bold">
+                            {accessories.price}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                   
                   ))
                 )}
               </div>

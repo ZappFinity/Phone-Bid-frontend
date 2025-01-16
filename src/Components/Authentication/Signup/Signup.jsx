@@ -72,9 +72,19 @@ function App() {
   return (
     <div className="container-fluid ">
       <div className="row ">
-      <div className="col-sm-6 d-none d-sm-block">
-      <img src={mobile} className="img-fluid" alt="Mobile" style={{ height: "40rem", width: "100%" }} />
-    </div>
+     
+     <div className="col-12 col-md-6 col-lg-7 d-none d-lg-block">
+              <img
+                src={mobile}
+                className="img-fluid"
+                alt="Mobile"
+                style={{
+                  height: "auto",
+                  maxHeight: "100vh", 
+                  width: "100%", 
+                }}
+              />
+            </div>
 
         <div className="col-md-5">
           <img src={logo} className=" col-sm-2 d-none d-sm-block" />

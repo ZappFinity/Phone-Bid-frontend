@@ -48,70 +48,89 @@ function Login() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-sm-5">
-          <img src={logo} className=" col-sm-2 d-none d-sm-block" />
-          <img src={logo} className="img-fluid col-md-4 mx-4 d-sm-none" alt="Icon" style={{ maxWidth: "90px" }} />
+          <img src={logo} className=" col-sm-2 d-none d-sm-block mt-3" />
+          <img
+            src={logo}
+            className="img-fluid col-md-4 mx-4 d-sm-none"
+            alt="Icon"
+            style={{ maxWidth: "90px" }}
+          />
           <div className=" mt-5 mx-5">
-          <img src={icon} className="img-fluid col-md-4 mt-1 mb-3 mx-4 d-none d-sm-block" />
-          <img src={icon} className="img-fluid col-md-4 mb-3 mx-4 d-sm-none" alt="Icon" style={{ maxWidth: "150px" }} />
-          <h3 className="mt-3" style={{ color: "#16363F" }}>
-            Log In
-          </h3>
-          <div className="d-flex flex-column bd-highlight mb-3 ">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Your email"
-              aria-label="Your email"
-              aria-describedby="basic-addon1"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+            <img
+              src={icon}
+              className="img-fluid col-md-4 mt-1 mb-3 mx-4 d-none d-sm-block"
             />
-            <input
-              type="password"
-              className="form-control mt-3"
-              placeholder="Password"
-              aria-label="Password"
-              aria-describedby="basic-addon1"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+            <img
+              src={icon}
+              className="img-fluid col-md-4 mb-3 mx-4 d-sm-none"
+              alt="Icon"
+              style={{ maxWidth: "150px" }}
             />
-          </div>
-          <div className="d-grid gap-2">
-            <button
-              className="btn"
-              style={{ backgroundColor: "#52AB98", color: "white" }}
-              type="button"
-              onClick={login}
-            >
-              LOG IN
-            </button>
-          </div>
-          <p
-            className=" p-3 fw-bold d-flex justify-content-end"
-            style={{ color: "#52AB98" }}
-          >
-            Forget Password?
-          </p>
-          <div className="d-flex justify-content-center mt-4">
-            <p className="text-secondary ">
-              Don't have an account?
-              <Link
-                to="/signup"
-                className="p-3 fw-bold"
-                style={{ color: "#52AB98" }}
+            <h3 className="mt-3" style={{ color: "#16363F" }}>
+              Log In
+            </h3>
+            <div className="d-flex flex-column bd-highlight mb-3 ">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Your email"
+                aria-label="Your email"
+                aria-describedby="basic-addon1"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                className="form-control mt-3"
+                placeholder="Password"
+                aria-label="Password"
+                aria-describedby="basic-addon1"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="d-grid gap-2">
+              <button
+                className="btn"
+                style={{ backgroundColor: "#52AB98", color: "white" }}
+                type="button"
+                onClick={login}
               >
-                Sign up
-              </Link>
+                LOG IN
+              </button>
+            </div>
+            <p
+              className=" p-3 fw-bold d-flex justify-content-end"
+              style={{ color: "#52AB98" }}
+            >
+              Forget Password?
             </p>
-          </div>
+            <div className="d-flex justify-content-center mt-4">
+              <p className="text-secondary ">
+                Don't have an account?
+                <Link
+                  to="/signup"
+                  className="p-3 fw-bold"
+                  style={{ color: "#52AB98" }}
+                >
+                  Sign up
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="col-md-6 d-none d-sm-block">
+        
+        <div className="col-12 col-md-6 col-lg-7 d-none d-lg-block">
           <img
             src={mobile}
-            className=" "
-            style={{ height: "40rem", width: "110%" }}
+            className="img-fluid"
+            alt="Mobile"
+            style={{
+              height: "auto",
+              maxHeight: "100vh", 
+              width: "100%", 
+            }}
           />
         </div>
       </div>

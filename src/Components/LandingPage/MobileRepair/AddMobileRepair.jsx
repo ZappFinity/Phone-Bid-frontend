@@ -30,6 +30,7 @@ function AddMobileRepair() {
       let item = { mobile_name, issue, phone, email, device_type };
       const tokenData = localStorage.getItem("token");
       if (!tokenData) {
+        alert('Login to submit mobile repairing');
         return;
       }
       const token = JSON.parse(tokenData);
@@ -69,11 +70,13 @@ function AddMobileRepair() {
     setEmail("");
     setPhone("");
   };
+
   return (
     <>
       <Navbar />
       <div className="greyColor d-flex justify-content-center">
         <div className="container py-5 col-md-8">
+        <h3 className="mb-4">Mobile Repair Form</h3>
           <div
             className="card card-custom p-3"
             style={{

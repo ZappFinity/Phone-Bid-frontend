@@ -15,8 +15,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdOutlineDifference } from "react-icons/md";
 
-
-
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [newDropdown, setNewDropdown] = useState(false);
@@ -37,40 +35,61 @@ function Navbar() {
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
   const handleItemClick = () => {
-    setNewDropdown(!newDropdown);  
+    setNewDropdown(!newDropdown);
   };
   const handledropdown = () => {
-    setShowDropdown(!showDropdown); 
+    setShowDropdown(!showDropdown);
   };
   const handleClick = () => {
-    setAccessDropdown(!accessDropdown); 
+    setAccessDropdown(!accessDropdown);
   };
   return (
     <>
-      <div className="col-sm-15  mt-2 d-flex flex-row justify-content-between">
-        <img src={logo} class="img-fluid col-sm-1 mx-5 d-none d-sm-block" />
-        <img
-          src={logo}
-          className="img-fluid col-md-4 mx-2 mb-1 d-sm-none"
-          alt="Icon"
-          style={{ maxWidth: "90px" }}
-        />
-        <div className="col-sm-2 ">
+      
+      <div className="col-12 mt-2 d-flex flex-row justify-content-between align-items-center">
+        {/* Logo for larger screens */}
+        <Link to="/" className="nav-link active text-dark" aria-current="page">
+          <img
+            src={logo}
+            className="img-fluid col-sm-1 d-none d-sm-block ms-3"
+            alt="Logo"
+          />
+        </Link>
+        <div className="col-sm-2 d-none d-sm-block mt-1">
           <Welcome />
         </div>
       </div>
+      <div className="col-12 mt-2 d-flex flex-row justify-content-between align-items-center">
+        <Link
+          to="/"
+          class="nav-link active text-dark"
+          aria-current="page"
+          href="#"
+        >
+          <img
+            src={logo}
+            className="img-fluid col-md-4 mb-3 d-sm-none"
+            alt="Icon"
+            style={{ width: "100px" }}
+          />
+        </Link>
+
+        <div className="me-3 d-sm-none">
+          <Welcome />
+        </div>
+        </div>
       {/* Navbar */}
       {/* On Small screen  */}
       <button
-        className="navbar-toggler d-lg-none"
+        className="navbar-toggler d-lg-none ms-2"
         type="button"
         onClick={toggleMenu}
       >
@@ -82,179 +101,204 @@ function Navbar() {
         className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
         d-lg-none
       >
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <div
-            style={{
-              position: "rerlative",
-              cursor: "pointer",
-              display: "inline-block",
-            }}
-            onClick={handledropdown}
-          >
-            <Link to='/usedmobile' className="mt-2 d-flex align-items-center text-black text-decoration-none">
-              Used Mobiles
-              <IoMdArrowDropdown />
-            </Link>
-
-            {showDropdown && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "5.5rem",
-                  left: "7rem",
-                  zIndex: '3',
-                  color: "black",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "4px",
-                  paddingLeft: "13px ",
-                  paddingRight: "13px",
-                  width: "55%",
-                }}
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+          <li class="nav-item">
+            <div
+              style={{
+                position: "rerlative",
+                cursor: "pointer",
+                display: "inline-block",
+              }}
+              onClick={handledropdown}
+            >
+              <Link
+                to="/usedmobile"
+                className="mt-2 d-flex align-items-center text-black text-decoration-none"
               >
-                <div className="d-flex flex-row">
-                  <div className="col pt-3">
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Featured Used Mobiles<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Sell Your Mobile<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Phonebid Certified Mobiles<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Phonebid Sell It For Me<IoIosArrowForward />
-                    </Link>
-                  </div>
-                 </div>
-              </div>
-            )}
-          </div>
-        </li>
-        <li class="nav-item">
-          <div
-            style={{
-              position: "rerlative",
-              cursor: "pointer",
-              display: "inline-block",
-            }}
-            onClick={handleItemClick}
-          >
-            <Link to='/newmobile' className="mt-2 d-flex align-items-center text-decoration-none text-black">
-              New Mobiles
-              <IoMdArrowDropdown />
-            </Link>
+                Used Mobiles
+                <IoMdArrowDropdown />
+              </Link>
 
-            {newDropdown && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "9rem",
-                  left: "7rem",
-                  zIndex: '1',
-                  color: "black",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "4px",
-                  paddingLeft: "13px ",
-                  paddingRight: "13px",
-                  width: "50%",
-                }}
-              >
-                <div className="d-flex flex-row">
-                  <div className="col pt-3">
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Find Mobiles<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Mobile Comparison<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Reviews<IoIosArrowForward />
-                    </Link>
+              {showDropdown && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "5.5rem",
+                    left: "7rem",
+                    zIndex: "3",
+                    color: "black",
+                    backgroundColor: "#fff",
+                    boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                    borderRadius: "4px",
+                    paddingLeft: "13px ",
+                    paddingRight: "13px",
+                    width: "55%",
+                  }}
+                >
+                  <div className="d-flex flex-row">
+                    <div className="col pt-3">
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Featured Used Mobiles
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Sell Your Mobile
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Phonebid Certified Mobiles
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Phonebid Sell It For Me
+                        <IoIosArrowForward />
+                      </Link>
+                    </div>
                   </div>
-                 </div>
-              </div>
-            )}
-          </div>
-        </li>
-        <li class="nav-item">
-          <div
-            style={{
-              position: "rerlative",
-              cursor: "pointer",
-              display: "inline-block",
-            }}
-            onClick={handleClick}
-          >
-            <Link to='/accessories' className="mt-2 d-flex align-items-center text-black text-decoration-none">
-              Accessories
-              <IoMdArrowDropdown />
-            </Link>
+                </div>
+              )}
+            </div>
+          </li>
+          <li class="nav-item">
+            <div
+              style={{
+                position: "rerlative",
+                cursor: "pointer",
+                display: "inline-block",
+              }}
+              onClick={handleItemClick}
+            >
+              <Link
+                to="/newmobile"
+                className="mt-2 d-flex align-items-center text-decoration-none text-black"
+              >
+                New Mobiles
+                <IoMdArrowDropdown />
+              </Link>
 
-            {accessDropdown && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "12rem",
-                  left: "7rem",
-                  zIndex: '1',
-                  color: "black",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "4px",
-                  paddingLeft: "13px ",
-                  paddingRight: "13px",
-                  width: "55%",
-                }}
-              >
-                <div className="d-flex flex-row">
-                  <div className="col pt-3">
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      PhoneBid Store<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Featured Accessories<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Sell Your Accessories<IoIosArrowForward />
-                    </Link>
-                    <Link className="d-block mb-2 text-decoration-none text-dark">
-                      Mobile Parts<IoIosArrowForward />
-                    </Link>
+              {newDropdown && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "9rem",
+                    left: "7rem",
+                    zIndex: "1",
+                    color: "black",
+                    backgroundColor: "#fff",
+                    boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                    borderRadius: "4px",
+                    paddingLeft: "13px ",
+                    paddingRight: "13px",
+                    width: "50%",
+                  }}
+                >
+                  <div className="d-flex flex-row">
+                    <div className="col pt-3">
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Find Mobiles
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Mobile Comparison
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Reviews
+                        <IoIosArrowForward />
+                      </Link>
+                    </div>
                   </div>
-                 </div>
-              </div>
-            )}
-          </div>
-        </li>
-        <li class="nav-item">
-          <Link to='/mobilerepair' class="nav-link active text-dark" aria-current="page" href="#">
-            Mobile Repair
-          </Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link active text-dark" aria-current="page" href="#">
-            Bidding
-          </Link>
-        </li>
-        <li class="nav-item">
-          <Link  class="nav-link text-dark" to="/comparisan">
-            Comparison
-          </Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link text-dark" href="#">
-            Reviews
-          </Link>
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link text-dark" to="/blog">
-            Blogs
-          </Link>
-        </li>
+                </div>
+              )}
+            </div>
+          </li>
+          <li class="nav-item">
+            <div
+              style={{
+                position: "rerlative",
+                cursor: "pointer",
+                display: "inline-block",
+              }}
+              onClick={handleClick}
+            >
+              <Link
+                to="/accessories"
+                className="mt-2 d-flex align-items-center text-black text-decoration-none"
+              >
+                Accessories
+                <IoMdArrowDropdown />
+              </Link>
+
+              {accessDropdown && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "12rem",
+                    left: "7rem",
+                    zIndex: "1",
+                    color: "black",
+                    backgroundColor: "#fff",
+                    boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                    borderRadius: "4px",
+                    paddingLeft: "13px ",
+                    paddingRight: "13px",
+                    width: "55%",
+                  }}
+                >
+                  <div className="d-flex flex-row">
+                    <div className="col pt-3">
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        PhoneBid Store
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Featured Accessories
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Sell Your Accessories
+                        <IoIosArrowForward />
+                      </Link>
+                      <Link className="d-block mb-2 text-decoration-none text-dark">
+                        Mobile Parts
+                        <IoIosArrowForward />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </li>
+          <li class="nav-item">
+            <Link
+              to="/mobilerepair"
+              class="nav-link active text-dark"
+              aria-current="page"
+              href="#"
+            >
+              Mobile Repair
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link
+              class="nav-link active text-dark"
+              aria-current="page"
+              href="#"
+            >
+              Bidding
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link class="nav-link text-dark" to="/comparisan">
+              Comparison
+            </Link>
+          </li>
+          
+          <li class="nav-item">
+            <Link class="nav-link text-dark" to="/blog">
+              Blogs
+            </Link>
+          </li>
           <li class="nav-item">
             <button
               className="btn"
@@ -277,7 +321,10 @@ function Navbar() {
             }}
             onClick={handledropdown}
           >
-            <Link to='/usedmobile' className="mt-2 d-flex align-items-center text-decoration-none text-black">
+            <Link
+              to="/usedmobile"
+              className="mt-2 d-flex align-items-center text-decoration-none text-black"
+            >
               Used Mobiles
               <IoMdArrowDropdown />
             </Link>
@@ -288,7 +335,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.25rem",
                   left: "10rem",
-                  zIndex: '3',
+                  zIndex: "3",
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -413,7 +460,10 @@ function Navbar() {
             }}
             onClick={handleItemClick}
           >
-            <Link to ='/newmobile' className="mt-2 mx-3 d-flex align-items-center text-decoration-none text-black">
+            <Link
+              to="/newmobile"
+              className="mt-2 mx-3 d-flex align-items-center text-decoration-none text-black"
+            >
               New Mobiles
               <IoMdArrowDropdown />
             </Link>
@@ -424,7 +474,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.29rem",
                   left: "22rem",
-                  zIndex: '1',
+                  zIndex: "1",
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -433,7 +483,6 @@ function Navbar() {
                   paddingRight: "13px",
                   width: "65%",
                 }}
-                
               >
                 <div className="d-flex flex-row">
                   <div className="col pt-3">
@@ -536,7 +585,10 @@ function Navbar() {
             }}
             onClick={handleClick}
           >
-            <Link to='/accessories' className="mt-2 mx-3 d-flex align-items-center text-decoration-none text-black">
+            <Link
+              to="/accessories"
+              className="mt-2 mx-3 d-flex align-items-center text-decoration-none text-black"
+            >
               Accessories
               <IoMdArrowDropdown />
             </Link>
@@ -547,7 +599,7 @@ function Navbar() {
                   position: "absolute",
                   top: "5.29rem",
                   left: "32rem",
-                  zIndex: '1',
+                  zIndex: "1",
                   color: "black",
                   backgroundColor: "#fff",
                   boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
@@ -650,12 +702,21 @@ function Navbar() {
           </div>
         </li>
         <li class="nav-item">
-          <Link to='/mobilerepair' class="nav-link active text-dark" aria-current="page" >
+          <Link
+            to="/mobilerepair"
+            class="nav-link active text-dark"
+            aria-current="page"
+          >
             Mobile Repair
           </Link>
         </li>
         <li class="nav-item">
-          <Link to='/bidingmobile' class="nav-link active text-dark" aria-current="page" href="#">
+          <Link
+            to="/bidingmobile"
+            class="nav-link active text-dark"
+            aria-current="page"
+            href="#"
+          >
             Bidding
           </Link>
         </li>
@@ -664,24 +725,20 @@ function Navbar() {
             Comparison
           </Link>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#">
-            Reviews
-          </a>
-        </li>
+        
         <li class="nav-item">
           <Link class="nav-link text-dark" to="/blog">
             Blogs
           </Link>
         </li>
         <li class="nav-item">
-          <Link to='/postmobilead'>
-          <button
-            className="btn"
-            style={{ backgroundColor: "#52AB98", color: "white" }}
-          >
-            Sell Your Mobile
-          </button>
+          <Link to="/postmobilead">
+            <button
+              className="btn"
+              style={{ backgroundColor: "#52AB98", color: "white" }}
+            >
+              Sell Your Mobile
+            </button>
           </Link>
         </li>
       </ul>

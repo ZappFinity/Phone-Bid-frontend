@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import End from "../End";
 import Navbar from "../Navbar";
-import './Style.css'
+import "./Style.css";
 import { IoFilter } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function NewMobiles({mobile}) {
+function NewMobiles({ mobile }) {
   const [data, setData] = useState([]);
   const [ram, setRam] = useState(false);
   const [city, setCity] = useState(false);
@@ -273,7 +273,7 @@ function NewMobiles({mobile}) {
         </h2>
         <div className="d-flex flex-row gap-4">
           {/* filtering for large screen  */}
-          <div className="d-flex flex-column offset-1 mt-3 d-none d-sm-block">
+          <div className="d-none d-lg-block flex-column offset-1 mt-3 ">
             <h5
               className="p-3 text-white"
               style={{ backgroundColor: "#518ecb" }}
@@ -830,10 +830,10 @@ function NewMobiles({mobile}) {
           {/* filtering on small screen  */}
           <div className="col">
             <div
-              className=" bg-white column d-flex d-lg-none justify-content-between p-2"
+              className=" bg-white column d-flex d-md-flex d-lg-none justify-content-between p-2"
               style={{ width: "88%", marginLeft: "2rem" }}
             >
-               <div>
+              <div>
                 {/* main dropdown   */}
                 <div
                   style={{
@@ -869,506 +869,607 @@ function NewMobiles({mobile}) {
                       }}
                       onClick={(e) => e.stopPropagation()}
                     >
-                       {/* city  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleCity}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  CITY
-                  <IoMdArrowDropdown />
-                </h6>
+                      {/* city  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleCity}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            CITY
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {city && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span>Lahore</span>
-                      <span>Karachi</span>
-                      <span>Islamabad</span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* price range  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "rerlative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleprice}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  PRICE RANGE
-                  <IoMdArrowDropdown />
-                </h6>
+                          {city && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span>Lahore</span>
+                                <span>Karachi</span>
+                                <span>Islamabad</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* price range  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "rerlative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleprice}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            PRICE RANGE
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {price && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div class="input-group" style={{ width: "15.5rem" }}>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="From"
-                        onClick={(e) => e.stopPropagation()}
-                        value={priceRange.min}
-                        onChange={(e) =>
-                          setPriceRange({ ...priceRange, min: e.target.value })
-                        }
-                      />
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="To"
-                        onClick={(e) => e.stopPropagation()}
-                        value={priceRange.max}
-                        onChange={(e) =>
-                          setPriceRange({ ...priceRange, max: e.target.value })
-                        }
-                      />
-                      <button
-                        class="btn btn-outline-secondary text-white"
-                        type="button"
-                        style={{ backgroundColor: "#233d7b" }}
-                        onClick={handlePriceClick}
-                      >
-                        Go
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* primary camera  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleCamera}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  PRIMARY CAMERA
-                  <IoMdArrowDropdown />
-                </h6>
+                          {price && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div
+                                class="input-group"
+                                style={{ width: "15.5rem" }}
+                              >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="From"
+                                  onClick={(e) => e.stopPropagation()}
+                                  value={priceRange.min}
+                                  onChange={(e) =>
+                                    setPriceRange({
+                                      ...priceRange,
+                                      min: e.target.value,
+                                    })
+                                  }
+                                />
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="To"
+                                  onClick={(e) => e.stopPropagation()}
+                                  value={priceRange.max}
+                                  onChange={(e) =>
+                                    setPriceRange({
+                                      ...priceRange,
+                                      max: e.target.value,
+                                    })
+                                  }
+                                />
+                                <button
+                                  class="btn btn-outline-secondary text-white"
+                                  type="button"
+                                  style={{ backgroundColor: "#233d7b" }}
+                                  onClick={handlePriceClick}
+                                >
+                                  Go
+                                </button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* primary camera  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleCamera}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            PRIMARY CAMERA
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {camera && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span onClick={() => handleCameraClick("108 MP")}>
-                        Minimum 108 MP
-                      </span>
-                      <span onClick={() => handleCameraClick("48 MP")}>
-                        Minimum 48 MP
-                      </span>
-                      <span onClick={() => handleCameraClick("13 MP")}>
-                        Minimum 13 MP
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* ram  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleRam}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  RAM
-                  <IoMdArrowDropdown />
-                </h6>
+                          {camera && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() => handleCameraClick("108 MP")}
+                                >
+                                  Minimum 108 MP
+                                </span>
+                                <span
+                                  onClick={() => handleCameraClick("48 MP")}
+                                >
+                                  Minimum 48 MP
+                                </span>
+                                <span
+                                  onClick={() => handleCameraClick("13 MP")}
+                                >
+                                  Minimum 13 MP
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* ram  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleRam}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            RAM
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {ram && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileRam("1GB or less")}>
-                        1 GB or Less
-                      </span>
-                      <span onClick={() => handleMobileRam("2GB")}>2 GB</span>
-                      <span onClick={() => handleMobileRam("3GB")}>3 GB</span>
-                      <span onClick={() => handleMobileRam("4GB")}>4 GB</span>
-                      <span onClick={() => handleMobileRam("6GB or more")}>
-                        6 GB or More
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* memory  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleMemory}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  MEMORY
-                  <IoMdArrowDropdown />
-                </h6>
+                          {ram && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() => handleMobileRam("1GB or less")}
+                                >
+                                  1 GB or Less
+                                </span>
+                                <span onClick={() => handleMobileRam("2GB")}>
+                                  2 GB
+                                </span>
+                                <span onClick={() => handleMobileRam("3GB")}>
+                                  3 GB
+                                </span>
+                                <span onClick={() => handleMobileRam("4GB")}>
+                                  4 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileRam("6GB or more")}
+                                >
+                                  6 GB or More
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* memory  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleMemory}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            MEMORY
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {memory && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileMemory("4GB")}>
-                        4 GB{" "}
-                      </span>
-                      <span onClick={() => handleMobileMemory("8GB")}>
-                        8 GB
-                      </span>
-                      <span onClick={() => handleMobileMemory("16GB")}>
-                        16 GB
-                      </span>
-                      <span onClick={() => handleMobileMemory("31GB")}>
-                        31 GB
-                      </span>
-                      <span onClick={() => handleMobileMemory("64GB")}>
-                        64 GB
-                      </span>
-                      <span onClick={() => handleMobileMemory("128GB")}>
-                        128 GB
-                      </span>
-                      <span onClick={() => handleMobileMemory("256GB")}>
-                        256 GB
-                      </span>
-                      <span onClick={() => handleMobileMemory("512GB")}>
-                        512 GB
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* brands  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleBrand}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  BRANDS
-                  <IoMdArrowDropdown />
-                </h6>
+                          {memory && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span onClick={() => handleMobileMemory("4GB")}>
+                                  4 GB{" "}
+                                </span>
+                                <span onClick={() => handleMobileMemory("8GB")}>
+                                  8 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileMemory("16GB")}
+                                >
+                                  16 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileMemory("31GB")}
+                                >
+                                  31 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileMemory("64GB")}
+                                >
+                                  64 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileMemory("128GB")}
+                                >
+                                  128 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileMemory("256GB")}
+                                >
+                                  256 GB
+                                </span>
+                                <span
+                                  onClick={() => handleMobileMemory("512GB")}
+                                >
+                                  512 GB
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* brands  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleBrand}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            BRANDS
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {brand && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileBrand("Redmi")}>
-                        Redmi
-                      </span>
-                      <span onClick={() => handleMobileBrand("Samsung")}>
-                        Samsung{" "}
-                      </span>
-                      <span onClick={() => handleMobileBrand("Infinix")}>
-                        Infinix
-                      </span>
-                      <span onClick={() => handleMobileBrand("Oppo")}>
-                        Oppo
-                      </span>
-                      <span onClick={() => handleMobileBrand("Apple")}>
-                        Apple
-                      </span>
-                      <span onClick={() => handleMobileBrand("Asus")}>
-                        Asus
-                      </span>
-                      <span onClick={() => handleMobileBrand("Alcatel")}>
-                        Alcatel
-                      </span>
-                      <span onClick={() => handleMobileBrand("Itel")}>
-                        itel
-                      </span>
-                      <span onClick={() => handleMobileBrand("Google")}>
-                        Google
-                      </span>
-                      <span onClick={() => handleMobileBrand("Oneplus")}>
-                        Oneplus
-                      </span>
-                      <span onClick={() => handleMobileBrand("Haier")}>
-                        Haier
-                      </span>
-                      <span onClick={() => handleMobileBrand("Huawei")}>
-                        Huawei
-                      </span>
-                      <span onClick={() => handleMobileBrand("Nokia")}>
-                        Nokia
-                      </span>
-                      <span onClick={() => handleMobileBrand("Motorola")}>
-                        Motorola
-                      </span>
-                      <span onClick={() => handleMobileBrand("Sony")}>
-                        Sony
-                      </span>
-                      <span onClick={() => handleMobileBrand("Vivo")}>
-                        Vivo
-                      </span>
-                      <span onClick={() => handleMobileBrand("Realme")}>
-                        Realme
-                      </span>
-                      <span onClick={() => handleMobileBrand("Lenovo")}>
-                        Lenovo
-                      </span>
-                      <span onClick={() => handleMobileBrand("Xaiomi")}>
-                        Xiaomi
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* screen size  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleScreen}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  SCREEN SIZE
-                  <IoMdArrowDropdown />
-                </h6>
+                          {brand && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() => handleMobileBrand("Redmi")}
+                                >
+                                  Redmi
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Samsung")}
+                                >
+                                  Samsung{" "}
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Infinix")}
+                                >
+                                  Infinix
+                                </span>
+                                <span onClick={() => handleMobileBrand("Oppo")}>
+                                  Oppo
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Apple")}
+                                >
+                                  Apple
+                                </span>
+                                <span onClick={() => handleMobileBrand("Asus")}>
+                                  Asus
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Alcatel")}
+                                >
+                                  Alcatel
+                                </span>
+                                <span onClick={() => handleMobileBrand("Itel")}>
+                                  itel
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Google")}
+                                >
+                                  Google
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Oneplus")}
+                                >
+                                  Oneplus
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Haier")}
+                                >
+                                  Haier
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Huawei")}
+                                >
+                                  Huawei
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Nokia")}
+                                >
+                                  Nokia
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Motorola")}
+                                >
+                                  Motorola
+                                </span>
+                                <span onClick={() => handleMobileBrand("Sony")}>
+                                  Sony
+                                </span>
+                                <span onClick={() => handleMobileBrand("Vivo")}>
+                                  Vivo
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Realme")}
+                                >
+                                  Realme
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Lenovo")}
+                                >
+                                  Lenovo
+                                </span>
+                                <span
+                                  onClick={() => handleMobileBrand("Xaiomi")}
+                                >
+                                  Xiaomi
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* screen size  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleScreen}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            SCREEN SIZE
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {screen && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span onClick={() => handleScreenSize("4 inch")}>
-                        4 inch
-                      </span>
-                      <span
-                        onClick={() => handleScreenSize("4.0 inch to 4.5 inch")}
-                      >
-                        4.0 inch to 4.5 inch
-                      </span>
-                      <span
-                        onClick={() => handleScreenSize("4.5 inch to 5.0 inch")}
-                      >
-                        4.5 inch to 5.0 inch
-                      </span>
-                      <span
-                        onClick={() => handleScreenSize("5.0 inch to 5.5 inch")}
-                      >
-                        5.0 inch to 5.5 inch
-                      </span>
-                      <span
-                        onClick={() => handleScreenSize("5.5 inch to 6.9 inch")}
-                      >
-                        5.5 inch to 6.9 inch
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            {/* features  */}
-            <div class="nav-item">
-              <div
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  display: "inline-block",
-                }}
-                onClick={handleFeatures}
-              >
-                <h6
-                  className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
-                  style={{ width: "17.5rem" }}
-                >
-                  FEATURES
-                  <IoMdArrowDropdown />
-                </h6>
+                          {screen && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() => handleScreenSize("4 inch")}
+                                >
+                                  4 inch
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleScreenSize("4.0 inch to 4.5 inch")
+                                  }
+                                >
+                                  4.0 inch to 4.5 inch
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleScreenSize("4.5 inch to 5.0 inch")
+                                  }
+                                >
+                                  4.5 inch to 5.0 inch
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleScreenSize("5.0 inch to 5.5 inch")
+                                  }
+                                >
+                                  5.0 inch to 5.5 inch
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleScreenSize("5.5 inch to 6.9 inch")
+                                  }
+                                >
+                                  5.5 inch to 6.9 inch
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      {/* features  */}
+                      <div class="nav-item">
+                        <div
+                          style={{
+                            position: "relative",
+                            cursor: "pointer",
+                            display: "inline-block",
+                          }}
+                          onClick={handleFeatures}
+                        >
+                          <h6
+                            className="p-2 d-flex justify-content-between align-items-center text-decoration-none text-black bg-white"
+                            style={{ width: "17.5rem" }}
+                          >
+                            FEATURES
+                            <IoMdArrowDropdown />
+                          </h6>
 
-                {features && (
-                  <div
-                    style={{
-                      position: "relative",
-                      color: "black",
-                      backgroundColor: "#fff",
-                      boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
-                      borderRadius: "4px",
-                      paddingLeft: "15px ",
-                      paddingRight: "15px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      marginBottom: "3px",
-                      width: "17.5rem",
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="d-flex flex-column">
-                      <span onClick={() => handleMobileFeatures("back_flash")}>
-                        Flash Light{" "}
-                      </span>
-                      <span onClick={() => handleMobileFeatures("Auto Focus")}>
-                        Auto Focus
-                      </span>
-                      <span onClick={() => handleMobileFeatures("bluetooth")}>
-                        Bluetooth
-                      </span>
-                      <span onClick={() => handleMobileFeatures("3G")}>3G</span>
-                      <span onClick={() => handleMobileFeatures("4G/LTE")}>
-                        4G / LTE
-                      </span>
-                      <span onClick={() => handleMobileFeatures("5G")}>5G</span>
-                      <span onClick={() => handleMobileFeatures("wifi")}>
-                        Wifi
-                      </span>
-                      <span onClick={() => handleMobileFeatures("nfc")}>
-                        NFC
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+                          {features && (
+                            <div
+                              style={{
+                                position: "relative",
+                                color: "black",
+                                backgroundColor: "#fff",
+                                boxShadow: "0 5px 7px rgba(0, 0, 0, 0.1)",
+                                borderRadius: "4px",
+                                paddingLeft: "15px ",
+                                paddingRight: "15px",
+                                paddingTop: "5px",
+                                paddingBottom: "5px",
+                                marginBottom: "3px",
+                                width: "17.5rem",
+                              }}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="d-flex flex-column">
+                                <span
+                                  onClick={() =>
+                                    handleMobileFeatures("back_flash")
+                                  }
+                                >
+                                  Flash Light{" "}
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleMobileFeatures("Auto Focus")
+                                  }
+                                >
+                                  Auto Focus
+                                </span>
+                                <span
+                                  onClick={() =>
+                                    handleMobileFeatures("bluetooth")
+                                  }
+                                >
+                                  Bluetooth
+                                </span>
+                                <span
+                                  onClick={() => handleMobileFeatures("3G")}
+                                >
+                                  3G
+                                </span>
+                                <span
+                                  onClick={() => handleMobileFeatures("4G/LTE")}
+                                >
+                                  4G / LTE
+                                </span>
+                                <span
+                                  onClick={() => handleMobileFeatures("5G")}
+                                >
+                                  5G
+                                </span>
+                                <span
+                                  onClick={() => handleMobileFeatures("wifi")}
+                                >
+                                  Wifi
+                                </span>
+                                <span
+                                  onClick={() => handleMobileFeatures("nfc")}
+                                >
+                                  NFC
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1399,8 +1500,8 @@ function NewMobiles({mobile}) {
                 {search || (notFound && filter.length === 0) ? (
                   <div>
                     <p
-                        className='d-none d-sm-block'
-                        style={{
+                      className="d-none d-sm-block"
+                      style={{
                         position: "relative",
                         top: "10rem",
                         left: "20rem",
@@ -1418,7 +1519,7 @@ function NewMobiles({mobile}) {
                       No results found
                     </p>
                     <p
-                    className="d-flex d-lg-none"
+                      className="d-flex d-lg-none"
                       style={{
                         position: "relative",
                         top: "2rem",
@@ -1440,7 +1541,7 @@ function NewMobiles({mobile}) {
                 ) : (
                   filter.map((mobile) => (
                     <div
-                      className="col mb-4"
+                      className="col-12 col-sm-7 col-md-6 col-lg-4 gap-5 mb-4"
                       key={mobile.id}
                       // onClick={() => handleMobileDetail(mobile)}
                     >
@@ -1455,7 +1556,14 @@ function NewMobiles({mobile}) {
                             src={mobile.image}
                             style={{ width: "4.5rem", height: "8rem" }}
                           />
-                          <Link to={`/newmobiledetail/${mobile.id}`} className="text-decoration-none text-black"><p className="card-title mt-2 mb-2" >{mobile.name}</p></Link>
+                          <Link
+                            to={`/newmobiledetail/${mobile.id}`}
+                            className="text-decoration-none text-black"
+                          >
+                            <p className="card-title mt-2 mb-2">
+                              {mobile.name}
+                            </p>
+                          </Link>
                           <p>
                             <b>{mobile.price}</b>
                           </p>
@@ -1466,8 +1574,6 @@ function NewMobiles({mobile}) {
                 )}
               </div>
             </div>
-
-            
           </div>
         </div>
       </div>
