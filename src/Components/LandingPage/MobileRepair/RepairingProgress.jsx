@@ -80,9 +80,10 @@ function RepairingPorgress() {
             ))}
            </>
         ): (
-          <div className="d-flex flex-row justify-content-between align-items-center">
-          <h3>Have not submit any mobile for repairing</h3>
-          </div>
+          
+           <h2 className="offset-1 py-5" style={{ color: "#233d7b" }}>
+           Have not submit any mobile for repairing
+         </h2>
         )
 }
       </div>

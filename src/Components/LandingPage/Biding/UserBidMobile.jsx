@@ -143,7 +143,7 @@ function UserBidMobile() {
               </tbody>
             </table>
                 ): (
-                  <div>No mobile placed for bid </div>
+                  <div>No bid for this mobile till now </div>
                 )
 }
           </div>
@@ -152,7 +152,10 @@ function UserBidMobile() {
          ))}
          </div>
         ) : (
-          <p> No mobile placed for bid</p>
+          
+          <h2 className="offset-1 py-5" style={{ color: "#233d7b" }}>
+              No mobile placed for bid
+            </h2>
         )}
 
       </div>
