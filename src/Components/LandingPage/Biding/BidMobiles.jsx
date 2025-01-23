@@ -3,6 +3,7 @@ import mobile from "../../img/xiaomi-14.svg";
 import Navbar from "../Navbar";
 import End from "../End";
 import { Link } from "react-router-dom";
+import { Button } from "bootstrap";
 
 function BidMobiles() {
   const [data, setData] = useState([]);
@@ -23,6 +24,7 @@ function BidMobiles() {
 
         if (response.ok) {
           const responseData = await response.json();
+          console.log(responseData);
           setData(responseData.data || []);
         } else {
           console.error("Failed to fetch user data");
@@ -35,17 +37,29 @@ function BidMobiles() {
     fetchUserData();
   }, []);
 
-  // const handleMobileDetail = (mobile) => {
-  //   setDetailId(mobile.id);
-  // };
+  const user = localStorage.getItem("user");
+  const parsedUser = JSON.parse(user);
 
   return (
     <>
       <Navbar />
       <div style={{ backgroundColor: "#f2f3f3" }}>
-        <h2 className="offset-1 pt-5 pb-3" style={{ color: "#233d7b" }}>
-          Bid On Mobiles From Anywhere In Pakistan
-        </h2>
+        <div className="d-flex flex-row justify-content-between">
+          <h2 className="offset-1 mt-4 mb-3" style={{ color: "#233d7b" }}>
+            Bid On Mobiles From Anywhere In Pakistan
+          </h2>
+          <Link to="/userbidmobile" className="text-decoration-none text-black">
+            <button
+              className="btn px-4 me-5 mt-4 mb-3"
+              style={{
+                backgroundColor: "#52AB98",
+                color: "white",
+              }}
+            >
+              Bid Mobile
+            </button>
+          </Link>
+        </div>
 
         <div className="container mt-3 pb-5">
           <div className="row row-cols-2 row-cols-md-3 mx-0 py-auto">
@@ -74,24 +88,30 @@ function BidMobiles() {
                     <p className="card-title mt-2 mb-2">No Faults</p>
                     <p className="card-title mt-2 mb-2">Islamabad</p>
                     <div className="d-flex flex-row justify-content-between">
-                      <p className="card-title mt-2 mb-2">Total Bid <b>{bidMobile.bid_starting_price}</b></p>
+                      <p className="card-title mt-2 mb-2">
+                        Total Bid <b>{bidMobile.bid_starting_price}</b>
+                      </p>
+
                       <p className="card-title mt-2 mb-2">Highest Bid</p>
                     </div>
-                    <Link
-                      to={`/bidmobiledetail/${bidMobile.id}`}
-                      className="text-decoration-none text-black"
-                    >
-                      <button
-                        className="btn px-4"
-                        style={{
-                          backgroundColor: "#52AB98",
-                          color: "white",
-                        }}
+                    {bidMobile.ad_poster_id === parsedUser.user.id ? (
+                      <p></p>
+                    ) : (
+                      <Link
+                        to={`/bidmobiledetail/${bidMobile.id}`}
+                        className="text-decoration-none text-black"
                       >
-                        View Bid
-                      </button>
-                    </Link>
-
+                        <button
+                          className="btn px-4"
+                          style={{
+                            backgroundColor: "#52AB98",
+                            color: "white",
+                          }}
+                        >
+                          View Bid
+                        </button>
+                      </Link>
+                    )}
                     {/* </Link> */}
                     <p>{/* <b>{mobile.price}</b> */}</p>
                   </div>

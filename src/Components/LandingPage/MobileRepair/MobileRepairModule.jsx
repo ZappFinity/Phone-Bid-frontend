@@ -32,18 +32,32 @@ function MobileRepair() {
               <p className="text-secondary" style={{ paddingLeft: "3rem" }}>
                 for your mobile devices
               </p>
-              <div className="d-flex flex-row justify-content-center">
+
+              <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
                 <Link to="/mobiletype">
+                  <button
+                    className="btn px-5 me-md-3 mb-3 mb-md-0"
+                    style={{
+                      backgroundColor: "#52AB98",
+                      color: "white",
+                      marginTop: "2rem",
+                      marginBottom: "2rem",
+                    }}
+                  >
+                    Book a Repair
+                  </button>
+                </Link>
+                <Link to="/repairingporgress">
                   <button
                     className="btn px-5"
                     style={{
                       backgroundColor: "#52AB98",
                       color: "white",
-                      marginTop: "3rem",
+                      marginTop: "4rem",
                       marginBottom: "2rem",
                     }}
                   >
-                    Book a Repair
+                    Repairing Progress
                   </button>
                 </Link>
               </div>

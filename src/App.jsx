@@ -28,11 +28,15 @@ import BidMobiles from "./Components/LandingPage/Biding/BidMobiles";
 import BidMobileDetail from "./Components/LandingPage/Biding/BidMobileDetail";
 import PlaceMobileBid from "./Components/LandingPage/Biding/PlaceMobileBid";
 import BidSuccess from "./Components/LandingPage/Biding/BidSuccess";
+import UserBidMobile from "./Components/LandingPage/Biding/UserBidMobile";
+import RepairingPorgress from "./Components/LandingPage/MobileRepair/RepairingProgress"
 
 // import router
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+ 
+
   return (
     <>
       <Router>
@@ -50,12 +54,22 @@ function App() {
           <Route path="/newmobile" exact Component={NewMobiles} />
           <Route path="/mobilerepair" exact Component={MobileRepair} />
           <Route path="/mobiletype" exact Component={MobileType} />
-          <Route path="/bidsuccess" exact Component={BidSuccess}/>
+          <Route path="/bidsuccess" exact Component={BidSuccess} />
           <Route path="/add" exact Component={AddMobileRepair} />
           <Route path="/postmobilead" exact Component={AddPost} />
           <Route path="/bidingmobile" exact Component={BidMobiles} />
-          <Route path="/placemobilebid/:bidId" exact Component={PlaceMobileBid}/>
-          <Route path="/bidmobiledetail/:bidMobileDetailId" exact Component={BidMobileDetail} />
+          <Route path="/userbidmobile" exact Component={UserBidMobile} />
+          <Route path="/repairingporgress" exact Component={RepairingPorgress} />
+          <Route
+            path="/placemobilebid/:bidId"
+            exact
+            Component={PlaceMobileBid}
+          />
+          <Route
+            path="/bidmobiledetail/:bidMobileDetailId"
+            exact
+            Component={BidMobileDetail}
+          />
           <Route path="/mysavedads" exact Component={MySavedAds} />
           <Route path="/sellmobile" exact Component={SellMobile} />
           <Route path="/usedmobile" exact Component={UsedMobiles} />
@@ -93,6 +107,9 @@ function App() {
           />
         </Routes>
       </Router>
+     
+     
+      
     </>
   );
 }

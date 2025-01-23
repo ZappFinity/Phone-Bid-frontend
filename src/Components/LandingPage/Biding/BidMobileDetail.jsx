@@ -83,7 +83,7 @@ function BidMobileDetail() {
                     backgroundColor: "#52AB98",
                     color: "white",
                     paddingBottom: ".75rem",
-                    paddingTop: '.70rem'
+                    paddingTop: ".70rem",
                   }}
                 >
                   Place Bid
@@ -286,6 +286,7 @@ function BidMobileDetail() {
                 </p>
               </div>
             </div>
+
             <div className="d-flex flex-row p-4 gap-2 justify-content-center">
               <div
                 className="card col-lg-8 col-md-8 col-sm-4"
@@ -332,11 +333,16 @@ function BidMobileDetail() {
                 </div>
               </div>
             </div>
-          </>
+         
+
+            
+         </>
         ) : (
-          <p>Mobile not found</p>
+          <p></p>
         )}
+
       </div>
+
       <End />
     </>
   );

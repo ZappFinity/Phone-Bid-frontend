@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import End from "../End";
 import mobile from "../../img/phone-img.png";
@@ -6,11 +6,11 @@ import { useParams, useNavigate } from "react-router-dom";
 
 function PlaceMobileBid() {
   const { bidId } = useParams();
-  console.log('bid id', bidId);
+  console.log("bid id", bidId);
   const [mobiledetail, setMobileDetail] = useState(null);
-  const [phone, setPhone] = useState("")
-  const [email, setEmail] = useState('')
-  const [bid_price, setBidPrice] = useState('')
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [bid_price, setBidPrice] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,14 +39,13 @@ function PlaceMobileBid() {
     }
   }, [bidId]);
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // if(!mobile_name || !issue || !phone || !email){
-    //   setWarning("Field Required");
-    //   return;
-    // }
 
     try {
       let item = { phone, email, bid_price };
@@ -54,16 +53,23 @@ function PlaceMobileBid() {
         alert("Please fill out all fields before submitting.");
         return;
       }
+      if (!validateEmail(email)) {
+        alert("Invalid email formate");
+        return;
+      }
+      
       const bidPriceNumber = parseFloat(bid_price);
-const startingPrice = mobiledetail.data.bid_starting_price;
+      const startingPrice = mobiledetail.data.bid_starting_price;
 
-if (bidPriceNumber <= startingPrice) {
-  alert(`Bid price cannot be less than the starting price of ${startingPrice}`);
-  return;
-}
+      if (bidPriceNumber <= startingPrice) {
+        alert(
+          `Bid price cannot be less than the starting price of ${startingPrice}`
+        );
+        return;
+      }
       const tokenData = localStorage.getItem("token");
       if (!tokenData) {
-        alert('Login to submit bid')
+        alert("Login to submit bid");
         return;
       }
       const token = JSON.parse(tokenData);
@@ -83,7 +89,7 @@ if (bidPriceNumber <= startingPrice) {
         console.log(result);
         alert("Bid Placed Successfully");
         window.location.reload();
-        navigate('/bidsuccess')
+        navigate("/bidsuccess");
       } else {
         alert("Booking Failed");
       }
@@ -101,49 +107,55 @@ if (bidPriceNumber <= startingPrice) {
     <>
       <Navbar />
       <div style={{ backgroundColor: "#f2f3f3" }}>
-      {mobiledetail && mobiledetail.data ? (
-        <>
-        <h2 className="offset-1 pt-5 pb-3" style={{ color: "#233d7b" }}>
-        {mobiledetail.data.name}
-        </h2>
-        <div className="d-flex flex-lg-row flex-md-column   justify-content-center align-items-center mb-5 gap-4">
-          <div>
-            <img src={mobiledetail.data.image} style={{ width: "auto", height: "auto" }} />
-          </div>
+        {mobiledetail && mobiledetail.data ? (
+          <>
+            <h2 className="offset-1 pt-5 pb-3" style={{ color: "#233d7b" }}>
+              {mobiledetail.data.name}
+            </h2>
+            
+            <div className="d-flex flex-lg-row flex-md-column   justify-content-center align-items-center mb-5 gap-4">
+              <div>
+                <img
+                  src={mobiledetail.data.image}
+                  style={{ width: "auto", height: "auto" }}
+                />
+              </div>
 
-          <div className="px-4">
-            <div
-              className="card col-lg-auto col-sm-12"
-              style={{
-                boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <div className="d-flex flex-column p-5 ">
-                <div className="d-flex flex-column justify-content-center px-5">
-                  <h3 className="px-5">Current Bid</h3>
-                  <h1 className="px-5">{mobiledetail.data.bid_starting_price}</h1>
-                </div>
-                <div className="d-flex flex-column py-3 px-5">
-                  <p className="px-5">
-                    Seller <b>Waqar</b>
-                  </p>
-                  <p className="px-5">
-                    Ending <b>June 27 10:00 PM </b>
-                  </p>
-                  <p className="px-5">
-                    Bids <b>16</b>
-                  </p>
-                  <p className="px-5">
-                    Views <b>1200</b>
-                  </p>
+              <div className="px-4">
+                <div
+                  className="card col-lg-auto col-sm-12"
+                  style={{
+                    boxShadow: "0px 5px 12px 8px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  <div className="d-flex flex-column p-5 ">
+                    <div className="d-flex flex-column justify-content-center px-5">
+                      <h3 className="px-5">Current Bid</h3>
+                      <h1 className="px-5">
+                        {mobiledetail.data.bid_starting_price}
+                      </h1>
+                    </div>
+                    <div className="d-flex flex-column py-3 px-5">
+                      <p className="px-5">
+                        Seller <b>Waqar</b>
+                      </p>
+                      <p className="px-5">
+                        Ending <b>June 27 10:00 PM </b>
+                      </p>
+                      <p className="px-5">
+                        Bids <b>16</b>
+                      </p>
+                      <p className="px-5">
+                        Views <b>1200</b>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        </>
-      ) : (
-          <p>Mobile not found</p>
+          </>
+        ) : (
+          <p></p>
         )}
 
         <div className="d-flex flex-row justify-content-center pb-5">
@@ -171,8 +183,8 @@ if (bidPriceNumber <= startingPrice) {
                   type="text"
                   className="form-control"
                   placeholder="name@gmail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 {/* {warning && !mobile_name && <p style={{ color: 'red' }}>Mobile Name Required </p>} */}
               </div>
@@ -182,14 +194,14 @@ if (bidPriceNumber <= startingPrice) {
                   type="number"
                   className="form-control"
                   placeholder="46900"
-                    value={bid_price}
-                    onChange={(e) => setBidPrice(e.target.value)}
+                  value={bid_price}
+                  onChange={(e) => setBidPrice(e.target.value)}
                 />
                 {/* {warning && !mobile_name && <p style={{ color: 'red' }}>Mobile Name Required </p>} */}
               </div>
               <div className="mx-auto mb-3">
                 <button
-                type='submit'
+                  type="submit"
                   className="btn px-5"
                   style={{
                     backgroundColor: "#52AB98",
